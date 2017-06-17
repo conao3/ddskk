@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
 <title>SKK Manual</title>
-<!-- 2017-06-17 土 18:33 -->
+<!-- 2017-06-18 日 06:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -3317,19 +3317,710 @@ file /ｆｉｌｅ/
 
 <div id="outline-container-sec-6-3-4" class="outline-4">
 <h4 id="sec-6-3-4"><span class="section-number-4">6.3.4</span> カタカナの見出し語</h4>
+<div class="outline-text-4" id="text-6-3-4">
+<p>
+<code>q</code> のタイプでかなモード、カナモードを度々切り替えて入力を続けていると、
+カナモードで誤って▼モードに入ってしまうことがあります。そのため、カナモ
+ードで▼モードに入った場合は、まず見出し語をひらがなに変換してから辞書の
+検索に入るよう設計されています。なお、この場合の送りあり変換での送り仮名
+は、カタカナになります。
+</p>
+</div>
 </div>
 
 <div id="outline-container-sec-6-3-5" class="outline-4">
 <h4 id="sec-6-3-5"><span class="section-number-4">6.3.5</span> 文脈に応じた自動モード切り替え</h4>
+<div class="outline-text-4" id="text-6-3-5">
+<p>
+<code>context-skk.el</code> は、編集中の文脈に応じて SKK の入力モードを自動的にアス
+キーモードに切り替える等の機能を提供します。
+</p>
+
+<p>
+<code>context-skk.el</code> をロードするには <code>~/.emacs.d/init.el</code> に
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-hook 'skk-load-hook
+	  (lambda ()
+	    (require 'context-skk)))
+</pre>
+</div>
+
+<p>
+と書いてください。
+</p>
+
+<p>
+あるプログラミング言語のプログラムを書いているとき、日本語入力の必要があ
+るのは一般に、そのプログラミング言語の文字列中かコメント中に限られます。
+たとえば Emacs Lisp で日本語入力の必要があるのは
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">"文字列"
+;; コメント
+</pre>
+</div>
+
+<p>
+といった個所だけでしょう。文字列・コメントの「外」を編集するときは、多く
+の場合は日本語入力は必要ありません。
+</p>
+
+<p>
+現在の文字列・コメントの「外」で編集開始と同時に（skk がオンであれば）
+skk の入力モードをアスキーモードに切り替えます。
+エコーエリアに
+</p>
+
+<pre class="example">
+-------------------- Echo Area --------------------
+[context-skk] 日本語入力 off
+-------------------- Echo Area --------------------
+</pre>
+
+<p>
+と表示され、アスキーモードに切り替わったことが分かります。これにより、文
+字列・コメントの「外」での編集を開始するにあたって、日本語入力が on にな
+っていたために発生する入力誤りとその修正操作を回避することができます。
+</p>
+
+<p>
+上記の機能は context-skk-mode というマイナーモードとして実装されており
+<code>M-x context-skk-mode</code> でオン／オフを制御できます。オンの場合、モードライ
+ンのメジャーモード名の隣に「;▽」と表示されます。
+</p>
+
+<ul class="org-ul">
+<li>Variable: context-skk-programming-mode
+
+<p>
+context-skk が「プログラミングモード」と見做すメジャーモード。
+</p>
+</li>
+
+<li>Variable: context-skk-mode-off-message
+
+<p>
+アスキーモードに切り替わった瞬間にエコーエリアに表示するメッセージ。
+</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 
 <div id="outline-container-sec-6-4" class="outline-3">
 <h3 id="sec-6-4"><span class="section-number-3">6.4</span> 補完</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+読みの前半だけを入力して <code>TAB</code> を押せば残りを自動的に補ってくれる、これが
+補完です。 Emacs ユーザにはおなじみの機能が DDSKK でも使えます。
+</p>
+
+<p>
+よく使う長い語を効率良く入力するには、アルファベットの略語を登録する方法
+もあります。@pxref{アスキー文字を見出し語とした変換}
+</p>
+</div>
+
+<div id="outline-container-sec-6-4-1" class="outline-4">
+<h4 id="sec-6-4-1"><span class="section-number-4">6.4.1</span> 読みの補完</h4>
+<div class="outline-text-4" id="text-6-4-1">
+<p>
+▽モードで <code>TAB</code> を押すと、見出し語（▽マークから、ポイントまでの文字列）
+に対する補完 <sup><a id="fnr.35" name="fnr.35" class="footref" href="#fn.35">35</a></sup> が行われます。見出し語補完は、個人辞書の内、送りな
+しエントリに対して行われます。個人辞書に限っているのは、共有辞書では先頭
+の文字を共通にする見出し語が多すぎて、望みの補完が行える確率が低いためで
+す。
+</p>
+
+<p>
+次の読みの候補を表示するには <code>.</code> (ピリオド) を、戻る時には ~,~ (コンマ) を
+押します。その読みで別の語を出すには、いつものように <code>SPC</code> を押します。
+</p>
+
+<p>
+例を見てみましょう。実際の動作は、個人辞書の内容によって異なります。
+</p>
+<pre class="example">
+S a
+
+  ------ Buffer: foo ------
+  ▽さ*
+  ------ Buffer: foo ------
+
+TAB
+
+  ------ Buffer: foo ------
+  ▽さとう*
+  ------ Buffer: foo ------
+
+.
+
+  ------ Buffer: foo ------
+  ▽さいとう*
+  ------ Buffer: foo ------
+
+,
+
+  ------ Buffer: foo ------
+  ▽さとう*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼佐藤*
+  ------ Buffer: foo ------
+
+C-j
+
+  ------ Buffer: foo ------
+  佐藤*
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+補完される見出し語がどのような順で表示されるかと言うと「最近使われた語か
+ら」となります。例えば <code>斉藤</code> 、 <code>佐藤</code> の順で変換した後、 <code>さ</code> をキーに
+して見出し語の補完を行うと、最初に <code>さとう</code> が、その次に <code>さいとう</code> が補
+完されます。これは、個人辞書では、最近使われたエントリほど上位に来るよう
+になっているためです。@ref{辞書の書式}
+</p>
+
+<p>
+いったん <code>SPC</code> を入力して▼モードに入ると、以後は見出し語補完は行われませ
+ん。
+</p>
+
+<p>
+また、 <code>.</code> の代わりに <code>C-u TAB</code> を入力すると、現在の候補に対して補完をし
+ます。上の例では <code>さ</code> に対し <code>さとう</code> が補完された時に <code>C-u TAB</code> を押すと、
+以後の補完は <code>さとう</code> を含む語 (例えば <code>さとうせんせい</code> など) について行
+われます。
+</p>
+
+<ul class="org-ul">
+<li>Variable: skk-completion-prog-list
+
+<p>
+補完関数、補完対象の辞書を決定するためのリスト。デフォルトは以下のとお
+り。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">'((skk-comp-by-history)
+  (skk-comp-from-jisyo skk-jisyo)
+  (skk-look-completion))
+</pre>
+</div>
+</li>
+
+<li>Variable: skk-comp-circulate
+
+<p>
+<code>.</code> （ピリオド）で次の見出し語候補を、 ~,~ （コンマ）で前の見出し語候補
+を表示するところ、候補が尽きていればデフォルト <code>nil</code> では「○○で補完す
+べき見出し語は他にありません」とエコーエリアに表示して動作が止まります。
+この変数が <code>non-nil</code> であれば当初の見出し語を再び表示して見出し語補完を
+再開します。
+</p>
+</li>
+
+<li>Variable: skk-try-completion-char
+
+<p>
+見出し語補完を開始するキーキャラクタです。デフォルトは <code>TAB</code> です。
+</p>
+</li>
+
+<li>Variable: skk-next-completion-char
+
+<p>
+次の見出し語候補へ移るキーキャラクタです。デフォルトはピリオド <code>.</code> です。
+</p>
+</li>
+
+<li>Variable: skk-previous-completion-char
+
+<p>
+前の見出し語候補へ戻るキーキャラクタです。デフォルトはコンマ ~,~ です。
+</p>
+</li>
+</ul>
+
+<ul class="org-ul">
+<li>User Option: skk-previous-completion-use-backtab
+
+<p>
+<code>Non-nil</code> であれば、前の見出し語候補へ戻る動作を <code>SHIFT + TAB</code> でも可能
+とします。デフォルトは <code>t</code> です。この機能の有効化／無効化の切り替えは、
+ファイル <code>~/.skk</code> を書き換えて Emacs を再起動してください。
+</p>
+</li>
+
+<li>Variable: skk-previous-completion-backtab-key
+
+<p>
+<code>SHIFT + TAB</code> が発行する key event です。Emacs の種類／実行環境によって
+異なります。
+</p>
+</li>
+
+<li>Function: skk-comp-lisp-symbol &amp;optional PREDICATE
+
+<p>
+この関数をリスト <code>skk-completion-prog-list</code> へ追加すると、Lisp symbol 名
+の補完を行います。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-to-list 'skk-completion-prog-list
+	     '(skk-comp-lisp-symbol) t)
+</pre>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-4-2" class="outline-4">
+<h4 id="sec-6-4-2"><span class="section-number-4">6.4.2</span> 補完しながら変換</h4>
+<div class="outline-text-4" id="text-6-4-2">
+<p>
+前節で見出し語の補完について述べました。本節では、見出し語の補完動作を行
+った後、 <code>SPC</code> を入力し、▼モードに入るまでの動作を一回の操作で行う方法に
+ついて説明します。
+</p>
+
+<p>
+やり方は簡単。 <code>TAB</code> ・ <code>SPC</code> と打鍵していたところを <code>M-SPC</code> に換えると、
+見出し語を補完した上で変換を開始します。
+</p>
+
+<p>
+この方法によると、補完される見出し語があらかじめ分かっている状況では、キー
+入力を一回分省略できるので、読みが長い見出し語の単語を連続して入力する場
+合などに威力を発揮します。
+</p>
+
+<pre class="example">
+K a s i t a n n p o s e k i n i n n
+
+  ------ Buffer: foo ------
+  ▽かしたんぽせきにん*
+  ------ Buffer: foo ------
+
+SPC RET
+
+  ------ Buffer: foo ------
+  瑕疵担保責任*
+  ------ Buffer: foo ------
+
+K a
+
+  ------ Buffer: foo ------
+  ▽か*
+  ------ Buffer: foo ------
+
+M-SPC
+
+  ------ Buffer: foo ------
+  ▼瑕疵担保責任*
+  ------ Buffer: foo ------
+</pre>
+
+<ul class="org-ul">
+<li>Variable: skk-start-henkan-with-completion-char
+
+<p>
+デフォルトは <code>M-SPC</code> です。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-4-3" class="outline-4">
+<h4 id="sec-6-4-3"><span class="section-number-4">6.4.3</span> 動的補完</h4>
+<div class="outline-text-4" id="text-6-4-3">
+<p>
+▽モードでは <code>TAB</code> を押さなくとも、文字を入力する都度、自動的に見出し語補
+完の読みを表示させる事ができます。この機能を以下「動的補完」と呼びます。
+類似の機能としては、ウェブブラウザの URL の入力や、Microsoft Excel のセル
+入力の自動補完 <sup><a id="fnr.36" name="fnr.36" class="footref" href="#fn.36">36</a></sup> をイメージすると分かりやすいかも知れません。動
+的補完も、個人辞書の送りなしエントリに対してのみ行なわれます。
+</p>
+
+<p>
+動的補完を利用するには <code>~/.skk</code> に次の式を書きましょう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-dcomp-activate t)
+</pre>
+</div>
+
+<p>
+例を見てみましょう。実際の動作は、個人辞書の内容によって左右されます。
+<code>*</code> はポイント位置を表します。
+</p>
+
+<pre class="example">
+H o
+
+  ---------------- Buffer: foo ------------------
+  ▽ほ*んとう
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+face が使える環境では <code>んとう</code> の部分が異なる face で表示され、動的補完機
+能によって補完された部分であることを示します。
+</p>
+
+<p>
+自動的に補完された見出し語が自分の意図したものであれば、 <code>TAB</code> を押すこと
+でポイント位置を動かし、補完された見出し語を選択することができます。
+</p>
+
+<pre class="example">
+TAB
+
+  ---------------- Buffer: foo ------------------
+  ▽ほんとう*
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+この状態から <code>SPC</code> を押して変換するなり、 <code>q</code> を押してカタカナにするなり、
+DDSKK 本来の動作を何でも行うことができます。
+</p>
+
+<p>
+補完された見出し語が自分の意図したものでない場合は、かまわず次の入力を続
+けて下さい。補完された部分を無視したかのように動作します。
+</p>
+
+<pre class="example">
+H o
+
+  ---------------- Buffer: foo ------------------
+  ▽ほ*んとう
+  ---------------- Buffer: foo ------------------
+
+k a
+
+  ---------------- Buffer: foo ------------------
+  ▽ほか*ん
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+補完されない状態が自分の意図したものである場合も、補完された部分を単に無
+視するだけで OK です。下記の例では <code>ほ</code> を見出し語とした変換を行っていま
+す。
+</p>
+
+<pre class="example">
+H o
+
+  ---------------- Buffer: foo ------------------
+  ▽ほ*んとう
+  ---------------- Buffer: foo ------------------
+
+SPC
+
+  ---------------- Buffer: foo ------------------
+  ▼保
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+補完された状態から <code>BS</code> を押すと、消された補完前の見出し語から再度補完動
+作を行います。
+</p>
+
+<pre class="example">
+H o
+
+  ---------------- Buffer: foo ------------------
+  ▽ほ*んとう
+  ---------------- Buffer: foo ------------------
+
+k a
+
+  ---------------- Buffer: foo ------------------
+  ▽ほか*ん
+  ---------------- Buffer: foo ------------------
+
+BS
+
+  ---------------- Buffer: foo ------------------
+  ▽ほ*んとう
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<ul class="org-ul">
+<li>Variable: skk-dcomp-activate
+
+<p>
+この変数の値が <code>Non-nil</code> であれば、カーソル位置に関わらず常に動的補完が
+有効となります。値がシンボル <code>eolp</code> であれば、カーソルが行末にあるとき
+に限って動的補完が有効となります。値が <code>nil</code> であれば、動的補完機能は無
+効となります。
+</p>
+</li>
+
+<li>Variable: skk-dcomp-face
+
+<p>
+この変数の値はフェイスであり、このフェイスによって動的に補完された部分が
+装飾されます。標準は DarkKhaki です。
+</p>
+</li>
+
+<li>User Option: skk-dcomp-multiple-activate
+
+<p>
+<b>XEmacs では動作しません。</b>
+</p>
+
+<p>
+<code>Non-nil</code> であれば、動的補完の候補をインラインに複数表示 <sup><a id="fnr.37" name="fnr.37" class="footref" href="#fn.37">37</a></sup> します。
+</p>
+
+<pre class="example">
+---------------- Buffer: foo ------------------
+▽ほ*んとう
+　ほんとう
+　ほかん
+　ほっかいどう
+　ほうほう
+　:
+---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+候補の選択には <code>TAB</code> 又は <code>SHIFT + TAB</code> を押します。また、普通の補完と
+同様に <code>.</code> (ピリオド) と ~,~ (コンマ) も利用できます。
+</p>
+</li>
+
+<li>Variable: skk-dcomp-multiple-rows
+
+<p>
+動的補完の候補を複数表示する場合の表示行数。標準は 7。
+</p>
+</li>
+
+<li>Variable: skk-dcomp-multiple-face
+
+<p>
+動的補完の複数表示群のフェイス。上記例では「ほ」のフェイス。
+</p>
+</li>
+
+<li>Variable: skk-dcomp-multiple-trailing-face
+
+<p>
+動的補完の複数表示郡の補完部分のフェイス。上記例では「んとう」、「かん」
+「っかいどう」、「うほう」のフェイス。
+</p>
+</li>
+
+<li>Variable: skk-dcomp-multiple-selected-face
+
+<p>
+動的補完の複数表示郡の選択対象のフェイス。上記例では <code>TAB</code> を押すたびに
+「ほんとう」、「ほかん」、「ほっかいどう」と選択位置が移ります。その現
+在選択位置に適用するフェイスです。
+</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5" class="outline-3">
 <h3 id="sec-6-5"><span class="section-number-3">6.5</span> 便利な変換、その他の変換</h3>
+<div class="outline-text-3" id="text-6-5">
+</div><div id="outline-container-sec-6-5-1" class="outline-4">
+<h4 id="sec-6-5-1"><span class="section-number-4">6.5.1</span> 単漢字変換</h4>
+<div class="outline-text-4" id="text-6-5-1">
+<p>
+ファイル <code>skk-tankan.el</code> を読み込むことによって単漢字変換が可能となります。
+候補は総画数の昇順でソートして表示します。
+</p>
+
+<p>
+単漢字変換を使うには設定が必要ですが、先に例を見てみましょう。▽モードの
+最後の文字に <code>@</code> を付して変換を開始してください。
+</p>
+
+<pre class="example">
+T a n @
+
+  ----- Buffer: foo -----
+  ▽たん@*
+  ----- Buffer: foo -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼丹*
+  ----- Buffer: foo -----
+
+  ----- Echo Area -----
+  4画(丶部3画)
+  ----- Echo Area -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼反*
+  ----- Buffer: foo -----
+
+  ----- Echo Area -----
+  4画(又部2画)
+  ----- Echo Area -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼旦*
+  ----- Buffer: foo -----
+
+  ----- Echo Area -----
+  5画(日部1画)
+  ----- Echo Area -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼但*
+  ----- Buffer: foo -----
+
+  ----- Echo Area -----
+  7画(人部5画)
+  ----- Echo Area -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼*
+  ----- Buffer: foo -----
+
+  ----- Buffer: *候補* -----
+  A:坦;8画(土部5画)
+  S:担;8画(手部5画)
+  D:単;9画(十部7画)
+  F:彖;9画(彑部6画)
+  J:炭;9画(火部5画)
+  K:眈;9画(目部4画)
+  L:胆;9画(肉部5画)
+  [残り 50+++++]
+----- Buffer: *候補* -----
+</pre>
+
+<p>
+以上のとおり、総画数の昇順でソートされた候補が次々に表示されます。
+</p>
+</div>
+
+<div id="outline-container-sec-6-5-1-1" class="outline-5">
+<h5 id="sec-6-5-1-1"><span class="section-number-5">6.5.1.1</span> 検索キーの設定</h5>
+<div class="outline-text-5" id="text-6-5-1-1">
+<p>
+デフォルトの検索キーは <code>@</code> です。DDSKK の標準設定ではキー <code>@</code> は
+関数 <code>skk-today</code> の実行に割り当てられていますが、DDSKK 14.2 からは特段の
+設定なしに▽モードで <code>@</code> のタイプが可能となりました。
+</p>
+
+<ul class="org-ul">
+<li>User Option: skk-tankan-search-key
+
+<p>
+単漢字変換の検索キー。以下は、検索キーを <code>!</code> へと変更する例です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-tankan-search-key ?!)
+</pre>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-5-1-2" class="outline-5">
+<h5 id="sec-6-5-1-2"><span class="section-number-5">6.5.1.2</span> 辞書の設定</h5>
+</div>
+
+<div id="outline-container-sec-6-5-1-3" class="outline-5">
+<h5 id="sec-6-5-1-3"><span class="section-number-5">6.5.1.3</span> 総画数による単漢字変換</h5>
+</div>
+
+<div id="outline-container-sec-6-5-1-4" class="outline-5">
+<h5 id="sec-6-5-1-4"><span class="section-number-5">6.5.1.4</span> 部首による単漢字変換</h5>
+</div>
+
+<div id="outline-container-sec-6-5-1-5" class="outline-5">
+<h5 id="sec-6-5-1-5"><span class="section-number-5">6.5.1.5</span> 部首の読みによる単漢字変換</h5>
+</div>
+</div>
+
+<div id="outline-container-sec-6-5-2" class="outline-4">
+<h4 id="sec-6-5-2"><span class="section-number-4">6.5.2</span> 候補の絞り込み</h4>
+</div>
+
+<div id="outline-container-sec-6-5-3" class="outline-4">
+<h4 id="sec-6-5-3"><span class="section-number-4">6.5.3</span> 接頭辞・接尾辞</h4>
+</div>
+
+<div id="outline-container-sec-6-5-4" class="outline-4">
+<h4 id="sec-6-5-4"><span class="section-number-4">6.5.4</span> 数値変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-5" class="outline-4">
+<h4 id="sec-6-5-5"><span class="section-number-4">6.5.5</span> アスキー文字を見出し語とした変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-6" class="outline-4">
+<h4 id="sec-6-5-6"><span class="section-number-4">6.5.6</span> 今日の日付の入力</h4>
+</div>
+
+<div id="outline-container-sec-6-5-7" class="outline-4">
+<h4 id="sec-6-5-7"><span class="section-number-4">6.5.7</span> プログラム実行変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-8" class="outline-4">
+<h4 id="sec-6-5-8"><span class="section-number-4">6.5.8</span> 空白・改行・タブを含んだ見出し語の変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-9" class="outline-4">
+<h4 id="sec-6-5-9"><span class="section-number-4">6.5.9</span> カタカナ変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-10" class="outline-4">
+<h4 id="sec-6-5-10"><span class="section-number-4">6.5.10</span> サ変動詞変換</h4>
+</div>
+
+<div id="outline-container-sec-6-5-11" class="outline-4">
+<h4 id="sec-6-5-11"><span class="section-number-4">6.5.11</span> 異体字へ変換する</h4>
+</div>
+
+<div id="outline-container-sec-6-5-12" class="outline-4">
+<h4 id="sec-6-5-12"><span class="section-number-4">6.5.12</span> ファンクションキーの使い方</h4>
+</div>
 </div>
 
 <div id="outline-container-sec-6-6" class="outline-3">
@@ -3688,11 +4379,26 @@ SKK abbrev モードでは <code>is</code> ⇒ <code>インクリメンタル・
 昭和29年12月9日付内閣告示第一号によれば、原則的に訓令式(日本式) を用いるかのように記載されていますが、今日一般的な記載方法は、むしろヘボン式であるようです。
 </p></div>
 
+<div class="footdef"><sup><a id="fn.35" name="fn.35" class="footnum" href="#fnr.35">35</a></sup> <p class="footpara">
+細かい説明です。 <code>TAB</code> を押す直前に▽モードで入力された文字列を X と
+呼ぶことにします。このとき、個人辞書の送りなしエントリの中から「先頭が X と
+一致し」かつ「長さが X よりも長い見出し語」を検索して、そのような語が該当
+すれば X の代わりに表示します。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.36" name="fn.36" class="footnum" href="#fnr.36">36</a></sup> <p class="footpara">
+同じ列に既に入力している文字列があったときにそれを参照して補完しようとする機能
+</p></div>
+
+<div class="footdef"><sup><a id="fn.37" name="fn.37" class="footnum" href="#fnr.37">37</a></sup> <p class="footpara">
+現在は候補群の右側1カラムのフェイスがデフォルトに戻る、という制約があります。
+</p></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Created: 2017-06-17 土 18:33</p>
+<p class="date">Created: 2017-06-18 日 06:22</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
