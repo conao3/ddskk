@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
 <title>SKK Manual</title>
-<!-- 2017-06-18 日 06:22 -->
+<!-- 2017-06-18 日 17:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <style type="text/css">
@@ -347,9 +347,9 @@ XEmacs に関しては、XEmacs 本体とは別に配布されているパッケ
 </p>
 
 <p>
-総論として、現在は XEmacs よりも GNU Emacs での動作がよくテストされており
-、最近では XEmacs でのテストは充分行われていません。GNU Emacs 23 以上での
-利用が最も推奨されます。
+総論として、現在は XEmacs よりも GNU Emacs での動作がよくテストされており、
+最近では XEmacs でのテストは充分行われていません。GNU Emacs 23 以上での利
+用が最も推奨されます。
 </p>
 
 <p>
@@ -413,10 +413,10 @@ GNU Emacs 24.3 と DDSKK 14 の組み合わせで isearch 使用時の不具合�
 <li>GNU Emacs 24.4
 
 <ul class="org-ul">
-<li>coding tag を明示していないファイルは utf-8 と取り扱われます <sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> 。
+<li>coding tag を明示していないファイルは utf-8 <sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> と取り扱われます。
 DDSKK 15.2 で対策済みです。
 </li>
-<li>NTEmacs は 24.3 と比べてディレクトリ構成が異なります <sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup> 。
+<li>NTEmacs は 24.3 と比べてディレクトリ構成 <sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup> が異なります。
 DDSKK 15.2 で対策済みです。
 </li>
 </ul>
@@ -435,7 +435,7 @@ DDSKK 15.2 で対策済みです。
 </li>
 <li>日本語メニュー表示は X リソースによる方法のみテストされています。
 </li>
-<li>GNU Emacs 標準添付辞書 <code>ja-dic</code> は利用できません。
+<li>GNU Emacs 標準添付辞書 ja-dic は利用できません。
 </li>
 </ul>
 </li>
@@ -451,7 +451,7 @@ DDSKK 15.2 で対策済みです。
 </li>
 <li>日本語メニュー表示は X リソースによる方法のみテストされています。
 </li>
-<li>GNU Emacs 標準添付辞書 <code>ja-dic</code> は利用できません。
+<li>GNU Emacs 標準添付辞書 ja-dic は利用できません。
 </li>
 </ul>
 </li>
@@ -3963,68 +3963,2269 @@ SPC
 
 <div id="outline-container-sec-6-5-1-2" class="outline-5">
 <h5 id="sec-6-5-1-2"><span class="section-number-5">6.5.1.2</span> 辞書の設定</h5>
+<div class="outline-text-5" id="text-6-5-1-2">
+<p>
+DDSKK 14.2 からは標準で変数 <code>skk-search-prog-list</code> に <code>skk-tankan-search</code> が
+含まれています。DDSKK 14.1 を利用の方、ご自身で <code>skk-search-prog-list</code> を
+設定する方は以下の解説を参考にしてください。
+</p>
+
+<p>
+<code>skk-tankan.el</code> には、漢字の部首とその中での画数のデータのみが入っていま
+す。読みのデータは、普通の辞書ファイルを使います。
+</p>
+
+<p>
+単漢字変換の辞書の設定は、変数 <code>skk-search-prog-list</code> に以下の形式で要素
+を追加します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(skk-tankan-search 'function . args)
+</pre>
+</div>
+
+<p>
+<b>確定変換</b> を併用する場合は、 <code>skk-search-prog-list</code> の先頭の要素は
+ <code>skk-search-kakutei-jisyo-file</code> でなければいけませんので、
+<code>skk-search-prog-list</code> の２番目の要素に <code>skk-tankan-search</code> を追加します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">;; skk-search-prog-list の２番目の要素に skk-tankan-search を追加する
+(setq skk-search-prog-list
+      (cons (car skk-search-prog-list)
+	    (cons '(skk-tankan-search 'skk-search-jisyo-file
+				      skk-large-jisyo 10000)
+		  (cdr skk-search-prog-list))))
+</pre>
+</div>
+
+<p>
+なお、確定変換を使用しない場合は、 <code>skk-search-prog-list</code> の要素の先頭が
+ <code>skk-tankan-search</code> でも大丈夫です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-to-list 'skk-search-prog-list
+	     '(skk-tankan-search 'skk-search-jisyo-file
+				 skk-large-jisyo 10000))
+</pre>
+</div>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-1-3" class="outline-5">
 <h5 id="sec-6-5-1-3"><span class="section-number-5">6.5.1.3</span> 総画数による単漢字変換</h5>
+<div class="outline-text-5" id="text-6-5-1-3">
+<p>
+▽モードで総画数を入力して最後に <code>@</code> を付してから変換を開始します。
+<code>C-u 総画数 M-x skk-tankan</code> でも可能です。
+</p>
+
+<pre class="example">
+Q 1 0 @
+
+  ----- Buffer: foo -----
+  ▽10@*
+  ----- Buffer: foo -----
+
+SPC
+
+  ----- Buffer: *候補* -----
+  A:倹;10画(人部8画)
+  S:倦;10画(人部8画)
+  D:個;10画(人部8画)
+  F:候;10画(人部8画)
+  J:倖;10画(人部8画)
+  K:借;10画(人部8画)
+  L:修;10画(人部8画)
+  [残り 532+++++++]
+  ----- Buffer: *候補* -----
+</pre>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-1-4" class="outline-5">
 <h5 id="sec-6-5-1-4"><span class="section-number-5">6.5.1.4</span> 部首による単漢字変換</h5>
+<div class="outline-text-5" id="text-6-5-1-4">
+<p>
+▽モードで <code>@</code> を２つ重ねて変換を開始すると、部首による単漢字変換が
+できます。 <code>M-x skk-tankan</code> でも可能です。
+</p>
+
+<pre class="example">
+Q @ @
+
+  ----- Buffer: foo -----
+  ▽@@*
+  ----- Buffer: foo -----
+
+SPC
+
+  ------ Minibuffer -------
+  部首を番号で選択（TABで一覧表示）: *
+  ------ Minibuffer -------
+
+TAB
+
+  ------ *Completions* -------
+  Click &lt;mouse-2&gt; on a completion to select it.
+  In this buffer, type RET to select the completion near point.
+
+  Possible completions are:
+  001 一 (いち)                      002 ｜ (ぼう、たてぼう)
+  003 丶 (てん)                      004 丿 (の)
+  005 乙 (おつ)                      006 亅 (はねぼう)
+   ：                                 ：
+  ------ *Completions* -------
+
+0 1 8 RET    注) M-v の打鍵で、カーソルを *Completions* バッファへ移すこともできます。
+
+  ----- Buffer: *候補* -----
+  A:切;4画(刀部2画)
+  S:刈;4画(刀部2画)
+  D:刊;5画(刀部3画)
+  F:刋;5画(刀部3画)
+  J:刎;6画(刀部4画)
+  K:刑;6画(刀部4画)
+  L:刔;6画(刀部4画)
+  [残り 51+++++++]
+  ----- Buffer: *候補* -----
+</pre>
+
+<ul class="org-ul">
+<li>Variable: skk-tankan-face
+
+<p>
+<code>M-x skk-tankan</code> を実行したときに表示される「単漢字バッファ」で使用する
+フェイスです。
+</p>
+</li>
+
+<li>Variable: skk-tankan-radical-name-face
+
+<p>
+部首の読みに適用するフェイスです。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-1-5" class="outline-5">
 <h5 id="sec-6-5-1-5"><span class="section-number-5">6.5.1.5</span> 部首の読みによる単漢字変換</h5>
+<div class="outline-text-5" id="text-6-5-1-5">
+<p>
+直前の小々節「部首による単漢字変換」にて、部首番号を入力するプロンプトで
+単に <code>RET</code> をタイプすると、部首の読みを入力するプロンプトに替わります。
+</p>
+
+<pre class="example">
+  ------ Minibuffer -------
+  部首を読みで選択（TABで一覧表示）: @point{}
+  ------ Minibuffer -------
+
+TAB
+
+  ------ Completion List -------
+  In this buffer, type RET to select the completion near point.
+
+  Possible completions are:
+  あいくち         (021) 匕          あお             (174) 青
+  あか             (155) 赤          あくび           (076) 欠
+  あさ             (200) 麻          あさかんむり     (200) 麻
+   ：                                 ：
+  ------ Completion List -------
+</pre>
+</div>
 </div>
 </div>
 
 <div id="outline-container-sec-6-5-2" class="outline-4">
 <h4 id="sec-6-5-2"><span class="section-number-4">6.5.2</span> 候補の絞り込み</h4>
+<div class="outline-text-4" id="text-6-5-2">
+<p>
+<code>skk-hint.el</code> は、２つの読みの積集合みたいなものを取ることによって候補の
+絞り込みを行うプログラムです。インストールは <code>~/.skk</code> に以下を記入します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(require 'skk-hint)
+</pre>
+</div>
+
+<p>
+例えば、読み「かんどう」に対する変換は L 辞書によると
+</p>
+
+<pre class="example">
+感動、勘当、完動、間道、官道、貫道
+</pre>
+
+<p>
+と複数の候補があります。一方、これに「あいだ」という「他の読み」(ヒント)
+を与えると候補は「間道」に一意に決まります。
+</p>
+
+<p>
+ヒントは <code>;</code> に続けて入力します。
+</p>
+
+<pre class="example">
+K a n d o u ; a i d a   ※ ; 自体は表示されません。
+
+  ----- Buffer: foo -----
+  ▽かんどうあいだ
+  ----- Buffer: foo -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼間道
+  ----- Buffer: foo -----
+</pre>
+
+<p>
+<code>skk-hint.el</code> は、２つの読みの厳密な積集合を取っているわけではなく、通常
+の変換候補のなかでヒントとして与えられた読みを含んだ漢字を持つものに候補
+を絞ります。この実例として「感動」と「感圧」を挙げます。
+</p>
+
+<pre class="example">
+K a n d o u ; k a n n a t u
+
+  ----- Buffer: foo -----
+  ▽かんどうかんあつ
+  ----- Buffer: foo -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼感動
+  ----- Buffer: foo -----
+</pre>
+
+<p>
+<code>skk-hint.el</code> は単漢字の候補がたくさんある場合に、そこから候補を絞りこむ
+手段としても非常に有効です。例えば
+</p>
+
+<pre class="example">
+▽わ
+</pre>
+
+<p>
+を変換すると、輪、環、話、和、羽、&#x2026; と大量に候補が出てきます。この中か
+ら「和」を選びたいとします。普通に変換していてもそのうち「和」が表示され
+ますが、これを <code>W a ; h e i w a</code> と入力し変換すると、「▼へいわ」の候補で
+ある「平和」に含まれる
+</p>
+
+<pre class="example">
+▼和
+</pre>
+
+<p>
+が唯一の候補となります。
+</p>
+
+<pre class="example">
+W a ; h e i w a
+
+  ----- Buffer: foo -----
+  ▽わへいわ
+  ----- Buffer: foo -----
+
+SPC
+
+  ----- Buffer: foo -----
+  ▼和
+  ----- Buffer: foo -----
+</pre>
+
+<ul class="org-ul">
+<li>User Option: skk-hint-start-char
+
+<p>
+ヒント変換を開始するキーを character で指定します。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-3" class="outline-4">
 <h4 id="sec-6-5-3"><span class="section-number-4">6.5.3</span> 接頭辞・接尾辞</h4>
+<div class="outline-text-4" id="text-6-5-3">
+<p>
+接頭辞 (prefix)、接尾辞 (suffix) の入力のために特別な方法が用意されていま
+す。たとえば、「し」の候補は沢山あり、「し」から「氏」を変換するのは、そ
+のままでは効率が悪いです。接尾辞の「し」ならば、「氏」や「市」が優先され
+るでしょう。
+</p>
+
+<p>
+接頭辞・接尾辞は、辞書の中では <code>&gt;</code> などで示されます。
+</p>
+<pre class="example">
+&gt;し /氏/
+</pre>
+
+<p>
+というエントリがあるとき、 <code>小林氏</code> を接尾辞入力を用いて、以下のように入
+力することができます。
+</p>
+
+<pre class="example">
+K o b a y a s h i
+
+  ------ Buffer: foo ------
+  ▽こばやし*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼小林*
+  ------ Buffer: foo ------
+
+&gt;
+
+  ------ Buffer: foo ------
+  小林▽&gt;*
+  ------ Buffer: foo ------
+
+s i
+
+  ------ Buffer: foo ------
+  小林▽&gt;し*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  小林▼氏*
+  ------ Buffer: foo ------
+
+
+C-j
+
+  ------ Buffer: foo ------
+  小林氏*
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+接頭辞も同様です。辞書に
+</p>
+
+<pre class="example">
+ちょう&gt; /超/
+</pre>
+
+<p>
+というエントリがあるとき、 <code>超大型</code> を接頭辞入力を用いて、以下のように入
+力することができます。
+</p>
+
+<pre class="example">
+T y o u
+
+  ------ Buffer: foo ------
+  ▽ちょう*
+  ------ Buffer: foo ------
+
+&gt;
+
+  ------ Buffer: foo ------
+  ▼超*
+  ------ Buffer: foo ------
+
+O o g a t a
+
+  ------ Buffer: foo ------
+  超▽おおがた*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  超▼大型*
+  ------ Buffer: foo ------
+
+C-j
+
+  ------ Buffer: foo ------
+  超大型@point{}
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+キー <code>&gt;</code> を押しただけで <code>SPC</code> が押されたかのように変換されます。他の接頭
+辞を選びたいときは <code>SPC</code> を押して下さい。
+</p>
+
+<ul class="org-ul">
+<li>Variable: skk-special-midashi-char-list
+
+<p>
+▽モードまたは▼モードにおいて、この変数の値に含まれる文字の入力があっ
+た場合、接頭辞・接尾辞の入力を開始します。この変数のデフォルトは、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(?&gt; ?&lt; ??)
+</pre>
+</div>
+
+<p>
+です。つまり、 <code>&gt;</code> と <code>&lt;</code> と <code>?</code> を入力した時に接頭辞・接尾辞入力を行い
+ます。 <code>?</code> を入力したときに接頭辞・接尾辞入力を行わない場合は <code>?</code> を外
+して
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-special-midashi-char-list '(?&gt; ?&lt;))
+</pre>
+</div>
+
+<p>
+とします。L 辞書の接頭・接尾辞は、昔は <code>&lt;</code> , <code>?</code> も使われていましたが、
+現在は <code>&gt;</code> に統一されています。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-4" class="outline-4">
 <h4 id="sec-6-5-4"><span class="section-number-4">6.5.4</span> 数値変換</h4>
+<div class="outline-text-4" id="text-6-5-4">
+<p>
+DDSKK は <b>数字を含む見出し語</b> を様々な候補に変換することができます。例え
+ば、見出し語 <code>だい12かい</code> を変換すると <code>第１２回</code> 、 <code>第一二回</code> 、 <code>第十二回</code> と
+いった候補を挙げます。
+</p>
+
+<p>
+この節では、このような候補を辞書に登録する方法を説明します。基本は、数字
+の部分を <code>#</code> で置き替えることです。辞書 <code>SKK-JISYO.L</code> のエントリーから具
+体例を見てみましょう。
+</p>
+
+<pre class="example">
+だい#かい /第#1回/第#0回/第#2回/第#3回/第 #0 回/
+</pre>
+
+<p>
+<code>だい12かい</code> のような <b>数字を含む見出し語</b> を変換した場合、見出し語の中の
+数字の部分は自動的に <code>#</code> に置き換えられますので、辞書エントリーの左辺（つ
+まり見出し語） <code>だい#かい</code> にマッチします。
+</p>
+
+<p>
+辞書エントリーの右辺の <code>#1</code> 、 <code>#2</code> などは「どのように数字を加工するか」
+のタイプを表します。以下、各タイプについて説明します。
+</p>
+
+<ul class="org-ul">
+<li>#0
+
+<p>
+タイプ 0。無変換。入力されたアスキー文字をそのまま出力します。例えば、
+<code>第12回</code> のような変換を得るために使います。
+</p>
+</li>
+
+<li>#1
+
+<p>
+タイプ 1。全角文字の数字。 <code>12</code> を <code>１２</code> に変換します。
+</p>
+</li>
+
+<li>#2
+
+<p>
+タイプ 2。漢数字で位取りあり。 <code>1024</code> を <code>一〇二四</code> に変換します。
+</p>
+</li>
+
+<li>#3
+
+<p>
+タイプ 3。漢数字で位取りなし。 <code>1024</code> を <code>千二十四</code> に変換します。
+</p>
+</li>
+
+<li>#4
+
+<p>
+タイプ 4。数値再変換。見出し語中の数字そのもの <sup><a id="fnr.38" name="fnr.38" class="footref" href="#fn.38">38</a></sup> をキーとして辞書
+を再検索し、 <code>#4</code> の部分を再検索の結果の文字列で入れ替えます。これにつ
+いては後で例を挙げて説明します。
+</p>
+</li>
+
+<li>#5
+
+<p>
+タイプ 5。小切手や手形の金額記入の際用いられる表記で変換します。例えば、
+<code>1995</code> を <code>壱阡九百九拾伍</code> に変換します。これを大字と言います。
+</p>
+</li>
+
+<li>#8
+
+<p>
+タイプ 8。桁区切り。 <code>1234567</code> を <code>1,234,567</code> に変換します。
+</p>
+</li>
+
+<li>#9
+
+<p>
+タイプ 9。将棋の棋譜の入力用。 <code>全角数字 + 漢数字</code> に変換します。これに
+ついては後で例を挙げて説明します。
+</p>
+</li>
+</ul>
+
+<p>
+以下にいくつか例を示します。辞書に
+</p>
+
+<pre class="example">
+# /#3/
+</pre>
+
+<p>
+というエントリがあるときに、
+</p>
+
+<pre class="example">
+Q 1 0 0 2 0 0 3 0 0 4 0 0 5 0 0 SPC
+  または
+/ 1 0 0 2 0 0 3 0 0 4 0 0 5 0 0 SPC
+</pre>
+
+<p>
+と入力 <sup><a id="fnr.39" name="fnr.39" class="footref" href="#fn.39">39</a></sup> すれば <code>百兆二千三億四十万五百</code> と変換されます。
+</p>
+
+<p>
+辞書に
+</p>
+
+<pre class="example">
+#m#d /#0月#0日/
+</pre>
+
+<p>
+というエントリがあるときに <code>/ 2 m 2 5 d SPC</code> と入力 <sup><a id="fnr.40" name="fnr.40" class="footref" href="#fn.40">40</a></sup> すれ
+ば <code>2月25日</code> と変換されます。
+</p>
+
+<p>
+辞書に
+</p>
+
+<pre class="example">
+#kin /#9金/
+</pre>
+
+<p>
+というエントリがあるときに <code>/ 3 4 k i n SPC</code> と入力すれば <code>３四金</code> と変換
+されます。
+</p>
+
+<p>
+辞書に
+</p>
+
+<pre class="example">
+p# /#4/
+125 /東京都葛飾区/
+</pre>
+
+<p>
+というエントリがあるときに <code>/ p 1 2 5 SPC</code> と入力すれば、見出し語 <code>p125</code> の
+候補が <code>#4</code> なので、見出し語の数字部分の <code>125</code> に対し辞書が再検索さ
+れ <code>東京都葛飾区</code> と変換されます。
+</p>
+
+<p>
+最後に、実際に登録する例を 1 つ挙げます。 <code>２月２５日</code> を得るために、
+</p>
+
+<pre class="example">
+Q 2 g a t u 2 5 n i t i SPC
+</pre>
+
+<p>
+と入力したときに、辞書に見出し語
+</p>
+
+<pre class="example">
+#がつ#にち /#1月#1日/
+</pre>
+
+<p>
+がないときは、辞書登録モードのプロンプトは <code>#がつ#にち</code> となります。全角
+数字のタイプは <code>#1</code> なので <code>#1月#1日</code> をミニバッファで作り登録します。
+</p>
+
+<p>
+タイプを覚えている必要はありません。ちゃんと、ウィンドウが開かれて説明が
+表示されます。
+</p>
+
+<ul class="org-ul">
+<li>User Option: skk-num-convert-float
+
+<p>
+この変数の値を <code>non-nil</code> に設定すると、浮動小数点数を使った見出し語に対
+応して数値変換を行います。ただし、辞書において
+</p>
+
+<pre class="example">
+#.# /#1．#1/#0月#0日/
+</pre>
+
+<p>
+などの見出し語が使用できなくなります。
+</p>
+</li>
+
+<li>User Option: skk-show-num-type-info
+
+<p>
+<code>Non-nil</code> であれば、辞書登録モードに入るのと同時に変換タイプの案内を表
+示します。デフォルトは <code>t</code> です。
+</p>
+</li>
+
+<li>Variable: skk-num-grouping-separator
+
+<p>
+タイプ 8 ( <code>#8</code> ) で使用する記号。デフォルトは ~,~ 。
+</p>
+</li>
+
+<li>Variable: skk-num-grouping-places
+
+<p>
+タイプ 8 ( <code>#8</code> ) について、何桁毎に区切るのかを数値で指定する。デフォルトは 3。
+</p>
+</li>
+
+<li>User Option: skk-use-numeric-conversion
+
+<p>
+この変数を <code>nil</code> に設定すると、本節で説明した数値変換の機能を全て無効に
+します。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-5" class="outline-4">
 <h4 id="sec-6-5-5"><span class="section-number-4">6.5.5</span> アスキー文字を見出し語とした変換</h4>
+<div class="outline-text-4" id="text-6-5-5">
+<p>
+かなモードで <code>/</code> をタイプすると <b>SKK abbrev mode</b> に入り、以後の入力はア
+スキー文字になります。普通に <code>SPC</code> を押すと、その見出し語に係る変換が得ら
+れます。
+</p>
+
+<p>
+仮に、辞書に
+</p>
+
+<pre class="example">
+is /インクリメンタル・サーチ/
+</pre>
+
+<p>
+というエントリがあるとして、以下に例を示します。
+</p>
+
+<pre class="example">
+/
+
+  ------ Buffer: foo ------
+  ▽*
+  ------ Buffer: foo ------
+
+i s
+
+  ------ Buffer: foo ------
+  ▽is*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼インクリメンタル・サーチ*
+  ------ Buffer: foo ------
+
+C-j
+
+  ------ Buffer: foo ------
+  インクリメンタル・サーチ*
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+候補を確定すると SKK abbrev モードを抜けて かなモード に戻ります。
+</p>
+
+<p>
+SKK abbrve モードで使われる辞書は、普通のかな漢字変換と同じです。見出し語
+がアスキー文字で書かれているだけで、特殊な点はありません。
+</p>
+
+<p>
+上記の例において <code>SPC</code> の代わりに <code>C-q</code> をタイプすることで、入力したアス
+キー文字をそのまま全角アルファベットに変換することもできます。
+@ref{全英文字の入力}
+</p>
+
+<p>
+なお、SKK abbrev モードにおいても <code>TAB</code> による「見出し語の補完」を行うこ
+とができます。@pxref{補完}
+</p>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-6" class="outline-4">
 <h4 id="sec-6-5-6"><span class="section-number-4">6.5.6</span> 今日の日付の入力</h4>
+<div class="outline-text-4" id="text-6-5-6">
+<p>
+かな/カナモードで <code>@</code> を入力すれば、今日の日付が入力されます。
+</p>
+
+<p>
+日付の形式は以下の変数により決定されます。
+</p>
+
+<ul class="org-ul">
+<li>User Option: skk-date-ad
+
+<p>
+この変数の値が <code>non-nil</code> であれば西暦で、 <code>nil</code> であれば元号で表示しま
+す。デフォルトは <code>nil</code> です。
+</p>
+</li>
+
+<li>Variable: skk-number-style
+
+<p>
+この変数の値は以下のように解釈されます。デフォルトは <code>1</code> です。
+</p>
+
+<ul class="org-ul">
+<li>0 or nil
+
+<p>
+ASCII 数字。 <code>1996年7月21日(日)</code> のようになります。
+</p>
+</li>
+
+<li>1 or t
+
+<p>
+全角数字。 <code>１９９６年７月２１日(日)</code> のようになります。
+</p>
+</li>
+
+<li>2
+
+<p>
+漢数字(位取)。 <code>一九九六年七月二一日(日)</code> のようになります。
+</p>
+</li>
+
+<li>3
+
+<p>
+漢数字。 <code>千九百九十六年七月二十一日(日)</code> のようになります。
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+上記の <code>1996年</code> 、 <code>１９９６年</code> 、 <code>一九九六年</code> の部分は、変数 <code>skk-date-ad</code> の
+値が <code>nil</code> であれば <code>平成8年</code> のように元号で表示されます。
+</p>
+
+<p>
+辞書 <code>SKK-JISYO.lisp</code> には、見出し語 <code>today</code> の候補として <code>skk-date-ad</code> と <code>skk-number-style</code> の
+全ての組み合わせがプログラム実行変換機能を用いて登録されています。従って、
+<code>/ t o d a y SPC</code> と入力すると、今日の日付が上記の形式で順次候補として表
+示されます。
+</p>
+
+<p>
+関数 <code>skk-relative-date</code> を利用すると、昨日、一昨日、明後日など任意の日付
+を求めることができます。詳細は <code>skk-gadget.el</code> のコメントを参照してくださ
+い。
+</p>
+
+<p>
+なお、 <code>@</code> のタイプで日付を挿入するのではなく、文字どおり <code>@</code> を挿入した
+い場合は次のとおり。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+	      '(("@" nil "@"))))
+</pre>
+</div>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-7" class="outline-4">
 <h4 id="sec-6-5-7"><span class="section-number-4">6.5.7</span> プログラム実行変換</h4>
+<div class="outline-text-4" id="text-6-5-7">
+<p>
+辞書の候補に Emacs Lisp のプログラムが書いてあれば、そのプログラムを Emacs に
+実行させ、返り値をカレントバッファに挿入します。これを <b>プログラム実行変換</b> と
+呼んでいます。例えば、辞書に
+</p>
+
+<pre class="example">
+now /(current-time-string)/
+</pre>
+
+<p>
+というエントリがあるとします。このとき <code>/ n o w SPC</code> と入力すれば、現在の
+バッファに <code>current-time-string</code> の返り値である
+</p>
+
+<pre class="example">
+Sun Jul 21 06:40:34 1996
+</pre>
+
+<p>
+のような文字列が挿入されます。
+</p>
+
+<p>
+ここで、プログラムの返り値は文字列である必要があります。また、プログラム
+実行変換の辞書登録は通常の単語と同様に行うことができますが、その中に改行
+を含まないように書く必要 <sup><a id="fnr.41" name="fnr.41" class="footref" href="#fn.41">41</a></sup> があります。
+</p>
+
+<p>
+今日の日付の入力で説明した <code>today</code> の辞書エントリは、実際は下記のようなプ
+ログラムを候補にもっています。 @xref{今日の日付の入力}
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">today /(let ((skk-date-ad) (skk-number-style t)) (skk-today))/.../
+</pre>
+</div>
+
+<p>
+<code>skk-gadget.el</code> には、西暦／元号変換や簡単な計算などプログラム実行変換用
+の関数が集められています。
+</p>
+
+
+<ul class="org-ul">
+<li>Function: skk-calc operator
+
+<p>
+skk-calc は、引数を１つ取り、見出し語の数字に対しその演算を行う簡単な計
+算プログラムです。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(defun skk-calc (operator)
+  ;; 2つの引数を取って operator の計算をする。
+  ;; {注意: '/ は引数として渡せないので (defalias 'div '/) などとし、別の形で
+  ;; skk-calc に渡す。
+  ;; 辞書見出し例; #*# /(skk-calc '*)/
+  (number-to-string (apply operator
+			   (mapcar 'string-to-number
+				   skk-num-list))))
+</pre>
+</div>
+
+<p>
+この関数を実際にプログラム実行変換で利用するには、辞書に以下のようなエ
+ントリを追加します
+</p>
+
+<pre class="example">
+#*# /(skk-calc '*)/
+</pre>
+
+<p>
+<code>Q 1 1 1 * 4 5 SPC</code> と入力します。ここで <code>111</code> と <code>45</code> の２つの数字は、
+変換時に <code>("111" "45")</code> のような文字列のリストにまとめられ、変数 <code>skk-num-list</code> の
+値として保存されます。次に関数 <code>skk-calc</code> が呼ばれます。この中で <code>skk-num-list</code> の
+各要素に対し演算を行うため、各要素は数に変換されます。その上で <code>skk-calc</code> に
+与えられた引数 (この場合は <code>*</code> ) を演算子として演算を行います。
+</p>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Function: skk-gadget-units-conversion 基準単位 数値 変換単位
+
+<p>
+数値について、基準単位から変換単位への変換を行います。
+</p>
+
+<pre class="example">
+/ 1 3 m i l e
+
+  ------ Buffer: foo ------
+  ▽13mile*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼20.9209km*
+  ------ Buffer: foo ------
+
+RET
+
+  ------ Buffer: foo ------
+  20.9209km*
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+単位変換の情報は、変数 <code>skk-units-alist</code> で定義されています。
+</p>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Variable: skk-units-alist
+
+<p>
+この変数は以下の形式の連想リストです。
+</p>
+
+<pre class="example">
+(基準となる単位 (変換する単位 . 変換時の倍率)
+                (… . …))
+</pre>
+
+<p>
+関数 <code>skk-gadget-units-conversion</code> で利用されています。デフォルトでは、
+以下の単位変換の情報を定義しています。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">("mile" ("km" . 1.6093)
+	("yard" . 1760))
+
+("yard" ("feet" . 3)
+	("cm" . 91.44))
+
+("feet" ("inch" . 12)
+	("cm" . 30.48))
+
+("inch" ("feet" . 0.5)
+	("cm" . 2.54))
+</pre>
+</div>
+</li>
+
+<li>Function:  skk-relative-date pp-function format and-time &amp;key (yy 0) (mm 0) (dd 0)
+
+<p>
+<code>skk-current-date</code> の拡張版。 <code>PP-FUNCTION</code> , <code>FORMAT</code> , <code>AND-TIME</code> の
+意味は <code>skk-current-date</code> の docstring を参照のこと。
+キーワード変数 <code>:yy</code>, <code>:mm</code>, <code>:dd</code> に正または負の数値を指定することで
+明日、明後日、一昨日などの日付を求めることができる。詳細は <code>skk-gadget.el</code> の
+コメントを参照のこと。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-8" class="outline-4">
 <h4 id="sec-6-5-8"><span class="section-number-4">6.5.8</span> 空白・改行・タブを含んだ見出し語の変換</h4>
+<div class="outline-text-4" id="text-6-5-8">
+<p>
+変換の際、見出し語の中の空白、改行、タブは無視されます。
+</p>
+
+<pre class="example">
+  ---------------- Buffer: foo ------------------
+  ▽じんじょうしょ
+  うがっこう*
+  ---------------- Buffer: foo ------------------
+
+SPC
+
+  ---------------- Buffer: foo ------------------
+  ▼尋常小学校*
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+オートフィルモードで折り返された文字列に対し、折り返された状
+態のまま変換することもできます。
+</p>
+
+<pre class="example">
+  ---------------- Buffer: foo ------------------
+  仮名漢字変換プログラムをさ
+  くせいしました。*
+  ---------------- Buffer: foo ------------------
+
+C-u 10 C-b Q
+
+  ---------------- Buffer: foo ------------------
+  仮名漢字変換プログラムを*さ
+  くせいしました。
+  ---------------- Buffer: foo ------------------
+
+C-u 5 C-f
+
+  ---------------- Buffer: foo ------------------
+  仮名漢字変換プログラムを▽さ
+  くせい*しました。
+---------------- Buffer: foo ------------------
+
+SPC
+
+  ---------------- Buffer: foo ------------------
+  仮名漢字変換プログラムを▼作成*しました。
+  ---------------- Buffer: foo ------------------
+</pre>
+
+<p>
+ここでは改行を越えて見出し語を探し、変換する例を示しました。同様に、空白、
+タブ文字を中間に含む文字列に対しても変換を行うことができます。
+</p>
+
+<ul class="org-ul">
+<li>User Option: skk-allow-spaces-newlines-and-tabs
+
+<p>
+この変数を <code>nil</code> に設定すると、本節で説明したような２行以上にまたがる文
+字列に対する変換を禁止します。
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-9" class="outline-4">
 <h4 id="sec-6-5-9"><span class="section-number-4">6.5.9</span> カタカナ変換</h4>
+<div class="outline-text-4" id="text-6-5-9">
+<ul class="org-ul">
+<li>Variable: skk-search-katakana
+
+<p>
+通常、SKK でカタカナ語を入力するには、
+</p>
+
+<ul class="org-ul">
+<li><code>q</code> でカナモードに移ってからカタカナを入力する
+</li>
+
+<li>▽モードで <code>q</code> によりカタカナへ変換する
+</li>
+</ul>
+<p>
+のどちらかです。これらの方法は手軽ですが、個人辞書に登録されないため見
+出し語の補完候補にも現れず、何度でも入力しなければいけません。
+</p>
+
+<p>
+そこで、ここに紹介する方法ではカタカナ語が普通の変換候補として現れ、個
+人辞書にも登録されます。設定するには以下を <code>~/.skk</code> に記述します <sup><a id="fnr.42" name="fnr.42" class="footref" href="#fn.42">42</a></sup> 。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-search-katakana t)
+</pre>
+</div>
+
+<p>
+また、値をシンボル <code>jisx0201-kana</code> とすると、カタカナ候補に加え半角カタ
+カナ候補も変換候補に現れます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-search-katakana 'jisx0201-kana)
+</pre>
+</div>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-10" class="outline-4">
 <h4 id="sec-6-5-10"><span class="section-number-4">6.5.10</span> サ変動詞変換</h4>
+<div class="outline-text-4" id="text-6-5-10">
+<ul class="org-ul">
+<li>Variable: skk-search-sagyo-henkaku
+
+<p>
+通常、SKK では諸般の事情によりサ行変格活用の動詞は送りなし変換をする前
+提になっています。このことは共有辞書のメンテナンスにおける便宜上やむを
+えないのですが、個人辞書が育たない (サ変動詞と名詞の区別ができない) と
+いう弱点もあります。@pxref{サ変動詞の辞書登録に関する注意}
+</p>
+
+<p>
+しかし、ここに紹介する方法では任意の送りなし候補を利用してサ行の送りプ
+レフィックスに限定して送りあり変換が可能になり、個人辞書を育てることが
+可能になります。設定するには以下を <code>~/.skk</code> に記述します。 <sup><a id="fnr.43" name="fnr.43" class="footref" href="#fn.43">43</a></sup>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-search-sagyo-henkaku t)
+</pre>
+</div>
+
+<p>
+例えば <code>お茶する</code> の変換は以下のように変化します。
+</p>
+
+<ul class="org-ul">
+<li>従来 … @kbd{O c h a @key{SPC} s u r u}
+</li>
+
+<li>サ変 … @kbd{O c h a S u r u}
+</li>
+</ul>
+<p>
+変数の値を <code>anything</code> に設定すると、サ行に限らず任意の送り仮名を許可し、
+送りあり変換をします。これにより、送りあり変換の利用範囲を形容詞・動詞
+の変換のみならず、あらゆるひらがな開始点の指定に拡張することができます。
+</p>
+
+<p>
+このサ変動詞送りあり変換機能は、カタカナ変換機能と組み合わせるとさらに
+有効です。@pxref{カタカナ変換}
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-11" class="outline-4">
 <h4 id="sec-6-5-11"><span class="section-number-4">6.5.11</span> 異体字へ変換する</h4>
+<div class="outline-text-4" id="text-6-5-11">
+<p>
+<code>辺</code> (42区53点) の異体字である <code>邊</code> (78区20点) や <code>邉</code> (78区21点) を入力
+したいときがあります <sup><a id="fnr.44" name="fnr.44" class="footref" href="#fn.44">44</a></sup> 。
+</p>
+
+<pre class="example">
+  ---- Buffer: foo ----
+  *辺
+  ---- Buffer: foo ----
+
+Q
+
+  ---- Buffer: foo ----
+  ▽*辺
+  ---- Buffer: foo ----
+
+C-f
+
+  ---- Buffer: foo ----
+  ▽辺*
+  ---- Buffer: foo ----
+
+SPC
+
+  ---- Buffer: foo ----
+  ▼邊*
+  ---- Buffer: foo ----
+
+SPC
+
+  ---- Buffer: foo ----
+  ▼邉*
+  ---- Buffer: foo ----
+</pre>
+
+<ul class="org-ul">
+<li>Variable: skk-itaiji-jisyo
+
+<p>
+辞書ファイル <code>SKK-JISYO.itaiji</code> 又は <code>SKK-JISYO.itaiji.JIS3_4</code> へ
+のパスを指定する。他の辞書ファイルと異なり、この２つの辞書ファイルは見
+出し語が漢字です。
+</p>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Function: skk-search-itaiji
+
+<p>
+not documented. <a href="http://mail.ring.gr.jp/skk/200303/msg00071.html">http://mail.ring.gr.jp/skk/200303/msg00071.html</a>
+</p>
+</li>
+</ul>
+</div>
 </div>
 
 <div id="outline-container-sec-6-5-12" class="outline-4">
 <h4 id="sec-6-5-12"><span class="section-number-4">6.5.12</span> ファンクションキーの使い方</h4>
+<div class="outline-text-4" id="text-6-5-12">
+<ul class="org-ul">
+<li>Variable: skk-j-mode-function-key-usage
+
+<p>
+シンボル <code>conversion</code> ならば、 <code>skk-search-prog-list-1</code> 〜 <code>skk-search-prog-list-9</code> お
+よび <code>skk-search-prog-list-0</code> を実行するよう自動設定します。これらのプ
+ログラムは▽モード限定でファンクションキー ( <code>[F1]</code> 〜 <code>[F10]</code> ) に割り
+当てられます。 <code>[F5]</code> 〜 <code>[F10]</code> については本オプションの設定により自動
+的に割り当てられます。これらの割り当てはユーザオプション <code>skk-verbose</code> を
+設定するとエコーエリアに表示されるようになります。@pxref{冗長な案内メッセージの表示}
+</p>
+
+<ul class="org-ul">
+<li><code>[F5]</code>  … 単漢字
+</li>
+<li><code>[F6]</code>  … 無変換
+</li>
+<li><code>[F7]</code>  … カタカナ
+</li>
+<li><code>[F8]</code>  … 半角カナ
+</li>
+<li><code>[F9]</code>  … 全角ローマ
+</li>
+<li><code>[F10]</code> … ローマ
+</li>
+</ul>
+<p>
+シンボル <code>kanagaki</code> ならば、かなキーボード入力用に自動設定します。
+<code>nil</code> ならば、自動設定しません。
+</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 
 <div id="outline-container-sec-6-6" class="outline-3">
 <h3 id="sec-6-6"><span class="section-number-3">6.6</span> キー設定</h3>
+<div class="outline-text-3" id="text-6-6">
+</div><div id="outline-container-sec-6-6-1" class="outline-4">
+<h4 id="sec-6-6-1"><span class="section-number-4">6.6.1</span> かなモード/カナモードのキー設定</h4>
+<div class="outline-text-4" id="text-6-6-1">
+</div><div id="outline-container-sec-6-6-1-1" class="outline-5">
+<h5 id="sec-6-6-1-1"><span class="section-number-5">6.6.1.1</span> ローマ字のルールの設定</h5>
+<div class="outline-text-5" id="text-6-6-1-1">
+<ul class="org-ul">
+<li>skk-rom-kana-base-rule-list
+</li>
+<li>skk-rom-kana-rule-list
+</li>
+</ul>
+
+<p>
+DDSKK の■モードにおける文字変換は、これら２つの変数を用いて行われます。
+<code>skk-rom-kana-base-rule-list</code> には基本的なローマ字かな変換のルールが定め
+られています。一方 <code>skk-rom-kana-rule-list</code> はユーザが独自のルールを定め
+るために用意されており、 <code>skk-rom-kana-base-rule-list</code> よりも優先されます。
+</p>
+
+<p>
+これらは「入出力の状態がいかに移り変わるべきか」を決定します。その内容は、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(入力される文字列 出力後に自動的に入力に追加される文字列 出力)
+</pre>
+</div>
+
+<p>
+という形のリストを列挙したものです。
+</p>
+
+<ul class="org-ul">
+<li>入力される文字列…変換される前のアスキー文字の文字列をいいます。
+</li>
+
+<li>出力…次の入力状態に移るときにバッファに挿入される文字列の組み合わせ
+であり、 <code>("ア" . "あ")</code> のようなコンスセルです。
+</li>
+</ul>
+
+<p>
+<code>skk-rom-kana-base-rule-list</code> の一部を見てみましょう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">("a"  nil ("ア" . "あ"))
+("ki" nil ("キ" . "き"))
+("tt" "t" ("ッ" . "っ"))
+("nn" nil ("ン" . "ん"))
+("n'" nil ("ン" . "ん"))
+</pre>
+</div>
+
+<p>
+のような規則があります。これによると
+</p>
+
+<pre class="example">
+a  → あ
+ki → き
+tt → っt
+nn → ん
+n' → ん
+</pre>
+
+<p>
+のようになります。
+</p>
+
+<p>
+<code>skk-rom-kana-base-rule-list</code> には、次のような便利な変換ルールも定められ
+ています。
+</p>
+
+<pre class="example">
+z  → □ （全角スペース）
+z* → ※
+z, → ‥
+z- → 〜
+z. → …
+z/ → ・
+z0 → ○
+z@ → ◎
+z[ → 『
+z] → 』
+z{ → 【
+z} → 】
+z( → （
+z) → ）
+zh → ←
+zj → ↓
+zk → ↑
+zl → →
+zL → ⇒
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-1-2" class="outline-5">
+<h5 id="sec-6-6-1-2"><span class="section-number-5">6.6.1.2</span> ローマ字ルールの変更例</h5>
+<div class="outline-text-5" id="text-6-6-1-2">
+<p>
+<code>skk-rom-kana-base-rule-list</code> の規則に従うと
+</p>
+
+<pre class="example">
+hannou → はんおう
+han'ou → はんおう
+hannnou → はんのう
+</pre>
+
+<p>
+のようになります。ここで
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+	      '(("nn" "n" ("ン" . "ん")))))
+</pre>
+</div>
+
+<p>
+のような設定にすることで
+</p>
+
+<pre class="example">
+hannou → はんのう
+</pre>
+
+<p>
+のようにローマ字かな変換が行われるようになります。
+</p>
+
+<p>
+他の例として、略号を設定することもできます。
+</p>
+
+<pre class="example">
+tp → 東北大学
+skk → skk
+skK → SKK
+</pre>
+
+<p>
+といった変換は、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">("tp" nil ("東北大学" . "東北大学"))
+("sk" nil ("" . ""))
+("skk" nil ("skk" . "skk"))
+("skK" nil ("SKK" . "SKK"))
+</pre>
+</div>
+
+<p>
+のような規則を追加することで実現されます。自分の名前を入力することはよく
+あるので、適当な省略形を用いて、このリストに追加しておく、といった利用を
+お勧めします。
+</p>
+
+<p>
+更に <code>skk-rom-kana-rule-list</code> を用いれば TUT-code による日本語入力を実現
+することもできます。TUT-code による入力についてはソースアーカイブの <code>tut-code</code> デ
+ィレクトリに収録されている各ファイルを参照してください。@pxref{ローマ字入力以外の入力方式}
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-1-3" class="outline-5">
+<h5 id="sec-6-6-1-3"><span class="section-number-5">6.6.1.3</span> ■モードに関連するその他の変数</h5>
+<div class="outline-text-5" id="text-6-6-1-3">
+<ul class="org-ul">
+<li>Variable: skk-kana-input-search-function
+
+<p>
+ルールリストの中に記せない変換ルールを処理する関数。
+これは <code>skk-rom-kana-base-rule-list</code> と <code>skk-rom-kana-rule-list</code> の
+要素を全て検索した後にコールされます。引数はありません。バッファの文字
+を、直接 <code>preceding-char</code> などで調べて下さい。
+</p>
+
+<p>
+初期設定では <code>h</code> で、長音を表すために使われています。次の例を見て下さい。
+</p>
+
+<pre class="example">
+ohsaka → おおさか
+ohta → おおた
+</pre>
+
+<p>
+一方で、 <code>hh</code> は「っ」になります。
+</p>
+
+<pre class="example">
+ohhonn → おっほん
+ohhira → おっひら
+</pre>
+
+<p>
+これは <code>skk-rom-kana-rule-list</code> のデフォルトに
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">("hh" "h" ("ッ" . "っ"))
+</pre>
+</div>
+
+<p>
+が入っているためです。これを削除すれば
+</p>
+
+<pre class="example">
+ohhonn → おおほん
+ohhira → おおひら
+</pre>
+
+<p>
+となります。
+</p>
+</li>
+</ul>
+
+<ul class="org-ul">
+<li>Variable: skk-kutouten-type
+
+<p>
+■モードの標準では、キーボードの <code>.</code> を打鍵すると「。」が、 ~,~ を打鍵
+すると「、」がバッファに挿入されます。変数 <code>skk-kutouten-type</code> に適切な
+シンボルを設定することにより、この組み合せを変更 <sup><a id="fnr.45" name="fnr.45" class="footref" href="#fn.45">45</a></sup> すること
+ができます。そのシンボルとは、次の４つです。
+</p>
+
+<pre class="example">
+'jp → 「。」「、」 (デフォルト)
+'en → 「．」「，」
+'jp-en → 「。」「，」
+'en-jp → 「．」「、」
+</pre>
+
+<p>
+または、変数 <code>skk-kutouten-type</code> にはコンスセルを指定することも可能です。
+その場合は、
+</p>
+
+<pre class="example">
+(句点を示す文字列 . 読点を示す文字列)
+</pre>
+
+<p>
+のように指定します。例として、次のように設定するとキーボード
+の <code>.</code> で <code>abc</code> が、 ~,~ で <code>def</code> がバッファに入力されます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-kutouten-type '("abc" . "def"))
+</pre>
+</div>
+
+<p>
+なお、変数 <code>skk-kutouten-type</code> はバッファローカル変数です。すべてのバッ
+ファで統一した設定としたい場合は、
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq-default skk-kutouten-type 'en)
+</pre>
+</div>
+
+<p>
+のように関数 <code>setq-default</code> を用いてください。
+</p>
+</li>
+
+<li>Variable: skk-use-auto-kutouten
+
+<p>
+デフォルトは <code>nil</code> 。 <code>Non-nil</code> であれば、カーソル直前の文字種に応じて
+句読点を動的に変更します。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-1-4" class="outline-5">
+<h5 id="sec-6-6-1-4"><span class="section-number-5">6.6.1.4</span> 数字や記号文字の入力</h5>
+<div class="outline-text-5" id="text-6-6-1-4">
+<p>
+かなモード/カナモードにおける次のキーは、関数 <code>skk-insert</code> にバインドされています。
+</p>
+
+<pre class="example">
+!  #  %  &amp;  '  *  +
+
+-  0  1  2  3  4  5
+
+6  7  8  9  :  ;  &lt;
+
+=  &gt;  ?  "  (  )  [
+
+]  {  }  ^  _  `  |
+
+~
+</pre>
+
+<p>
+これらの数字や記号文字のキーに対応し挿入される文字をカスタマイズするため
+には、変数 <code>skk-rom-kana-rule-list</code> を利用します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+	      '(("!" nil "!")
+		("," nil ",")
+		("." nil ".")
+		(":" nil ":")
+		(";" nil ";")
+		("?" nil "?"))))
+</pre>
+</div>
+
+<p>
+関数 <code>skk-insert</code> は、Emacs のオリジナル関数 <code>self-insert-command</code> をエミ
+ュレートしています。具体的には、引数を渡すことによって同じ文字を複数、一
+度に挿入することが可能です。
+</p>
+
+<pre class="example">
+C-u 2 !
+
+  ------ Buffer: foo ------
+  ！！
+  ------ Buffer: foo ------
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-2" class="outline-4">
+<h4 id="sec-6-6-2"><span class="section-number-4">6.6.2</span> 全英モードのキー設定</h4>
+<div class="outline-text-4" id="text-6-6-2">
+<p>
+全英モードにおける印字可能な全てのキーはコマンド <code>skk-jisx0208-latin-insert</code> に
+割り付けられています。また、変数 <code>skk-jisx0208-latin-vector</code> の値により挿
+入される文字が決定され、そのデフォルトは以下のようになっています。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">[nil  nil  nil  nil  nil  nil  nil  nil
+ nil  nil  nil  nil  nil  nil  nil  nil
+ nil  nil  nil  nil  nil  nil  nil  nil
+ nil  nil  nil  nil  nil  nil  nil  nil
+ "　" "！" "”" "＃" "＄" "％" "＆" "’"
+ "（" "）" "＊" "＋" "，" "−" "．" "／"
+ "０" "１" "２" "３" "４" "５" "６" "７"
+ "８" "９" "：" "；" "＜" "＝" "＞" "？"
+ "＠" "Ａ" "Ｂ" "Ｃ" "Ｄ" "Ｅ" "Ｆ" "Ｇ"
+ "Ｈ" "Ｉ" "Ｊ" "Ｋ" "Ｌ" "Ｍ" "Ｎ" "Ｏ"
+ "Ｐ" "Ｑ" "Ｒ" "Ｓ" "Ｔ" "Ｕ" "Ｖ" "Ｗ"
+ "Ｘ" "Ｙ" "Ｚ" "［" "＼" "］" "＾" "＿"
+ "‘" "ａ" "ｂ" "ｃ" "ｄ" "ｅ" "ｆ" "ｇ"
+ "ｈ" "ｉ" "ｊ" "ｋ" "ｌ" "ｍ" "ｎ" "ｏ"
+ "ｐ" "ｑ" "ｒ" "ｓ" "ｔ" "ｕ" "ｖ" "ｗ"
+ "ｘ" "ｙ" "ｚ" "｛" "｜" "｝" "〜" nil]
+</pre>
+</div>
+
+<p>
+挿入される文字を変更したい場合は、@ref{数字や記号文字の入力} を参照してく
+ださい。
+</p>
+
+<p>
+関数 <code>skk-jisx0208-latin-insert</code> も Emacs オリジナルの関数
+<code>self-insert-command</code> をエミュレートしています。つまり、引数を渡すことに
+より同じ文字を複数、一度に挿入することができます。関数 <code>skk-insert</code> にお
+ける動作と同じですから、@ref{数字や記号文字の入力} の例を参考にしてくださ
+い。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-3" class="outline-4">
+<h4 id="sec-6-6-3"><span class="section-number-4">6.6.3</span> 閉じ括弧の自動入力</h4>
+<div class="outline-text-4" id="text-6-6-3">
+<p>
+通常、 <code>「</code> を入力したら <code>」</code> を後で入力する必要があります。 <code>「</code> の入力
+時点で、対になる文字を自動挿入してくれると打鍵数を減らすことができますし、
+同時に入力忘れの防止にもなるでしょう。
+</p>
+
+<p>
+そのために変数 <code>skk-auto-insert-paren</code> が用意されています。この値を <code>non-nil</code> に
+すると、上記の自動挿入を行います。
+</p>
+
+<pre class="example">
+  ------ Buffer: foo ------
+  彼はこう言った*
+  ------ Buffer: foo ------
+
+[
+
+  ------ Buffer: foo ------
+  彼はこう言った「*」
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+上記のように <code>「</code> の入力時点で対となる <code>」</code> を自動挿入し、 <code>「</code> と <code>」</code> の
+間にポイントを再配置するので、その位置からかぎかっこに囲まれた文字列を即
+始めることができます。
+</p>
+
+
+<ul class="org-ul">
+<li>Variable: skk-auto-paren-string-alist
+
+<p>
+自動挿入すべきペアの文字列を指定します。デフォルトは下記のとおり。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(("「" . "」") ("『" . "』") ("("  . ")")  ("（" . "）") ("{"  . "}")
+ ("｛" . "｝") ("〈" . "〉") ("《" . "》") ("["  . "]")  ("［" . "］")
+ ("〔" . "〕") ("【" . "】") ("\"" . "\"") ("“"  . "”")  ("`"  . "'"))
+</pre>
+</div>
+
+<p>
+これは、ひと言でまとめると、「開き括弧と閉じ括弧とのコンスセルを集めた
+リスト」です。各コンスセルの <code>car</code> にある文字列を挿入したときに <code>cdr</code> に
+ある文字列が自動挿入されます。
+</p>
+
+<p>
+このリストの各要素の <code>car</code> の文字列は、必ず変数 <code>skk-rom-kana-rule-list</code> の
+規則によって入力されなければなりません。例えば、 <code>(</code> に対する <code>)</code> を自
+動挿入するには
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+	    '(("(" nil "("))))
+</pre>
+</div>
+
+<p>
+のように設定する必要があります。
+</p>
+
+<p>
+既に SKK モードになっているバッファで変数 <code>skk-auto-paren-string-alist</code> を
+変更した場合は、 <code>C-x C-j</code> もしくは <code>C-x j</code> を２度タイプして <code>skk-mode</code> も
+しくは <code>skk-auto-fill-mode</code> を起動し直す必要があります。
+</p>
+</li>
+</ul>
+
+<p>
+キーとなる文字が挿入されても、その挿入後のポイントに自動挿入すべき文字が
+既に存在している場合には、自動挿入されないように設計されています。
+</p>
+
+<pre class="example">
+  ------ Buffer: foo ------
+  *」
+  ------ Buffer: foo ------
+
+[
+
+  ------ Buffer: foo ------
+  「*」
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+対になる文字を複数挿入したい場合は、引数を渡して文字を指定します。
+</p>
+
+<pre class="example">
+C-u 2 [
+
+  ------ Buffer: foo ------
+  「「*」」
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+<code>yatex-mode</code> など、既に同様の機能が付いているモードがあります。そのような
+モードにおいてもこの自動挿入の機能が邪魔になることはないでしょうが、特定
+のモードに限って自動入力機能をオフにしたい場合は、当該モードに入ったとき
+にコールされるフック変数を利用して設定することができます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-hook 'yatex-mode-hook
+	  (lambda ()
+	      (when skk-auto-insert-paren
+		(make-local-variable 'skk-auto-insert-paren)
+		(setq skk-auto-insert-paren nil))))
+</pre>
+</div>
+
+<p>
+特定のモードにおいて、自動挿入すべき文字を変更したい場合にも同様にフック
+変数を用いて操作できます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-hook 'tex-mode-hook
+	  (lambda ()
+	      (when skk-auto-insert-paren
+		(make-local-variable 'skk-auto-paren-string-alist)
+		(setq skk-auto-paren-string-alist
+		      (cons '("$" . "$") skk-auto-paren-string-alist)))))
+</pre>
+</div>
+
+<p>
+同様に、特定のペアを削除したい場合は、例えば下記のように設定します。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(add-hook 'tex-mode-hook
+	  (lambda ()
+	      (when skk-auto-insert-paren
+		(make-local-variable 'skk-auto-paren-string-alist)
+		(setq skk-auto-paren-string-alist
+		      (delete
+		       '("$" . "$")
+		       (copy-sequence skk-auto-paren-string-alist))))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-4" class="outline-4">
+<h4 id="sec-6-6-4"><span class="section-number-4">6.6.4</span> リージョンを括弧で囲む</h4>
+<div class="outline-text-4" id="text-6-6-4">
+<p>
+「閉じ括弧の自動入力」の応用として、リージョンを括弧で囲むことができます。
+</p>
+
+<pre class="example">
+  ------ Buffer: foo ------
+  このマニュアルにおいて*DDSKK*と呼びます
+  ------ Buffer: foo ------
+
+`
+
+  ------ Buffer: foo ------
+  このマニュアルにおいて`DDSKK'と呼びます
+  ------ Buffer: foo ------
+</pre>
+
+
+<ul class="org-ul">
+<li>User Option: skk-use-auto-enclose-pair-of-region
+
+<p>
+<code>non-nil</code> であれば、上記の機能が有効になります。
+当然に <code>skk-auto-insert-paren</code> も <code>non-nil</code> である必要があります。
+なお、 <code>delete-selection-mode</code> の方が優先されます。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-5" class="outline-4">
+<h4 id="sec-6-6-5"><span class="section-number-4">6.6.5</span> 確定するキー</h4>
+<div class="outline-text-4" id="text-6-6-5">
+<ul class="org-ul">
+<li>Variable: skk-kakutei-key
+
+<p>
+この変数の値は、明示的な確定動作を行うキーを指定します。標準設定では <code>C-j</code> と
+なっています。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-6" class="outline-4">
+<h4 id="sec-6-6-6"><span class="section-number-4">6.6.6</span> 候補の選択に用いるキー</h4>
+<div class="outline-text-4" id="text-6-6-6">
+<p>
+変換において、候補が５つ以上あるときは、５番目以降の候補は７つずつまとめ
+てエコーエリアに下記のように表示されます
+</p>
+
+<pre class="example">
+-------------------- Echo Area --------------------
+A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
+-------------------- Echo Area --------------------
+</pre>
+
+<p>
+この際、候補の選択に用いるキーは、次の変数によって決定されます。
+</p>
+
+<ul class="org-ul">
+<li>Variable: skk-henkan-show-candidates-keys
+
+<p>
+７つの異なる文字のリスト。文字は必ず小文字とする。 <code>x</code> , <code>SPC</code> 及び <code>C-g</code> は、
+それぞれ候補選択中における前候補群の表示、次候補群の表示、取り止めのた
+めに割り付けられているので、含めてはならない。
+</p>
+
+<p>
+デフォルトは、以下のとおり。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(?a ?s ?d ?f ?j ?k ?l)
+</pre>
+</div>
+</li>
+
+<li>Variable: skk-henkan-show-candidates-keys-face
+
+<p>
+選択キーを表示する際のフェイスを指定します。
+</p>
+</li>
+
+<li>Variable: skk-henkan-rest-indicator
+
+<p>
+デフォルトは <code>nil</code> 。 <code>Non-nil</code> であれば <code>[残り 99++]</code> の表示を右寄せ配
+置する。
+</p>
+</li>
+
+<li>Variable: skk-henkan-rest-indicator-face
+
+<p>
+<code>[残り 99++]</code> の face 属性。デフォルトは <code>default</code> 。
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-7" class="outline-4">
+<h4 id="sec-6-6-7"><span class="section-number-4">6.6.7</span> ▼モードでの RET</h4>
+<div class="outline-text-4" id="text-6-6-7">
+<p>
+標準設定では、
+</p>
+
+<pre class="example">
+K a k u t e i SPC
+
+  ------ Buffer: foo ------
+  ▼確定*
+  ------ Buffer: foo ------
+
+RET
+
+  ------ Buffer: foo ------
+  確定
+  *
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+のように、▼モードで <code>RET</code> を入力すると、確定し、かつ改行を行います。この
+挙動を変えるためのユーザオプションが用意されています。
+</p>
+
+<ul class="org-ul">
+<li>User Option: skk-egg-like-newline
+
+<p>
+この変数の値を <code>non-nil</code> にすると、▼モードで <code>RET</code> を入力したときに確
+定のみ行い、改行はしません。従って、辞書登録モードにおいて▼モードであ
+るときの <code>RET</code> 打鍵時の挙動も変化します。標準の確定、登録の動作について
+は @ref{辞書登録モード} を参照してください。
+</p>
+
+<pre class="example">
+K a k u t e i SPC
+
+------ Buffer: foo ------
+▼確定*
+------ Buffer: foo ------
+
+RET
+
+------ Buffer: foo ------
+確定*
+------ Buffer: foo ------
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-8" class="outline-4">
+<h4 id="sec-6-6-8"><span class="section-number-4">6.6.8</span> ▼モードでの BS</h4>
+<div class="outline-text-4" id="text-6-6-8">
+<p>
+標準設定では、▼モードで <code>BS</code> を押すと、前の一文字を削除した上で確定しま
+す。
+</p>
+
+<pre class="example">
+D e n k i y a SPC
+
+  ------ Buffer: foo ------
+  ▼電気屋*
+  ------ Buffer: foo ------
+
+BS
+
+  ------ Buffer: foo ------
+  電気
+  ------ Buffer: foo ------
+</pre>
+
+<ul class="org-ul">
+<li>User Option: skk-delete-implies-kakutei
+
+<p>
+この変数の値を <code>nil</code> に設定すると、▼モードで <code>BS</code> を押した時に一つ前の
+候補を表示します。例えば、
+</p>
+
+<pre class="example">
+  でんき /電気/伝記/
+</pre>
+
+<p>
+という辞書エントリがあるとき、以下のようになります。
+</p>
+</li>
+</ul>
+
+<pre class="example">
+D e n k i
+
+  ------ Buffer: foo ------
+  ▽でんき*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼電気*
+  ------ Buffer: foo ------
+
+SPC
+
+  ------ Buffer: foo ------
+  ▼伝記*
+  ------ Buffer: foo ------
+
+BS
+
+  ------ Buffer: foo ------
+  ▼電気*
+  ------ Buffer: foo ------
+
+BS
+
+  ------ Buffer: foo ------
+  ▽でんき*
+  ------ Buffer: foo ------
+</pre>
+
+<p>
+変数 <code>skk-delete-implies-kakutei</code> がシンボル <code>dont-update</code> であれば、
+<code>non-nil</code> 時と同じ動作のうえで個人辞書を更新しません。
+</p>
+
+<p>
+なお、変数 <code>skk-delete-implies-kakutei</code> の値にかかわらず、*候補*バッファ
+を表示している場合は一つ前の候補表示に戻る動作となります。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-9" class="outline-4">
+<h4 id="sec-6-6-9"><span class="section-number-4">6.6.9</span> 送りあり変換中の C-g</h4>
+<div class="outline-text-4" id="text-6-6-9">
+<p>
+送りありの変換中に <code>C-g</code> を入力すると、▼モードを抜け、その見出し語と送り
+仮名を現在のバッファに挿入し、▽モードに入ります。
+</p>
+
+<pre class="example">
+N a K u
+
+  ------ Buffer: foo ------
+  ▼泣く*
+  ------ Buffer: foo ------
+
+C-g
+
+  ------ Buffer: foo ------
+  ▽なく*
+  ------ Buffer: foo ------
+</pre>
+
+<ul class="org-ul">
+<li>User Option: skk-delete-okuri-when-quit
+
+<p>
+この変数の値を <code>non-nil</code> に設定すると、送りありの変換中に <code>C-g</code> を入力
+したときの挙動が変化します。▽モードに入るのは同じですが、同時に送り仮
+名を消します。送り仮名の入力間違いを修正するのには便利です。例えば、以
+下のようになります。
+</p>
+
+<pre class="example">
+N a K u
+
+  ------ Buffer: foo ------
+  ▼泣く*
+  ------ Buffer: foo ------
+
+C-g
+
+  ------ Buffer: foo ------
+  ▽な*
+  ------ Buffer: foo ------
+</pre>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-10" class="outline-4">
+<h4 id="sec-6-6-10"><span class="section-number-4">6.6.10</span> 変換位置の指定方法</h4>
+<div class="outline-text-4" id="text-6-6-10">
+<p>
+SKK では通常、「漢字変換の開始位置」と「送り仮名の開始位置」を大文字で指
+定しますが、これらを任意のキーで指定することで sticky-shift ライクな
+操作 <sup><a id="fnr.46" name="fnr.46" class="footref" href="#fn.46">46</a></sup> も可能です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-sticky-key ";")
+</pre>
+</div>
+
+<p>
+と設定すると <code>;</code> キーで <sup><a id="fnr.46.100" name="fnr.46.100" class="footref" href="#fn.46">46</a></sup> 漢字変換位置が指定できるようになりま
+す。
+</p>
+
+<p>
+例えば <code>有る</code> という単語を入力するには
+</p>
+
+<pre class="example">
+; a ; r u
+</pre>
+
+<p>
+というキー入力で可能となり、シフトキーを押す必要がなくなります。
+</p>
+
+<p>
+操作上は
+@pxref{Q3-4 左手の小指を SHIFT で酷使したくありません。} などにある通
+常の sticky-shift と変わりませんが、画面表示は
+</p>
+
+<pre class="example">
+打鍵    通常の sticky    skk-sticky
+;       変化なし         ▽
+a       ▽あ             ▽あ
+;       ▽あ             ▽あ*
+r       ▽あ*r           ▽あ*r
+</pre>
+
+<p>
+と遷移します。通常の sticky と比べて skk-sticky は <code>;</code> を押した時点で画面
+表示が変化するので若干分かり易いと思います。
+</p>
+
+<p>
+キーの設定方法は、割り当てるキーの種類によって異なります。
+</p>
+
+<ol class="org-ol">
+<li>表示を伴うキー
+
+<p>
+<code>;</code> などの表示を伴うキーの場合は
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-sticky-key ";")
+</pre>
+</div>
+
+<p>
+のように <code>string</code> を設定して下さい。 <code>skk-sticky-key</code> に設定した文字そ
+のものを入力したい場合は２回続けて打つと入力できます。
+</p>
+</li>
+
+<li>表示を伴わないキー
+
+<p>
+【無変換】のような表示を伴わないキーの場合は
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-sticky-key [muhenkan]) ;Microsoft Windows では [noconvert]
+</pre>
+</div>
+
+<p>
+のようにそのキーを表わす <code>vector</code> を設定して下さい。
+</p>
+</li>
+
+<li>同時打鍵
+
+<p>
+２つのキーを同時に打鍵することでも漢字変換位置を指定できます。例えば
+<code>f</code> と <code>j</code> の同時打鍵で指定する場合は
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">(setq skk-sticky-key '(?f ?j))
+</pre>
+</div>
+
+<p>
+のように <code>character</code> のリストを設定して下さい。
+</p>
+
+<p>
+Dvorak 配列のような、押しやすい場所に適当なキーがない環境でもこの機能を
+使いたい場合に便利かもしれません。
+</p>
+</li>
+
+<li>Variable: skk-sticky-double-interval
+
+<p>
+この変数が指定する秒数以内に打鍵されたものを同時打鍵と判定する。
+デフォルトは 0.1 秒。
+</p>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-11" class="outline-4">
+<h4 id="sec-6-6-11"><span class="section-number-4">6.6.11</span> １回の取り消し操作 (undo) の対象</h4>
+</div>
 </div>
 
 <div id="outline-container-sec-6-7" class="outline-3">
@@ -4394,11 +6595,62 @@ SKK abbrev モードでは <code>is</code> ⇒ <code>インクリメンタル・
 現在は候補群の右側1カラムのフェイスがデフォルトに戻る、という制約があります。
 </p></div>
 
+<div class="footdef"><sup><a id="fn.38" name="fn.38" class="footnum" href="#fnr.38">38</a></sup> <p class="footpara">
+<code>p125</code> という見出し語であれば、その数値部分である <code>125</code> が再変換
+の見出し語となります。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.39" name="fn.39" class="footnum" href="#fnr.39">39</a></sup> <p class="footpara">
+SHIFT キーを伴って数字を入力し始めることはできないので <code>Q</code> ま
+たは <code>/</code> で▽モードに入る必要があります。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.40" name="fn.40" class="footnum" href="#fnr.40">40</a></sup> <p class="footpara">
+<code>m</code> や <code>d</code> などアスキー文字を見出し語として入力する場合は <code>/</code> キー
+を最初に入力して SKK abbrev モードに入ってから入力する必要があります。
+@xref{アスキー文字を見出し語とした変換, , SKK abbrev mode}.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.41" name="fn.41" class="footnum" href="#fnr.41">41</a></sup> <p class="footpara">
+通常の単語では、改行を含むことが可能です。それは、評価すると
+その位置に改行を挿入するような実行変換プログラムに変換して辞書に書き込ん
+でいるからです。しかし、実行変換されるプログラムを辞書登録する際にはこの
+機能を利用できないため、改行を含むことができません。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.42" name="fn.42" class="footnum" href="#fnr.42">42</a></sup> <p>DEFINITION NOT FOUND.</p></div>
+
+<div class="footdef"><sup><a id="fn.43" name="fn.43" class="footnum" href="#fnr.43">43</a></sup> <p class="footpara">
+<code>skk-search-prog-list</code> の設定をユーザが変更している場合は期待ど
+おりに動作しない場合があります。その場合は <code>skk-search-prog-list</code> の設定
+に関数 <code>skk-search-sagyo-henkaku</code> の呼び出しがあることを確認してください。
+またこの機能の設定は DDSKK 14.1 以前では異なります。詳しくはソースに付属
+のドキュメント、設定例をご覧ください。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.44" name="fn.44" class="footnum" href="#fnr.44">44</a></sup> <p class="footpara">
+辞書が充実していればかな漢字
+変換で見出し語 @samp{へん} から @samp{邊} や @samp{邉} を求めることができ
+ます。もちろん、文字コードを指定して @samp{邊} や @samp{邉} を直接挿入す
+ることもできます。}
+</p></div>
+
+<div class="footdef"><sup><a id="fn.45" name="fn.45" class="footnum" href="#fnr.45">45</a></sup> <p class="footpara">
+変数 <code>skk-use-kana-keyboard</code> が <code>non-nil</code> ならば無効である。
+</p></div>
+
+<div class="footdef"><sup><a id="fn.46" name="fn.46" class="footnum" href="#fnr.46">46</a></sup> <p class="footpara">
+あくまでも「任意のキーで変換開始位置を指定する」ものであり、
+sticky-shift そのものではありません。したがって、アスキーモードや abbrev モード、
+また SKK 以外でも sticky-shift を使いたい場合は、前述のような設定を併用す
+る必要があります。
+</p></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Created: 2017-06-18 日 06:22</p>
+<p class="date">Created: 2017-06-18 日 17:50</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
