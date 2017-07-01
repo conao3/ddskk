@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>SKK Manual</title>
-<!-- 2017-07-01 土 11:52 -->
+<!-- 2017-07-02 日 05:46 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <style type="text/css">
@@ -902,7 +902,7 @@ S, M, L 辞書に既に登録されていたが、間違いであったことが
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-get, skk-get
+<li>Key: <code class="symbol">M-x skk-get</code> (skk-get)
 
 <p>
 Emacs の使用中に <code>M-x skk-get</code> と実行すると、辞書ファイルを一括ダウンロ
@@ -910,7 +910,7 @@ Emacs の使用中に <code>M-x skk-get</code> と実行すると、辞書ファ
 </p>
 </li>
 
-<li>Function: skk-get &amp;optional DIRECTORY
+<li>Function: <code class="symbol">skk-get &amp;optional DIRECTORY</code>
 
 <p>
 skk-get を関数として使用することで、ユーザプログラムの中からでも辞書フ
@@ -1047,7 +1047,7 @@ DDSKK 14.1 以降は辞書サーバを経由せずとも CDB 形式 <sup><a id="
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-isearch-mode-enable
+<li>User Option: <code class="symbol">skk-isearch-mode-enable</code>
 
 <p>
 この変数は <code>~/.emacs.d/init.el</code> か <code>M-x customize-variable</code> で設定して
@@ -1076,14 +1076,14 @@ DDSKK 14.1 以降は辞書サーバを経由せずとも CDB 形式 <sup><a id="
 </div>
 
 <ul class="org-ul">
-<li>Variable: skk-server-host
+<li>Variable: <code class="symbol">skk-server-host</code>
 
 <p>
 辞書サーバが起動しているホスト名又は IP アドレス。
 </p>
 </li>
 
-<li>Variable: skk-server-portnum
+<li>Variable: <code class="symbol">skk-server-portnum</code>
 
 <p>
 辞書サーバが使うポート番号。 <code>/etc/services</code> に <code>skkserv</code> のエントリが
@@ -1091,7 +1091,7 @@ DDSKK 14.1 以降は辞書サーバを経由せずとも CDB 形式 <sup><a id="
 </p>
 </li>
 
-<li>User Option: skk-server-inhibit-startup-server
+<li>User Option: <code class="symbol">skk-server-inhibit-startup-server</code>
 
 <p>
 この変数が <code>nil</code> であれば、辞書サーバが起動していなかったときに Emacs か
@@ -1119,14 +1119,14 @@ skkserv [-p port] [jisyo]
 </div>
 </li>
 
-<li>Variable: skk-server-prog
+<li>Variable: <code class="symbol">skk-server-prog</code>
 
 <p>
 辞書サーバプログラムをフルパスで指定する。
 </p>
 </li>
 
-<li>Variable: skk-server-jisyo
+<li>Variable: <code class="symbol">skk-server-jisyo</code>
 
 <p>
 辞書サーバに渡す辞書をフルパスで指定する。辞書サーバによっては独自の方
@@ -1208,8 +1208,10 @@ Emacs の標準キーバインドでは <code>C-\</code> を打鍵すると、�
 </li>
 <li>"<code>japanese-skk-auto-fill</code>" &#x2026; 内容は <code>(skk-auto-fill-mode 1)</code> です。
 </li>
+</ol>
 
-<li>User Option: default-input-method
+<ul class="org-ul">
+<li>User Option: <code class="symbol">default-input-method</code>
 
 <p>
 Emacs 起動時の input method を DDSKK とするには、 <code>~/.emacs.d/init.el</code> に
@@ -1225,7 +1227,7 @@ Emacs 起動時の input method を DDSKK とするには、 <code>~/.emacs.d/in
 と記述してください。
 </p>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
@@ -1268,7 +1270,7 @@ SKK モードに入るには <code>C-x C-j</code> もしくは <code>C-x j</code
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-status-indicator
+<li>User Option: <code class="symbol">skk-status-indicator</code>
 
 <p>
 標準設定はシンボル <code>left</code> です。この変数をシンボル <code>minor-mode</code> と設
@@ -1277,7 +1279,7 @@ SKK モードに入るには <code>C-x C-j</code> もしくは <code>C-x j</code
 </p>
 </li>
 
-<li>User Option: skk-preload
+<li>User Option: <code class="symbol">skk-preload</code>
 
 <p>
 <code>~/.emacs.d/init.el</code> にて変数 <code>skk-preload</code> を <code>non-nil</code> と設定すること
@@ -1298,7 +1300,7 @@ SKK モードに入るには <code>C-x C-j</code> もしくは <code>C-x j</code
 </p>
 </li>
 
-<li>Key: M-x skk-restart, skk-restart
+<li>Key: <code class="symbol">M-x skk-restart</code> (skk-restart)
 
 <p>
 <code>M-x skk-restart</code> と実行すると SKK を再起動します。 <code>~/.skk</code> は再ロード
@@ -1306,7 +1308,7 @@ SKK モードに入るには <code>C-x C-j</code> もしくは <code>C-x j</code
 </p>
 </li>
 
-<li>Key: M-x skk-version, skk-version
+<li>Key: <code class="symbol">M-x skk-version</code> (skk-version)
 
 <p>
 <code>M-x skk-version</code> と実行するとエコーエリアに SKK のバージョンを表示 <sup><a id="fnr.21" name="fnr.21" class="footref" href="#fn.21">21</a></sup> しま
@@ -1364,7 +1366,7 @@ Emacs を終了するときは、保存前の個人辞書を <code>~/.skk-jisyo.
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-kill-emacs-without-saving-jisyo, skk-kill-emacs-without-saving-jisyo
+<li>Key: <code class="symbol">M-x skk-kill-emacs-without-saving-jisyo</code> (skk-kill-emacs-without-saving-jisyo)
 
 <p>
 個人辞書を保存せずに Emacs を終了させたい場合には、このコマンドをキー入
@@ -1454,28 +1456,28 @@ SKK モードは、文字種類による４種類の <b>入力モード</b> <sup
 <h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> 入力モードを切り替えるキー</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <ul class="org-ul">
-<li>Key: q, skk-toggle-kana
+<li>Key: <code class="symbol">q</code> (skk-toggle-kana)
 
 <p>
 「かなモード」、「カナモード」間をトグルする。
 </p>
 </li>
 
-<li>Key: l, skk-latin-mode
+<li>Key: <code class="symbol">l</code> (skk-latin-mode)
 
 <p>
 「かなモード」又は「カナモード」から「アスキーモード」へ。
 </p>
 </li>
 
-<li>Key: L, skk-jisx0208-latin-mode
+<li>Key: <code class="symbol">L</code> (skk-jisx0208-latin-mode)
 
 <p>
 「かなモード」又は「カナモード」から「全英モード」へ。
 </p>
 </li>
 
-<li>Key: C-j, skk-kakutei
+<li>Key: <code class="symbol">C-j</code> (skk-kakutei)
 
 <p>
 「アスキーモード」又は「全英モード」から「かなモード」へ。
@@ -1495,7 +1497,7 @@ SKK モードは、文字種類による４種類の <b>入力モード</b> <sup
 <li><a href="#sec-6-3-2">全英文字の入力</a>.
 </li>
 
-<li>User Option: skk-show-mode-show
+<li>User Option: <code class="symbol">skk-show-mode-show</code>
 
 <p>
 現在の入力モードは、モードラインに表示されています。この変数を <code>Non-nil</code> と
@@ -1504,14 +1506,14 @@ SKK モードは、文字種類による４種類の <b>入力モード</b> <sup
 </p>
 </li>
 
-<li>Key: M-x skk-show-mode, skk-show-mode
+<li>Key: <code class="symbol">M-x skk-show-mode</code> (skk-show-mode)
 
 <p>
 <code>skk-show-mode-show</code> の値をトグル切り替えします。  
 </p>
 </li>
 
-<li>User Option: skk-show-mode-style
+<li>User Option: <code class="symbol">skk-show-mode-style</code>
 
 <p>
 標準設定は、シンボル <code>inline</code> です。シンボル <code>tooltip</code> を指定すること
@@ -1519,7 +1521,7 @@ SKK モードは、文字種類による４種類の <b>入力モード</b> <sup
 </p>
 </li>
 
-<li>User Option: skk-show-mode-inline-face
+<li>User Option: <code class="symbol">skk-show-mode-inline-face</code>
 
 <p>
 <code>inline</code> 利用時の face
@@ -1727,8 +1729,8 @@ C-g
 <div class="outline-text-4" id="text-5-3-3">
 <p>
 <b>▼モード</b> では、▽モードで入力した見出し語を、辞書に従って変換する作業を
-行います。▽モードで見出し語を入力した後に <span class="key">SPC</span> を打鍵することで▼モード
-に入ります。▽マークから <span class="key">SPC</span> を打鍵したときのポイントまでの文字列が見出
+行います。▽モードで見出し語を入力した後に <code class="key">SPC</code> を打鍵することで▼モード
+に入ります。▽マークから <code class="key">SPC</code> を打鍵したときのポイントまでの文字列が見出
 し語として確定され、 ▽マークは▼マークで置き換えられ、この見出し語が辞書
 の中で検索されます。
 </p>
@@ -1757,7 +1759,7 @@ K a n j i
   ▽かんじ*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼漢字*
@@ -1780,7 +1782,7 @@ SPC
 また、 <code>C-j</code> を打鍵せずに新たな確定入力を続けるか又は新たな変換を開始する
 と、直前の変換は自動的に確定されます。これを <b>暗黙の確定</b> <sup><a id="fnr.32" name="fnr.32" class="footref" href="#fn.32">32</a></sup> と呼んでいます。
 打鍵することによる副作用として暗黙の確定を伴うキーは、印字可能な文字全て
-と <span class="key">RET</span> です。
+と <code class="key">RET</code> です。
 </p>
 </div>
 </div>
@@ -1790,7 +1792,7 @@ SPC
 <div class="outline-text-5" id="text-5-3-3-2">
 
 <p>
-求める語がすぐに表示されなければ、更に続けて <span class="key">SPC</span> を打鍵することで次候補
+求める語がすぐに表示されなければ、更に続けて <code class="key">SPC</code> を打鍵することで次候補
 を検索します。
 </p>
 
@@ -1799,7 +1801,7 @@ SPC
   ▼漢字*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼幹事*
@@ -1820,7 +1822,7 @@ SPC
 </pre>
 
 <p>
-というエントリを含むときに <code>K y o</code> の後に <span class="key">SPC</span> を５回 <sup><a id="fnr.34" name="fnr.34" class="footref" href="#fn.34">34</a></sup> 続けて
+というエントリを含むときに <code>K y o</code> の後に <code class="key">SPC</code> を５回 <sup><a id="fnr.34" name="fnr.34" class="footref" href="#fn.34">34</a></sup> 続けて
 打鍵すれば
 </p>
 
@@ -1843,7 +1845,7 @@ A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
 </p>
 
 <p>
-<span class="key">SPC</span> を連打してしまって求める候補を誤って通過してしまったときは <code>x</code> を打
+<code class="key">SPC</code> を連打してしまって求める候補を誤って通過してしまったときは <code>x</code> を打
 鍵 <sup><a id="fnr.37" name="fnr.37" class="footref" href="#fn.37">37</a></sup> すれば前候補／前候補群に戻ることができます。
 </p>
 
@@ -1853,7 +1855,7 @@ A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-previous-candidate-keys
+<li>Variable: <code class="symbol">skk-previous-candidate-keys</code>
 
 <p>
 前候補／前候補群に戻る関数 <code>skk-previous-candidate</code> を割り当てるオブジ
@@ -1866,14 +1868,14 @@ event vector が指定できます。
 </p>
 </li>
 
-<li>Variable: skk-search-excluding-word-pattern-function
+<li>Variable: <code class="symbol">skk-search-excluding-word-pattern-function</code>
 
 <p>
 詳しくは docstring を参照のこと。
 </p>
 </li>
 
-<li>Variable: skk-show-candidates-nth-henkan-char
+<li>Variable: <code class="symbol">skk-show-candidates-nth-henkan-char</code>
 
 <p>
 候補一覧を表示する関数 <code>skk-henkan-show-candidates</code> を呼び出すまで
@@ -1881,7 +1883,7 @@ event vector が指定できます。
 </p>
 </li>
 
-<li>Variable: skk-henkan-number-to-display-candidates
+<li>Variable: <code class="symbol">skk-henkan-number-to-display-candidates</code>
 
 <p>
 いちどに表示する候補の数。
@@ -1903,7 +1905,7 @@ event vector が指定できます。
 「動く」を変換により求めたいときは <code>U g o K u</code> のように、まず、▽モードに
 入るために <code>U</code> を大文字で入力し、次に、送り仮名の開始を DDSKK に教えるた
 めに <code>K</code> を大文字で入力します。送り仮名の <code>K</code> を打鍵した時点で▼モードに
-入り辞書変換が行われます（ <span class="key">SPC</span> 打鍵は不要）。
+入り辞書変換が行われます（ <code class="key">SPC</code> 打鍵は不要）。
 </p>
 
 <p>
@@ -1994,7 +1996,7 @@ DDSKK には独立した辞書登録モードはありません。その代わ�
 <li><a href="#sec-6-10-10">個人辞書ファイルの編集</a>.
 </li>
 
-<li>Variable: skk-read-from-minibuffer-function
+<li>Variable: <code class="symbol">skk-read-from-minibuffer-function</code>
 
 <p>
 この変数に「文字列を返す関数」を収めると、その文字列を辞書登録モードに
@@ -2010,7 +2012,7 @@ DDSKK には独立した辞書登録モードはありません。その代わ�
 </div>
 </li>
 
-<li>Variable: skk-jisyo-registration-badge-face
+<li>Variable: <code class="symbol">skk-jisyo-registration-badge-face</code>
 
 <p>
 変数 <code>skk-show-inline</code> が <code>non-nil</code> であれば、辞書登録モードに移ったこ
@@ -2048,13 +2050,13 @@ H e n k a n <SPAN CLASS="KEY">SPC</SPAN> T y u u <SPAN CLASS="KEY">SPC</SPAN>
 </pre>
 
 <p>
-ここで <span class="key">RET</span> を打鍵すれば「変換中」が個人辞書に登録され <sup><a id="fnr.42" name="fnr.42" class="footref" href="#fn.42">42</a></sup> 、
+ここで <code class="key">RET</code> を打鍵すれば「変換中」が個人辞書に登録され <sup><a id="fnr.42" name="fnr.42" class="footref" href="#fn.42">42</a></sup> 、
 辞書登録モードは終了します <sup><a id="fnr.43" name="fnr.43" class="footref" href="#fn.43">43</a></sup> 。同時に、変換を行っているカレン
 トバッファには「変換中」が挿入され確定されます。
 </p>
 
 <p>
-辞書登録モードを抜けたいときは <code>C-g</code> を打鍵するか、または何も登録せず <span class="key">RET</span> を
+辞書登録モードを抜けたいときは <code>C-g</code> を打鍵するか、または何も登録せず <code class="key">RET</code> を
 打鍵すると▽モードに戻ります。
 </p>
 </div>
@@ -2102,7 +2104,7 @@ D o u <SPAN CLASS="KEY">SPC</SPAN>
   [辞書登録] うご*く: 動*
   ------ Minibuffer -------
 
-RET
+<SPAN CLASS="KEY">RET</SPAN>
 
   ------ Buffer: foo ------
   動く*
@@ -2110,7 +2112,7 @@ RET
 </pre>
 
 <ul class="org-ul">
-<li>Variable: skk-check-okurigana-on-touroku
+<li>Variable: <code class="symbol">skk-check-okurigana-on-touroku</code>
 
 <p>
 標準設定は <code>nil</code> です。 <code>non-nil</code> であれば、辞書登録時に送り仮名のチ
@@ -2204,7 +2206,7 @@ RET
 <p>
 となります。プロンプトが <code>[ [</code> 辞書登録 <code>] ]</code> となり <code>[ ]</code> がひとつ増えて
 いますが、この <code>[ ]</code> の数が再帰的な辞書登録モードの深さを表わしています。
-ここで <span class="key">RET</span> を打鍵すると、個人辞書には
+ここで <code class="key">RET</code> を打鍵すると、個人辞書には
 </p>
 
 <pre class="example">
@@ -2228,7 +2230,7 @@ RET
 </pre>
 
 <p>
-となります。ここで <span class="key">RET</span> を打鍵することで「さいきてき」の辞書登録モードか
+となります。ここで <code class="key">RET</code> を打鍵することで「さいきてき」の辞書登録モードか
 ら抜け、個人辞書に
 </p>
 
@@ -2339,7 +2341,7 @@ Emacs オリジナルのインクリメンタル・サーチのコマンド <sup
 トが表示されます。
 </li>
 
-<li>Variable: skk-isearch-mode-string-alist
+<li>Variable: <code class="symbol">skk-isearch-mode-string-alist</code>
 
 <p>
 プロンプトとして表示される文字列
@@ -2360,7 +2362,7 @@ DDSKK には、基本的な操作方法を学習できるチュートリアル�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-tut-file
+<li>Variable: <code class="symbol">skk-tut-file</code>
 
 <p>
 チュートリアルファイルが標準の場所に置かれていない場合は、 <code>~/.emacs.d/init.el</code> で
@@ -2380,7 +2382,7 @@ DDSKK には、基本的な操作方法を学習できるチュートリアル�
 </p>
 </li>
 
-<li>Variable: skk-tut-lang
+<li>Variable: <code class="symbol">skk-tut-lang</code>
 
 <p>
 チュートリアルで用いる言語を文字列 "<code>Japanese</code>" 又は "<code>English</code>" で指定
@@ -2389,7 +2391,7 @@ DDSKK には、基本的な操作方法を学習できるチュートリアル�
 </p>
 </li>
 
-<li>Variable: skk-tut-use-face
+<li>Variable: <code class="symbol">skk-tut-use-face</code>
 
 <p>
 <code>Non-nil</code> であれば、チュートリアルで face を利用して表示します。
@@ -2587,14 +2589,14 @@ font-lock 関係のほか、おもに開発者向けのプログラムを集め�
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-submit-bug-report, skk-submit-bug-report
+<li>Key: <code class="symbol">M-x skk-submit-bug-report</code> (skk-submit-bug-report)
 
 <p>
 バグレポートのメールバッファを用意する
 </p>
 </li>
 
-<li>Key: M-x skk-get, skk-get
+<li>Key: <code class="symbol">M-x skk-get</code> (skk-get)
 
 <p>
 辞書ファイルを一括ダウンロードする
@@ -2955,7 +2957,7 @@ DDSKK を起動した最初の一度だけ読み込まれます。ファイル�
 </p>
 </li>
 
-<li>Variable: skk-user-directory
+<li>Variable: <code class="symbol">skk-user-directory</code>
 
 <p>
 DDSKK は <code>~/.skk</code> や <code>~/.skk-jisyo</code> といった複数のファイルを使用します。
@@ -3005,7 +3007,7 @@ skk-bayesian-corpus-file   ~/.skk-corpus     ~/.ddskk/corpus
 <div class="outline-text-5" id="text-6-2-1-1">
 
 <ul class="org-ul">
-<li>Variable: skk-byte-compile-init-file
+<li>Variable: <code class="symbol">skk-byte-compile-init-file</code>
 
 <p>
 ここでは、「DDSKK の設定ファイル」を <code>el</code> と、「DDSKK の設定ファイルを
@@ -3050,7 +3052,7 @@ skk-bayesian-corpus-file   ~/.skk-corpus     ~/.ddskk/corpus
 <h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> フック</h4>
 <div class="outline-text-4" id="text-6-2-2">
 <ul class="org-ul">
-<li>Variable: skk-mode-hook
+<li>Variable: <code class="symbol">skk-mode-hook</code>
 
 <p>
 <code>C-x C-j</code> と入力して SKK モードに入る度に呼ばれます。主にバッファローカ
@@ -3058,7 +3060,7 @@ skk-bayesian-corpus-file   ~/.skk-corpus     ~/.ddskk/corpus
 </p>
 </li>
 
-<li>Variable: skk-auto-fill-mode-hook
+<li>Variable: <code class="symbol">skk-auto-fill-mode-hook</code>
 
 <p>
 <code>C-x j</code> と入力してオートフィルモード付きで SKK モードに入る度に呼ばれま
@@ -3066,7 +3068,7 @@ skk-bayesian-corpus-file   ~/.skk-corpus     ~/.ddskk/corpus
 </p>
 </li>
 
-<li>Variable: skk-load-hook
+<li>Variable: <code class="symbol">skk-load-hook</code>
 
 <p>
 <code>skk.el</code> の読み込みを完了した時点で呼ばれます。 <code>~/.skk</code> は SKK モード
@@ -3081,63 +3083,63 @@ skk-bayesian-corpus-file   ~/.skk-corpus     ~/.ddskk/corpus
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-act-load-hook
+<li>Variable: <code class="symbol">skk-act-load-hook</code>
 
 <p>
 <code>skk-act.el</code>
 </p>
 </li>
 
-<li>Variable: skk-auto-load-hook
+<li>Variable: <code class="symbol">skk-auto-load-hook</code>
 
 <p>
 <code>skk-auto.el</code>
 </p>
 </li>
 
-<li>Variable: skk-azik-load-hook
+<li>Variable: <code class="symbol">skk-azik-load-hook</code>
 
 <p>
 <code>skk-azik.el</code>
 </p>
 </li>
 
-<li>Variable: skk-comp-load-hook
+<li>Variable: <code class="symbol">skk-comp-load-hook</code>
 
 <p>
 <code>skk-comp.el</code>
 </p>
 </li>
 
-<li>Variable: skk-gadget-load-hook
+<li>Variable: <code class="symbol">skk-gadget-load-hook</code>
 
 <p>
 <code>skk-gadget.el</code>
 </p>
 </li>
 
-<li>Variable: skk-kakasi-load-hook
+<li>Variable: <code class="symbol">skk-kakasi-load-hook</code>
 
 <p>
 <code>skk-kakasi.el</code>
 </p>
 </li>
 
-<li>Variable: skk-kcode-load-hook
+<li>Variable: <code class="symbol">skk-kcode-load-hook</code>
 
 <p>
 <code>skk-kcode.el</code>
 </p>
 </li>
 
-<li>Variable: skk-num-load-hook
+<li>Variable: <code class="symbol">skk-num-load-hook</code>
 
 <p>
 <code>skk-num.el</code>
 </p>
 </li>
 
-<li>Variable: skk-server-load-hook
+<li>Variable: <code class="symbol">skk-server-load-hook</code>
 
 <p>
 <code>skk-server.el</code>
@@ -3207,7 +3209,7 @@ skk で設定できる変数の中には、まだこのマニュアルで解説�
 <h4 id="sec-6-2-4"><span class="section-number-4">6.2.4</span> skk-customize による設定変更</h4>
 <div class="outline-text-4" id="text-6-2-4">
 <ul class="org-ul">
-<li>Key: M-x skk-customize, skk-customize
+<li>Key: <code class="symbol">M-x skk-customize</code> (skk-customize)
 
 <p>
 前述の「Emacs 標準の Customize 機能 <code>M-x customize-group</code> 」による設定
@@ -3345,28 +3347,28 @@ file /ｆｉｌｅ/
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-hiragana-region, skk-hiragana-region
+<li>Key: <code class="symbol">M-x skk-hiragana-region</code> (skk-hiragana-region)
 
 <p>
 カタカナ を ひらがな へ変換。
 </p>
 </li>
 
-<li>Key: M-x skk-katakana-region, skk-katakana-region
+<li>Key: <code class="symbol">M-x skk-katakana-region</code> (skk-katakana-region)
 
 <p>
 ひらがな を カタカナ へ変換。
 </p>
 </li>
 
-<li>Key: M-x skk-latin-region, skk-latin-region
+<li>Key: <code class="symbol">M-x skk-latin-region</code> (skk-latin-region)
 
 <p>
 全英文字 を アスキー文字 へ変換。
 </p>
 </li>
 
-<li>Key: M-x skk-jisx0208-latin-region, skk-jisx0208-latin-region
+<li>Key: <code class="symbol">M-x skk-jisx0208-latin-region</code> (skk-jisx0208-latin-region)
 
 <p>
 アスキー文字 を 全英文字 へ変換。
@@ -3381,7 +3383,7 @@ file /ｆｉｌｅ/
 
 
 <ul class="org-ul">
-<li>Key: M-x skk-gyakubiki-region, skk-gyakubiki-region
+<li>Key: <code class="symbol">M-x skk-gyakubiki-region</code> (skk-gyakubiki-region)
 
 <p>
 漢字をひらがなへ変換。具体的な変換例をあげると、
@@ -3413,7 +3415,7 @@ file /ｆｉｌｅ/
 </p>
 </li>
 
-<li>Key: M-x skk-gyakubiki-and-henkan, skk-gyakubiki-and-henkan
+<li>Key: <code class="symbol">M-x skk-gyakubiki-and-henkan</code> (skk-gyakubiki-and-henkan)
 
 <p>
 領域の漢字をひらがなへ変換し、これで得たひらがなを見出し語として漢字変
@@ -3421,7 +3423,7 @@ file /ｆｉｌｅ/
 </p>
 </li>
 
-<li>Key: M-x skk-gyakubiki-katakana-region, skk-gyakubiki-katakana-region
+<li>Key: <code class="symbol">M-x skk-gyakubiki-katakana-region</code> (skk-gyakubiki-katakana-region)
 
 <p>
 漢字をカタカナへ変換。
@@ -3433,7 +3435,7 @@ file /ｆｉｌｅ/
 </p>
 </li>
 
-<li>Key: M-x skk-hurigana-region, skk-hurigana-region
+<li>Key: <code class="symbol">M-x skk-hurigana-region</code> (skk-hurigana-region)
 
 <p>
 漢字にふりがなを付ける。例えば、
@@ -3449,7 +3451,7 @@ file /ｆｉｌｅ/
 </p>
 </li>
 
-<li>Key: M-x skk-hurigana-katakana-region, skk-hurigana-katakana-region
+<li>Key: <code class="symbol">M-x skk-hurigana-katakana-region</code> (skk-hurigana-katakana-region)
 
 <p>
 漢字にカタカナのふりがなを付ける。
@@ -3461,7 +3463,7 @@ file /ｆｉｌｅ/
 </p>
 </li>
 
-<li>Key: M-x skk-romaji-region, skk-romaji-region
+<li>Key: <code class="symbol">M-x skk-romaji-region</code> (skk-romaji-region)
 
 <p>
 漢字、ひらがな、カタカナをローマ字へ、全英文字をアスキー文字へ変換。標
@@ -3484,20 +3486,20 @@ file /ｆｉｌｅ/
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-gyakubiki-message, skk-gyakubiki-message
+<li>Key: <code class="symbol">M-x skk-gyakubiki-message</code> (skk-gyakubiki-message)
 </li>
-<li>Key: M-x skk-gyakubiki-katakana-message, skk-gyakubiki-katakana-message
+<li>Key: <code class="symbol">M-x skk-gyakubiki-katakana-message</code> (skk-gyakubiki-katakana-message)
 </li>
-<li>Key: M-x skk-hurigana-message, skk-hurigana-message
+<li>Key: <code class="symbol">M-x skk-hurigana-message</code> (skk-hurigana-message)
 </li>
-<li>Key: M-x skk-hurigana-katakana-message, skk-hurigana-katakana-message
+<li>Key: <code class="symbol">M-x skk-hurigana-katakana-message</code> (skk-hurigana-katakana-message)
 </li>
-<li>Key: M-x skk-romaji-message, skk-romaji-message
+<li>Key: <code class="symbol">M-x skk-romaji-message</code> (skk-romaji-message)
 </li>
 </ul>
 
 <ul class="org-ul">
-<li>Variable: skk-gyakubiki-jisyo-list
+<li>Variable: <code class="symbol">skk-gyakubiki-jisyo-list</code>
 
 <p>
 関数 <code>skk-gyakubiki-region</code> はコマンド <code>kakasi</code> を呼び出しています。
@@ -3520,7 +3522,7 @@ file /ｆｉｌｅ/
 </div>
 </li>
 
-<li>Variable: skk-romaji-*-by-hepburn
+<li>Variable: <code class="symbol">skk-romaji-*-by-hepburn</code>
 
 <p>
 この変数の値を <code>nil</code> に設定すると、コマンド <code>skk-romaji-{region|message}</code> に
@@ -3615,14 +3617,14 @@ skk の入力モードをアスキーモードに切り替えます。
 </p>
 
 <ul class="org-ul">
-<li>Variable: context-skk-programming-mode
+<li>Variable: <code class="symbol">context-skk-programming-mode</code>
 
 <p>
 context-skk が「プログラミングモード」と見做すメジャーモード。
 </p>
 </li>
 
-<li>Variable: context-skk-mode-off-message
+<li>Variable: <code class="symbol">context-skk-mode-off-message</code>
 
 <p>
 アスキーモードに切り替わった瞬間にエコーエリアに表示するメッセージ。
@@ -3637,7 +3639,7 @@ context-skk が「プログラミングモード」と見做すメジャーモ�
 <h3 id="sec-6-4"><span class="section-number-3">6.4</span> 補完</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
-読みの前半だけを入力して <code>TAB</code> を押せば残りを自動的に補ってくれる、これが
+読みの前半だけを入力して <code class="key">TAB</code> を押せば残りを自動的に補ってくれる、これが
 補完です。 Emacs ユーザにはおなじみの機能が DDSKK でも使えます。
 </p>
 
@@ -3655,7 +3657,7 @@ context-skk が「プログラミングモード」と見做すメジャーモ�
 <h4 id="sec-6-4-1"><span class="section-number-4">6.4.1</span> 読みの補完</h4>
 <div class="outline-text-4" id="text-6-4-1">
 <p>
-▽モードで <code>TAB</code> を押すと、見出し語（▽マークからポイントまでの文字列）に
+▽モードで <code class="key">TAB</code> を押すと、見出し語（▽マークからポイントまでの文字列）に
 対する補完 <sup><a id="fnr.57" name="fnr.57" class="footref" href="#fn.57">57</a></sup> が行われます。見出し語補完は、個人辞書のうち送りなし
 エントリに対して行われます。個人辞書に限っているのは、共有辞書では先頭の
 文字を共通にする見出し語が多すぎて、望みの補完が行える確率が低いためです。
@@ -3663,7 +3665,7 @@ context-skk が「プログラミングモード」と見做すメジャーモ�
 
 <p>
 次の読みの候補を表示するには <code>.</code> （ピリオド）を、戻る時には <code>,</code> （コンマ）
-を押します。その読みで別の語を出すには、いつものように <span class="key">SPC</span> を押します。
+を押します。その読みで別の語を出すには、いつものように <code class="key">SPC</code> を押します。
 </p>
 
 <p>
@@ -3676,7 +3678,7 @@ S a
   ▽さ*
   ------ Buffer: foo ------
 
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ------ Buffer: foo ------
   ▽さとう*
@@ -3694,7 +3696,7 @@ TAB
   ▽さとう*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼佐藤*
@@ -3716,19 +3718,19 @@ C-j
 </p>
 
 <p>
-いったん <span class="key">SPC</span> を入力して▼モードに入ると、以後は見出し語補完は行われませ
+いったん <code class="key">SPC</code> を入力して▼モードに入ると、以後は見出し語補完は行われませ
 ん。
 </p>
 
 <p>
-また、 <code>.</code> の代わりに <code>C-u TAB</code> を入力すると、現在の候補に対して補完をし
-ます。上の例では「さ」に対し「さとう」が補完された時に <code>C-u TAB</code> を押すと、
+また、 <code>.</code> の代わりに <code>C-u <span class="key">TAB</span></code> を入力すると、現在の候補に対して補完をし
+ます。上の例では「さ」に対し「さとう」が補完された時に <code>C-u <span class="key">TAB</span></code> を押すと、
 以後の補完は「さとう」を含む語（例えば「さとうせんせい」など）について行
 われます。
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-completion-prog-list
+<li>Variable: <code class="symbol">skk-completion-prog-list</code>
 
 <p>
 補完関数、補完対象の辞書を決定するためのリスト。標準設定は以下のとお
@@ -3744,7 +3746,7 @@ C-j
 </div>
 </li>
 
-<li>Variable: skk-comp-circulate
+<li>Variable: <code class="symbol">skk-comp-circulate</code>
 
 <p>
 <code>.</code> （ピリオド）で次の見出し語候補を、 <code>,</code> （コンマ）で前の見出し語候補
@@ -3755,21 +3757,21 @@ C-j
 </p>
 </li>
 
-<li>Variable: skk-try-completion-char
+<li>Variable: <code class="symbol">skk-try-completion-char</code>
 
 <p>
-見出し語補完を開始するキーキャラクタです。標準設定は <code>TAB</code> です。
+見出し語補完を開始するキーキャラクタです。標準設定は <code class="key">TAB</code> です。
 </p>
 </li>
 
-<li>Variable: skk-next-completion-char
+<li>Variable: <code class="symbol">skk-next-completion-char</code>
 
 <p>
 次の見出し語候補へ移るキーキャラクタです。標準設定はピリオド <code>.</code> です。
 </p>
 </li>
 
-<li>Variable: skk-previous-completion-char
+<li>Variable: <code class="symbol">skk-previous-completion-char</code>
 
 <p>
 前の見出し語候補へ戻るキーキャラクタです。標準設定はコンマ <code>,</code> です。
@@ -3778,24 +3780,24 @@ C-j
 </ul>
 
 <ul class="org-ul">
-<li>User Option: skk-previous-completion-use-backtab
+<li>User Option: <code class="symbol">skk-previous-completion-use-backtab</code>
 
 <p>
-<code>Non-nil</code> であれば、前の見出し語候補へ戻る動作を <code>SHIFT + TAB</code> でも可能
+<code>Non-nil</code> であれば、前の見出し語候補へ戻る動作を <code>SHIFT + <span class="key">TAB</span></code> でも可能
 とします。標準設定は <code>t</code> です。この機能の有効化／無効化の切り替えは、
 ファイル <code>~/.skk</code> を書き換えて Emacs を再起動してください。
 </p>
 </li>
 
-<li>Variable: skk-previous-completion-backtab-key
+<li>Variable: <code class="symbol">skk-previous-completion-backtab-key</code>
 
 <p>
-<code>SHIFT + TAB</code> が発行する key event です。Emacs の種類／実行環境によって
+<code>SHIFT + <span class="key">TAB</span></code> が発行する key event です。Emacs の種類／実行環境によって
 異なります。
 </p>
 </li>
 
-<li>Function: skk-comp-lisp-symbol &amp;optional PREDICATE
+<li>Function: <code class="symbol">skk-comp-lisp-symbol &amp;optional PREDICATE</code>
 
 <p>
 この関数をリスト <code>skk-completion-prog-list</code> へ追加すると、Lisp symbol 名
@@ -3818,12 +3820,12 @@ C-j
 <div class="outline-text-4" id="text-6-4-2">
 <p>
 前節で見出し語の補完について述べました。本節では、見出し語の補完動作を行
-った後、 <span class="key">SPC</span> を打鍵し、▼モードに入るまでの動作を一回の操作で行う方法に
+った後、 <code class="key">SPC</code> を打鍵し、▼モードに入るまでの動作を一回の操作で行う方法に
 ついて説明します。
 </p>
 
 <p>
-やり方は簡単。 <code>TAB</code> ・ <span class="key">SPC</span> と打鍵していたところを <code>M-SPC</code> に換えると、
+やり方は簡単。 <code class="key">TAB</code> ・ <code class="key">SPC</code> と打鍵していたところを <code>M-SPC</code> に換えると、
 見出し語を補完した上で変換を開始します。
 </p>
 
@@ -3840,7 +3842,7 @@ K a s i t a n n p o s e k i n i n n
   ▽かしたんぽせきにん*
   ------ Buffer: foo ------
 
-SPC <SPAN CLASS="KEY">RET</SPAN>
+<SPAN CLASS="KEY">SPC</SPAN> <SPAN CLASS="KEY">RET</SPAN>
 
   ------ Buffer: foo ------
   瑕疵担保責任*
@@ -3860,7 +3862,7 @@ M-SPC
 </pre>
 
 <ul class="org-ul">
-<li>Variable: skk-start-henkan-with-completion-char
+<li>Variable: <code class="symbol">skk-start-henkan-with-completion-char</code>
 
 <p>
 標準設定は <code>M-SPC</code> です。
@@ -3874,7 +3876,7 @@ M-SPC
 <h4 id="sec-6-4-3"><span class="section-number-4">6.4.3</span> 動的補完</h4>
 <div class="outline-text-4" id="text-6-4-3">
 <p>
-▽モードでは <code>TAB</code> を押さなくとも、文字を入力する都度、自動的に見出し語補
+▽モードでは <code class="key">TAB</code> を押さなくとも、文字を入力する都度、自動的に見出し語補
 完の読みを表示させる事ができます。この機能を以下「動的補完」と呼びます。
 類似の機能としては、ウェブブラウザの URL の入力や、Microsoft Excel のセル
 入力の自動補完 <sup><a id="fnr.58" name="fnr.58" class="footref" href="#fn.58">58</a></sup> をイメージすると分かりやすいかも知れません。動
@@ -3910,12 +3912,12 @@ face が使える環境では「んとう」の部分が異なる face で表示
 </p>
 
 <p>
-自動的に補完された見出し語が自分の意図したものであれば <code>TAB</code> を押すことで
+自動的に補完された見出し語が自分の意図したものであれば <code class="key">TAB</code> を押すことで
 ポイント位置を動かし、補完された見出し語を選択することができます。
 </p>
 
 <pre class="example">
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ---------------- Buffer: foo ------------------
   ▽ほんとう*
@@ -3923,7 +3925,7 @@ TAB
 </pre>
 
 <p>
-この状態から <span class="key">SPC</span> を押して変換するなり、 <code>q</code> を押してカタカナにするなり、
+この状態から <code class="key">SPC</code> を押して変換するなり、 <code>q</code> を押してカタカナにするなり、
 DDSKK 本来の動作を何でも行うことができます。
 </p>
 
@@ -3959,7 +3961,7 @@ H o
   ▽ほ*んとう
   ---------------- Buffer: foo ------------------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ---------------- Buffer: foo ------------------
   ▼保
@@ -3984,7 +3986,7 @@ k a
   ▽ほか*ん
   ---------------- Buffer: foo ------------------
 
-BS
+<SPAN CLASS="KEY">BS</SPAN>
 
   ---------------- Buffer: foo ------------------
   ▽ほ*んとう
@@ -3992,7 +3994,7 @@ BS
 </pre>
 
 <ul class="org-ul">
-<li>Variable: skk-dcomp-activate
+<li>Variable: <code class="symbol">skk-dcomp-activate</code>
 
 <p>
 この変数の値が <code>Non-nil</code> であれば、カーソル位置に関わらず常に動的補完が
@@ -4002,7 +4004,7 @@ BS
 </p>
 </li>
 
-<li>Variable: skk-dcomp-face
+<li>Variable: <code class="symbol">skk-dcomp-face</code>
 
 <p>
 この変数の値はフェイスであり、このフェイスによって動的に補完された部分が
@@ -4010,7 +4012,7 @@ BS
 </p>
 </li>
 
-<li>User Option: skk-dcomp-multiple-activate
+<li>User Option: <code class="symbol">skk-dcomp-multiple-activate</code>
 
 <p>
 <b>XEmacs では動作しません。</b>
@@ -4032,27 +4034,27 @@ BS
 </pre>
 
 <p>
-候補の選択には <code>TAB</code> 又は <code>SHIFT + TAB</code> を押します。
+候補の選択には <code class="key">TAB</code> 又は <code>SHIFT + <span class="key">TAB</span></code> を押します。
 また、普通の補完 (<a href="#sec-6-4-1">読みの補完</a>.) と同様に <code>.</code> （ピリオド）と <code>,</code> （コンマ）も
 利用できます。
 </p>
 </li>
 
-<li>Variable: skk-dcomp-multiple-rows
+<li>Variable: <code class="symbol">skk-dcomp-multiple-rows</code>
 
 <p>
 動的補完の候補を複数表示する場合の表示行数。標準は 7。
 </p>
 </li>
 
-<li>Variable: skk-dcomp-multiple-face
+<li>Variable: <code class="symbol">skk-dcomp-multiple-face</code>
 
 <p>
 動的補完の複数表示群のフェイス。上記例では「ほ」のフェイス。
 </p>
 </li>
 
-<li>Variable: skk-dcomp-multiple-trailing-face
+<li>Variable: <code class="symbol">skk-dcomp-multiple-trailing-face</code>
 
 <p>
 動的補完の複数表示郡の補完部分のフェイス。上記例では「んとう」、「かん」
@@ -4060,10 +4062,10 @@ BS
 </p>
 </li>
 
-<li>Variable: skk-dcomp-multiple-selected-face
+<li>Variable: <code class="symbol">skk-dcomp-multiple-selected-face</code>
 
 <p>
-動的補完の複数表示郡の選択対象のフェイス。上記例では <code>TAB</code> を押すたびに
+動的補完の複数表示郡の選択対象のフェイス。上記例では <code class="key">TAB</code> を押すたびに
 「ほんとう」、「ほかん」、「ほっかいどう」と選択位置が移ります。その現
 在選択位置に適用するフェイスです。
 </p>
@@ -4097,7 +4099,7 @@ BS
   &#9661;&#12383;&#12435;@*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   &#9660;&#20025;*
@@ -4107,7 +4109,7 @@ SPC
   4&#30011;(&#20022;&#37096;3&#30011;)
   ----- Echo Area -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   &#9660;&#21453;*
@@ -4117,7 +4119,7 @@ SPC
   4&#30011;(&#21448;&#37096;2&#30011;)
   ----- Echo Area -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   &#9660;&#26086;*
@@ -4127,7 +4129,7 @@ SPC
   5&#30011;(&#26085;&#37096;1&#30011;)
   ----- Echo Area -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   &#9660;&#20294;*
@@ -4137,7 +4139,7 @@ SPC
   7&#30011;(&#20154;&#37096;5&#30011;)
   ----- Echo Area -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   &#9660;*
@@ -4172,7 +4174,7 @@ SPC
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-tankan-search-key
+<li>User Option: <code class="symbol">skk-tankan-search-key</code>
 
 <p>
 単漢字変換の検索キー。以下は、検索キーを <code>!</code> へと変更する例です。
@@ -4267,7 +4269,7 @@ DDSKK 14.2 からは標準で変数 <code>skk-search-prog-list</code> に <code>
   &#9661;10@*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: *&#20505;&#35036;* -----
   A:&#20537;<span style="font-weight: bold; font-style: italic;">;</span><span style="font-weight: bold; font-style: italic;">10&#30011;(&#20154;&#37096;8&#30011;)</span>
@@ -4301,13 +4303,13 @@ SPC
   &#9661;@@*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Minibuffer -------
   &#37096;&#39318;&#12434;&#30058;&#21495;&#12391;&#36984;&#25246;&#65288;TAB&#12391;&#19968;&#35239;&#34920;&#31034;&#65289;: *
   ------ Minibuffer -------
 
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ------ *Completions* -------
   Click &lt;mouse-2&gt; on a completion to select it.
@@ -4337,7 +4339,7 @@ TAB
 </div>
 
 <ul class="org-ul">
-<li>Variable: skk-tankan-face
+<li>Variable: <code class="symbol">skk-tankan-face</code>
 
 <p>
 <code>M-x skk-tankan</code> を実行したときに表示される <b>単漢字バッファ</b> で使用する
@@ -4345,7 +4347,7 @@ TAB
 </p>
 </li>
 
-<li>Variable: skk-tankan-radical-name-face
+<li>Variable: <code class="symbol">skk-tankan-radical-name-face</code>
 
 <p>
 部首の読みに適用するフェイスです。
@@ -4361,7 +4363,7 @@ TAB
 
 <p>
 直前の小々節「部首による単漢字変換」にて、部首番号を入力するプロンプトで
-単に <span class="key">RET</span> を打鍵すると、部首の読みを入力するプロンプトに替わります。
+単に <code class="key">RET</code> を打鍵すると、部首の読みを入力するプロンプトに替わります。
 </p>
 
 <pre class="example">
@@ -4369,7 +4371,7 @@ TAB
   部首を読みで選択（TABで一覧表示）: *
   ------ Minibuffer -------
 
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ------ Completion List -------
   In this buffer, type <SPAN CLASS="KEY">RET</SPAN> to select the completion near point.
@@ -4423,7 +4425,7 @@ K a n d o u ; a i d a   ※ ; 自体は表示されません。
   ▽かんどうあいだ
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▼間道
@@ -4443,7 +4445,7 @@ K a n d o u ; k a n n a t u
   ▽かんどうかんあつ
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▼感動
@@ -4481,7 +4483,7 @@ W a ; h e i w a
   ▽わへいわ*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▼和*
@@ -4489,7 +4491,7 @@ SPC
 </pre>
 
 <ul class="org-ul">
-<li>User Option: skk-hint-start-char
+<li>User Option: <code class="symbol">skk-hint-start-char</code>
 
 <p>
 ヒント変換を開始するキーを character で指定します。
@@ -4529,7 +4531,7 @@ K o b a y a s h i
   ▽こばやし*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼小林*
@@ -4547,7 +4549,7 @@ s i
   小林▽&gt;し*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   小林▼氏*
@@ -4593,7 +4595,7 @@ O o g a t a
   超▽おおがた*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   超▼大型*
@@ -4607,12 +4609,12 @@ C-j
 </pre>
 
 <p>
-キー <code>&gt;</code> を押しただけで <span class="key">SPC</span> が押されたかのように変換されます。他の接頭
-辞を選びたいときは <span class="key">SPC</span> を押して下さい。
+キー <code>&gt;</code> を押しただけで <code class="key">SPC</code> が押されたかのように変換されます。他の接頭
+辞を選びたいときは <code class="key">SPC</code> を押して下さい。
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-special-midashi-char-list
+<li>Variable: <code class="symbol">skk-special-midashi-char-list</code>
 
 <p>
 ▽モードまたは▼モードにおいて、この変数の値に含まれる文字の入力があっ
@@ -4830,7 +4832,7 @@ Q 2 g a t u 2 5 n i t i <SPAN CLASS="KEY">SPC</SPAN>
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-num-convert-float
+<li>User Option: <code class="symbol">skk-num-convert-float</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、浮動小数点数を使った見出し語に対
@@ -4846,7 +4848,7 @@ Q 2 g a t u 2 5 n i t i <SPAN CLASS="KEY">SPC</SPAN>
 </p>
 </li>
 
-<li>User Option: skk-show-num-type-info
+<li>User Option: <code class="symbol">skk-show-num-type-info</code>
 
 <p>
 <code>Non-nil</code> であれば、辞書登録モードに入るのと同時に変換タイプの案内を表
@@ -4854,21 +4856,21 @@ Q 2 g a t u 2 5 n i t i <SPAN CLASS="KEY">SPC</SPAN>
 </p>
 </li>
 
-<li>Variable: skk-num-grouping-separator
+<li>Variable: <code class="symbol">skk-num-grouping-separator</code>
 
 <p>
 タイプ <code>#8</code> で使用する記号。標準設定は <code>,</code> 。
 </p>
 </li>
 
-<li>Variable: skk-num-grouping-places
+<li>Variable: <code class="symbol">skk-num-grouping-places</code>
 
 <p>
 タイプ <code>#8</code> について、何桁毎に区切るのかを数値で指定する。標準設定は 3。
 </p>
 </li>
 
-<li>User Option: skk-use-numeric-conversion
+<li>User Option: <code class="symbol">skk-use-numeric-conversion</code>
 
 <p>
 この変数を <code>nil</code> に設定すると、本節で説明した数値変換の機能を全て無効に
@@ -4884,7 +4886,7 @@ Q 2 g a t u 2 5 n i t i <SPAN CLASS="KEY">SPC</SPAN>
 <div class="outline-text-4" id="text-6-5-5">
 <p>
 かなモードで <code>/</code> を打鍵すると <b>SKK abbrev モード</b> に入り、以後の入力はアス
-キー文字になります。普通に <span class="key">SPC</span> を押すと、その見出し語に係る変換が得られ
+キー文字になります。普通に <code class="key">SPC</code> を押すと、その見出し語に係る変換が得られ
 ます。
 </p>
 
@@ -4913,7 +4915,7 @@ i s
   ▽is*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼インクリメンタル・サーチ*
@@ -4936,7 +4938,7 @@ SKK abbrve モードで使われる辞書は、普通のかな漢字変換と同
 </p>
 
 <p>
-上記の例において <span class="key">SPC</span> の代わりに <code>C-q</code> を打鍵することで、入力したアスキー
+上記の例において <code class="key">SPC</code> の代わりに <code>C-q</code> を打鍵することで、入力したアスキー
 文字をそのまま全角アルファベットに変換することもできます。
 </p>
 
@@ -4945,7 +4947,7 @@ SKK abbrve モードで使われる辞書は、普通のかな漢字変換と同
 </p>
 
 <p>
-なお、SKK abbrev モードにおいても <code>TAB</code> による「見出し語の補完」 (<a href="#sec-6-4">補完</a>.) を
+なお、SKK abbrev モードにおいても <code class="key">TAB</code> による「見出し語の補完」 (<a href="#sec-6-4">補完</a>.) を
 行うことができます。
 </p>
 </div>
@@ -4963,7 +4965,7 @@ SKK abbrve モードで使われる辞書は、普通のかな漢字変換と同
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-date-ad
+<li>User Option: <code class="symbol">skk-date-ad</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば西暦で、 <code>nil</code> であれば元号で表示しま
@@ -4971,7 +4973,7 @@ SKK abbrve モードで使われる辞書は、普通のかな漢字変換と同
 </p>
 </li>
 
-<li>Variable: skk-number-style
+<li>Variable: <code class="symbol">skk-number-style</code>
 
 <p>
 この変数の値は以下のように解釈されます。標準設定は <code>1</code> です。
@@ -5091,7 +5093,7 @@ Sun Jul 21 06:40:34 1996
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-calc operator
+<li>Function: <code class="symbol">skk-calc operator</code>
 
 <p>
 <code>skk-calc</code> は、引数をひとつ取り、見出し語の数字に対しその演算を行う簡単
@@ -5130,7 +5132,7 @@ Sun Jul 21 06:40:34 1996
 </p>
 </li>
 
-<li>Function: skk-gadget-units-conversion 基準単位 数値 変換単位
+<li>Function: <code class="symbol">skk-gadget-units-conversion 基準単位 数値 変換単位</code>
 
 <p>
 数値について、基準単位から変換単位への変換を行います。
@@ -5143,13 +5145,13 @@ Sun Jul 21 06:40:34 1996
   ▽13mile*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼20.9209km*
   ------ Buffer: foo ------
 
-RET
+<SPAN CLASS="KEY">RET</SPAN>
 
   ------ Buffer: foo ------
   20.9209km*
@@ -5161,7 +5163,7 @@ RET
 </p>
 </li>
 
-<li>Variable: skk-units-alist
+<li>Variable: <code class="symbol">skk-units-alist</code>
 
 <p>
 この変数は以下の形式の連想リストです。
@@ -5194,7 +5196,7 @@ RET
 </div>
 </li>
 
-<li>Function:  skk-relative-date pp-function format and-time &amp;key (yy 0) (mm 0) (dd 0)
+<li>Function: <code class="symbol"> skk-relative-date pp-function format and-time &amp;key (yy 0) (mm 0) (dd 0)</code>
 
 <p>
 <code>skk-current-date</code> の拡張版。 <code>PP-FUNCTION</code> , <code>FORMAT</code> , <code>AND-TIME</code> の
@@ -5221,7 +5223,7 @@ RET
   うがっこう*
   ---------------- Buffer: foo ------------------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ---------------- Buffer: foo ------------------
   ▼尋常小学校*
@@ -5253,7 +5255,7 @@ C-u 5 C-f
   くせい*しました。
 ---------------- Buffer: foo ------------------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ---------------- Buffer: foo ------------------
   仮名漢字変換プログラムを▼作成*しました。
@@ -5266,7 +5268,7 @@ SPC
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-allow-spaces-newlines-and-tabs
+<li>User Option: <code class="symbol">skk-allow-spaces-newlines-and-tabs</code>
 
 <p>
 この変数を <code>nil</code> に設定すると、本節で説明したような２行以上にまたがる文
@@ -5281,7 +5283,7 @@ SPC
 <h4 id="sec-6-5-9"><span class="section-number-4">6.5.9</span> カタカナ変換</h4>
 <div class="outline-text-4" id="text-6-5-9">
 <ul class="org-ul">
-<li>Variable: skk-search-katakana
+<li>Variable: <code class="symbol">skk-search-katakana</code>
 
 <p>
 通常、SKK でカタカナ語を入力するには、
@@ -5329,7 +5331,7 @@ SPC
 <h4 id="sec-6-5-10"><span class="section-number-4">6.5.10</span> サ変動詞変換</h4>
 <div class="outline-text-4" id="text-6-5-10">
 <ul class="org-ul">
-<li>Variable: skk-search-sagyo-henkaku
+<li>Variable: <code class="symbol">skk-search-sagyo-henkaku</code>
 
 <p>
 通常、SKK では諸般の事情によりサ行変格活用の動詞は送りなし変換をする前
@@ -5406,13 +5408,13 @@ C-f
   ▽辺*
   ---- Buffer: foo ----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ---- Buffer: foo ----
   ▼邊*
   ---- Buffer: foo ----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ---- Buffer: foo ----
   ▼邉*
@@ -5420,7 +5422,7 @@ SPC
 </pre>
 
 <ul class="org-ul">
-<li>Variable: skk-itaiji-jisyo
+<li>Variable: <code class="symbol">skk-itaiji-jisyo</code>
 
 <p>
 辞書ファイル <code>SKK-JISYO.itaiji</code> 又は <code>SKK-JISYO.itaiji.JIS3_4</code> へ
@@ -5432,7 +5434,7 @@ SPC
 
 
 <ul class="org-ul">
-<li>Function: skk-search-itaiji
+<li>Function: <code class="symbol">skk-search-itaiji</code>
 
 <p>
 not documented.
@@ -5450,7 +5452,7 @@ not documented.
 <h4 id="sec-6-5-12"><span class="section-number-4">6.5.12</span> ファンクションキーの使い方</h4>
 <div class="outline-text-4" id="text-6-5-12">
 <ul class="org-ul">
-<li>Variable: skk-j-mode-function-key-usage
+<li>Variable: <code class="symbol">skk-j-mode-function-key-usage</code>
 
 <p>
 シンボル <code>conversion</code> ならば、 <code>skk-search-prog-list-1</code> 〜 <code>skk-search-prog-list-9</code> お
@@ -5681,7 +5683,7 @@ skK → SKK
 <div class="outline-text-5" id="text-6-6-1-3">
 
 <ul class="org-ul">
-<li>Variable: skk-kana-input-search-function
+<li>Variable: <code class="symbol">skk-kana-input-search-function</code>
 
 <p>
 ルールリストの中に記せない変換ルールを処理する関数。
@@ -5734,7 +5736,7 @@ ohhira → おおひら
 </ul>
 
 <ul class="org-ul">
-<li>Variable: skk-kutouten-type
+<li>Variable: <code class="symbol">skk-kutouten-type</code>
 
 <p>
 ■モードの標準では、キーボードの <code>.</code> を打鍵すると「。」が、 <code>,</code> を打鍵
@@ -5789,7 +5791,7 @@ ohhira → おおひら
 </p>
 </li>
 
-<li>Variable: skk-use-auto-kutouten
+<li>Variable: <code class="symbol">skk-use-auto-kutouten</code>
 
 <p>
 標準設定は <code>nil</code> 。 <code>Non-nil</code> であれば、カーソル直前の文字種に応じて
@@ -5937,7 +5939,7 @@ C-u 2 !
 
 
 <ul class="org-ul">
-<li>Variable: skk-auto-paren-string-alist
+<li>Variable: <code class="symbol">skk-auto-paren-string-alist</code>
 
 <p>
 自動挿入すべきペアの文字列を指定します。標準設定は下記のとおり。
@@ -6085,7 +6087,7 @@ C-u 2 [
 
 
 <ul class="org-ul">
-<li>User Option: skk-use-auto-enclose-pair-of-region
+<li>User Option: <code class="symbol">skk-use-auto-enclose-pair-of-region</code>
 
 <p>
 <code>non-nil</code> であれば、上記の機能が有効になります。
@@ -6101,7 +6103,7 @@ C-u 2 [
 <h4 id="sec-6-6-5"><span class="section-number-4">6.6.5</span> 確定するキー</h4>
 <div class="outline-text-4" id="text-6-6-5">
 <ul class="org-ul">
-<li>Variable: skk-kakutei-key
+<li>Variable: <code class="symbol">skk-kakutei-key</code>
 
 <p>
 この変数の値は、明示的な確定動作を行うキーを指定します。標準設定では <code>C-j</code> と
@@ -6135,10 +6137,10 @@ A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-henkan-show-candidates-keys
+<li>Variable: <code class="symbol">skk-henkan-show-candidates-keys</code>
 
 <p>
-７つの異なる文字のリスト。文字は必ず小文字とする。 <code>x</code> , <span class="key">SPC</span> 及び <code>C-g</code> は、
+７つの異なる文字のリスト。文字は必ず小文字とする。 <code>x</code> , <code class="key">SPC</code> 及び <code>C-g</code> は、
 それぞれ候補選択中における前候補群の表示、次候補群の表示、取り止めのた
 めに割り付けられているので、含めてはならない。標準設定は、以下のとおり。
 </p>
@@ -6150,14 +6152,14 @@ A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
 </div>
 </li>
 
-<li>Variable: skk-henkan-show-candidates-keys-face
+<li>Variable: <code class="symbol">skk-henkan-show-candidates-keys-face</code>
 
 <p>
 選択キーを表示する際のフェイスを指定します。
 </p>
 </li>
 
-<li>Variable: skk-henkan-rest-indicator
+<li>Variable: <code class="symbol">skk-henkan-rest-indicator</code>
 
 <p>
 標準設定は <code>nil</code> 。 <code>Non-nil</code> であれば <code>[残り 99++]</code> の表示を右寄せ配
@@ -6165,7 +6167,7 @@ A:嘘  S:拒  D:拠  F:虚  J:挙  K:許  L:渠  [残り 2]
 </p>
 </li>
 
-<li>Variable: skk-henkan-rest-indicator-face
+<li>Variable: <code class="symbol">skk-henkan-rest-indicator-face</code>
 
 <p>
 <code>[残り 99++]</code> の face 属性。標準設定は <code>default</code> 。
@@ -6189,7 +6191,7 @@ K a k u t e i <SPAN CLASS="KEY">SPC</SPAN>
   ▼確定*
   ------ Buffer: foo ------
 
-RET
+<SPAN CLASS="KEY">RET</SPAN>
 
   ------ Buffer: foo ------
   確定
@@ -6198,17 +6200,17 @@ RET
 </pre>
 
 <p>
-のように、▼モードで <span class="key">RET</span> を入力すると、確定し、かつ改行を行います。この
+のように、▼モードで <code class="key">RET</code> を入力すると、確定し、かつ改行を行います。この
 挙動を変えるためのユーザオプションが用意されています。
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-egg-like-newline
+<li>User Option: <code class="symbol">skk-egg-like-newline</code>
 
 <p>
-この変数の値を <code>non-nil</code> にすると、▼モードで <span class="key">RET</span> を入力したときに確
+この変数の値を <code>non-nil</code> にすると、▼モードで <code class="key">RET</code> を入力したときに確
 定のみ行い、改行はしません。従って、辞書登録モードにおいて▼モードであ
-るときの <span class="key">RET</span> 打鍵時の挙動も変化 <sup><a id="fnr.72" name="fnr.72" class="footref" href="#fn.72">72</a></sup> します。
+るときの <code class="key">RET</code> 打鍵時の挙動も変化 <sup><a id="fnr.72" name="fnr.72" class="footref" href="#fn.72">72</a></sup> します。
 </p>
 
 <pre class="example">
@@ -6218,7 +6220,7 @@ K a k u t e i <SPAN CLASS="KEY">SPC</SPAN>
 ▼確定*
 ------ Buffer: foo ------
 
-RET
+<SPAN CLASS="KEY">RET</SPAN>
 
 ------ Buffer: foo ------
 確定*
@@ -6244,7 +6246,7 @@ D e n k i y a <SPAN CLASS="KEY">SPC</SPAN>
   ▼電気屋*
   ------ Buffer: foo ------
 
-BS
+<SPAN CLASS="KEY">BS</SPAN>
 
   ------ Buffer: foo ------
   電気*
@@ -6252,7 +6254,7 @@ BS
 </pre>
 
 <ul class="org-ul">
-<li>User Option: skk-delete-implies-kakutei
+<li>User Option: <code class="symbol">skk-delete-implies-kakutei</code>
 
 <p>
 この変数の値を <code>nil</code> に設定すると、▼モードで <code>BS</code> を押した時にひとつ前
@@ -6276,25 +6278,25 @@ D e n k i
   ▽でんき*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼電気*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼伝記*
   ------ Buffer: foo ------
 
-BS
+<SPAN CLASS="KEY">BS</SPAN>
 
   ------ Buffer: foo ------
   ▼電気*
   ------ Buffer: foo ------
 
-BS
+<SPAN CLASS="KEY">BS</SPAN>
 
   ------ Buffer: foo ------
   ▽でんき*
@@ -6336,7 +6338,7 @@ C-g
 </pre>
 
 <ul class="org-ul">
-<li>User Option: skk-delete-okuri-when-quit
+<li>User Option: <code class="symbol">skk-delete-okuri-when-quit</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、送りありの変換中に <code>C-g</code> を入力
@@ -6475,7 +6477,7 @@ Dvorak 配列のような、押しやすい場所に適当なキーがない環�
 </p>
 </li>
 
-<li>Variable: skk-sticky-double-interval
+<li>Variable: <code class="symbol">skk-sticky-double-interval</code>
 
 <p>
 この変数が指定する秒数以内に打鍵されたものを同時打鍵と判定する。
@@ -6563,7 +6565,7 @@ C-_
 </p>
 
 <ul class="org-ul">
-<li>Key: M-Q, skk-backward-and-set-henkan-point
+<li>Key: <code class="symbol">M-Q</code> (skk-backward-and-set-henkan-point)
 
 <p>
 <code>M-Q</code> （大文字の <code>Q</code> です。）と打鍵すると、現在位置の直前の文字列につい
@@ -6604,7 +6606,7 @@ M-Q
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-allow-spaces-newlines-and-tabs
+<li>User Option: <code class="symbol">skk-allow-spaces-newlines-and-tabs</code>
 
 <p>
 後方にポイントを戻す途中で行頭に到達した場合は、更に上の行について、行
@@ -6659,8 +6661,8 @@ M-x skk-undo-kakutei
 
 <p>
 この例では、「高校」の確定を取り消しています。すると、辞書の第一候補であ
-る「高校」をとばして、次候補である「孝行」が現れます。ここで更に <span class="key">SPC</span> を
-押せば次候補である「航行」が現れ、更にもう一度 <span class="key">SPC</span> を押せば候補が尽きて
+る「高校」をとばして、次候補である「孝行」が現れます。ここで更に <code class="key">SPC</code> を
+押せば次候補である「航行」が現れ、更にもう一度 <code class="key">SPC</code> を押せば候補が尽きて
 辞書登録モードに入ります。
 </p>
 
@@ -6677,7 +6679,7 @@ M-x skk-undo-kakutei
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-undo-kakutei-return-previous-point
+<li>User Option: <code class="symbol">skk-undo-kakutei-return-previous-point</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、確定アンドゥ処理が完了した後に、確定
@@ -6695,7 +6697,7 @@ M-x skk-undo-kakutei
 <div class="outline-text-4" id="text-6-7-3">
 <p>
 ▽モードで見出し語を入力しているときに「を」や「。」などの文字を打鍵する
-と、 <span class="key">SPC</span> を押したかのように変換を開始 <sup><a id="fnr.81" name="fnr.81" class="footref" href="#fn.81">81</a></sup> し、▼モードに入
+と、 <code class="key">SPC</code> を押したかのように変換を開始 <sup><a id="fnr.81" name="fnr.81" class="footref" href="#fn.81">81</a></sup> し、▼モードに入
 るようになっています。
 </p>
 
@@ -6714,7 +6716,7 @@ w o
 </pre>
 
 <ul class="org-ul">
-<li>User Option: skk-auto-okuri-process
+<li>User Option: <code class="symbol">skk-auto-okuri-process</code>
 
 <p>
 この変数を <code>non-nil</code> に設定して送り仮名の自動処理 <sup><a id="fnr.82" name="fnr.82" class="footref" href="#fn.82">82</a></sup> を行ってい
@@ -6744,7 +6746,7 @@ D e k i r u n n d e s u
 </pre>
 </li>
 
-<li>Variable: skk-auto-start-henkan-keyword-list
+<li>Variable: <code class="symbol">skk-auto-start-henkan-keyword-list</code>
 
 <p>
 この変数の値は、単語や文節の区切りとなるような文字列のリストです。標準
@@ -6760,7 +6762,7 @@ D e k i r u n n d e s u
 </div>
 </li>
 
-<li>Variable: skk-auto-start-henkan
+<li>Variable: <code class="symbol">skk-auto-start-henkan</code>
 
 <p>
 この変数の値を <code>nil</code> に設定すると、本節で説明した自動変換開始機能を無効
@@ -6787,7 +6789,7 @@ K a k u t e i
   ▽かくてい*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼確定*
@@ -6807,7 +6809,7 @@ u
 </pre>
 
 <ul class="org-ul">
-<li>User Option: skk-kakutei-early
+<li>User Option: <code class="symbol">skk-kakutei-early</code>
 
 <p>
 この変数の値を <code>nil</code> にすると、「暗黙の確定」を遅らせます。具体的には、
@@ -6820,7 +6822,7 @@ u
 </li>
 <li>次の変換開始時（ <code>A</code> から <code>Z</code> までの大文字の入力時）
 </li>
-<li><span class="key">RET</span> 入力時
+<li><code class="key">RET</code> 入力時
 </li>
 </ul>
 <p>
@@ -6834,7 +6836,7 @@ K a k u t e i
   ▽かくてい*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼確定*
@@ -6872,7 +6874,7 @@ u r u
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-kakutei-when-unique-candidate
+<li>User Option: <code class="symbol">skk-kakutei-when-unique-candidate</code>
 
 <p>
 この値が <code>non-nil</code> であれば、この機能が有効になります。
@@ -6904,7 +6906,7 @@ u r u
 </p>
 </li>
 
-<li>Variable: skk-kakutei-search-prog-limit
+<li>Variable: <code class="symbol">skk-kakutei-search-prog-limit</code>
 
 <p>
 この変数の値が数値であれば、積極的な確定 <code>skk-kakutei-when-unique-candidate</code> に
@@ -6943,7 +6945,7 @@ Z i s h o
   ▽じしょ*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   辞書*
@@ -6951,7 +6953,7 @@ SPC
 </pre>
 
 <p>
-のように <span class="key">SPC</span> を押しただけでいきなり確定します。エントリの候補がひとつだ
+のように <code class="key">SPC</code> を押しただけでいきなり確定します。エントリの候補がひとつだ
 けだからです。
 </p>
 
@@ -6985,7 +6987,7 @@ x
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-kakutei-jisyo
+<li>Variable: <code class="symbol">skk-kakutei-jisyo</code>
 
 <p>
 確定変換用の辞書ファイル <sup><a id="fnr.85" name="fnr.85" class="footref" href="#fn.85">85</a></sup> を指定します。 <code>nil</code> であれ
@@ -7034,7 +7036,7 @@ SKK の送り仮名の処理は、好みが分かれるところです。色々�
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-henkan-okuri-strictly
+<li>User Option: <code class="symbol">skk-henkan-okuri-strictly</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、見出し語がマッチするかどうかのチ
@@ -7121,7 +7123,7 @@ SKK の送り仮名の処理は、好みが分かれるところです。色々�
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-henkan-strict-okuri-precedence
+<li>User Option: <code class="symbol">skk-henkan-strict-okuri-precedence</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、見出し語と送り仮名がマッチした候
@@ -7144,7 +7146,7 @@ SKK の送り仮名の処理は、好みが分かれるところです。色々�
 <h4 id="sec-6-8-3"><span class="section-number-4">6.8.3</span> 送り仮名の自動処理</h4>
 <div class="outline-text-4" id="text-6-8-3">
 <p>
-この節では、「あげる」と入力してから <span class="key">SPC</span> を押しても「上げる」と変換する
+この節では、「あげる」と入力してから <code class="key">SPC</code> を押しても「上げる」と変換する
 機能を紹介します。
 </p>
 </div>
@@ -7154,7 +7156,7 @@ SKK の送り仮名の処理は、好みが分かれるところです。色々�
 <div class="outline-text-5" id="text-6-8-3-1">
 
 <ul class="org-ul">
-<li>User Option: skk-auto-okuri-process
+<li>User Option: <code class="symbol">skk-auto-okuri-process</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、送り仮名の自動処理が行われます。
@@ -7329,7 +7331,7 @@ W a t a S i t a
   [辞書登録] わたした 渡した*
   ------ Minibuffer -------
 
-RET
+<SPAN CLASS="KEY">RET</SPAN>
 
   -------------------------- Echo Area --------------------------
   Shall I register this as okuri-ari word: わたs /渡/ ? (y or n)
@@ -7358,7 +7360,7 @@ RET
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-kana-rom-vector
+<li>Variable: <code class="symbol">skk-kana-rom-vector</code>
 
 <p>
 この変数は、送り仮名部分をローマ字プレフィックスに分解する際に、参照さ
@@ -7443,7 +7445,7 @@ Shall I register this as okuri-ari entry: ありがs /有賀/ ? (y or n)
 <h4 id="sec-6-8-4"><span class="section-number-4">6.8.4</span> 送りあり変換の変換開始のタイミング</h4>
 <div class="outline-text-4" id="text-6-8-4">
 <ul class="org-ul">
-<li>User Option: skk-process-okuri-early
+<li>User Option: <code class="symbol">skk-process-okuri-early</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、送りあり変換の変換開始のタイミン
@@ -7596,7 +7598,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-study-sesearch-times
+<li>Variable: <code class="symbol">skk-study-sesearch-times</code>
 
 <p>
 現在の変換キーに対する関連変換キーをいくつまで遡って検索するか。標準設
@@ -7604,7 +7606,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-max-distance
+<li>Variable: <code class="symbol">skk-study-max-distance</code>
 
 <p>
 この変数には integer を指定します。標準設定値は 30 です。直前に確定し
@@ -7627,7 +7629,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-first-candidate
+<li>Variable: <code class="symbol">skk-study-first-candidate</code>
 
 <p>
 この変数が <code>non-nil</code> であれば、第一候補で確定した際も学習します。 <code>nil</code> で
@@ -7637,7 +7639,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-file
+<li>Variable: <code class="symbol">skk-study-file</code>
 
 <p>
 学習結果を保存するファイル名です。この変数の標準設定値は <code>~/.skk-study</code> です。
@@ -7649,7 +7651,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-backup-file
+<li>Variable: <code class="symbol">skk-study-backup-file</code>
 
 <p>
 <code>~/.skk-study</code> のバックアップファイルです。
@@ -7657,7 +7659,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-sort-saving
+<li>Variable: <code class="symbol">skk-study-sort-saving</code>
 
 <p>
 学習データのデータ構造に関するものです。この変数の値が <code>non-nil</code> であれ
@@ -7666,7 +7668,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Variable: skk-study-check-alist-format
+<li>Variable: <code class="symbol">skk-study-check-alist-format</code>
 
 <p>
 学習データのデータ構造に関するものです。この変数の値が <code>non-nil</code> であれ
@@ -7675,7 +7677,7 @@ A m e <SPAN CLASS="KEY">SPC</SPAN> g a T a i r y o u <SPAN CLASS="KEY">SPC</SPAN
 </p>
 </li>
 
-<li>Key: M-x skk-study-switch-current-theme, skk-study-switch-current-theme
+<li>Key: <code class="symbol">M-x skk-study-switch-current-theme</code> (skk-study-switch-current-theme)
 
 <p>
 そのバッファで利用する学習テーマを切り替えます。プロンプト
@@ -7694,14 +7696,14 @@ Theme of current buffer: *
 </p>
 </li>
 
-<li>Key: M-x skk-study-remove-theme, skk-study-remove-theme
+<li>Key: <code class="symbol">M-x skk-study-remove-theme</code> (skk-study-remove-theme)
 
 <p>
 不要な学習テーマを消去します。
 </p>
 </li>
 
-<li>Key: M-x skk-study-copy-theme, skk-study-copy-theme
+<li>Key: <code class="symbol">M-x skk-study-copy-theme</code> (skk-study-copy-theme)
 
 <p>
 学習テーマを複製します。
@@ -7720,7 +7722,7 @@ skk の初期設定では、変換、選択された候補は、次回の変換�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-jisyo-fix-order
+<li>Variable: <code class="symbol">skk-jisyo-fix-order</code>
 
 <p>
 <code>non-nil</code> であれば、確定の際に個人辞書の同音語の順序を変更せず、個人辞
@@ -7776,7 +7778,7 @@ skk の初期設定では、変換、選択された候補は、次回の変換�
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-bayesian-debug
+<li>User Option: <code class="symbol">skk-bayesian-debug</code>
 
 <p>
 <code>non-nil</code> ならば、以下のとおりデバッグ用のメッセージを表示します。
@@ -7796,7 +7798,7 @@ skk の初期設定では、変換、選択された候補は、次回の変換�
 </ul>
 </li>
 
-<li>User Option: skk-bayesian-prefer-server
+<li>User Option: <code class="symbol">skk-bayesian-prefer-server</code>
 
 <p>
 <code>non-nil</code> ならば <code>skk-bayesian-host</code> の <code>skk-bayesian-port</code> に接続しま
@@ -7804,42 +7806,42 @@ skk の初期設定では、変換、選択された候補は、次回の変換�
 </p>
 </li>
 
-<li>Variable: skk-bayesian-host
+<li>Variable: <code class="symbol">skk-bayesian-host</code>
 
 <p>
 <code>bskk</code> サーバが稼動しているホスト名
 </p>
 </li>
 
-<li>Variable: skk-bayesian-port
+<li>Variable: <code class="symbol">skk-bayesian-port</code>
 
 <p>
 <code>bskk</code> サーバのポート番号
 </p>
 </li>
 
-<li>Variable: skk-bayesian-history-file
+<li>Variable: <code class="symbol">skk-bayesian-history-file</code>
 
 <p>
 not documented
 </p>
 </li>
 
-<li>Variable: skk-bayesian-corpus-make
+<li>Variable: <code class="symbol">skk-bayesian-corpus-make</code>
 
 <p>
 not documented
 </p>
 </li>
 
-<li>Variable: skk-bayesian-corpus-file
+<li>Variable: <code class="symbol">skk-bayesian-corpus-file</code>
 
 <p>
 not documented
 </p>
 </li>
 
-<li>Key: M-x skk-bayesian-kill-process, skk-bayesian-kill-process
+<li>Key: <code class="symbol">M-x skk-bayesian-kill-process</code> (skk-bayesian-kill-process)
 
 <p>
 not documented
@@ -7929,7 +7931,7 @@ not documented
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-kakutei-jisyo
+<li>Variable: <code class="symbol">skk-kakutei-jisyo</code>
 
 <p>
 確定変換のための辞書です。
@@ -7945,7 +7947,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-initial-search-jisyo
+<li>Variable: <code class="symbol">skk-initial-search-jisyo</code>
 
 <p>
 確定辞書の後、かつ、個人辞書の前に検索を行う辞書です。この辞書を適当に
@@ -7962,7 +7964,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-jisyo
+<li>Variable: <code class="symbol">skk-jisyo</code>
 
 <p>
 個人辞書。DDSKK を一番最初に起動したとき、変数 <code>skk-jisyo</code> が指すファイ
@@ -7970,7 +7972,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-backup-jisyo
+<li>Variable: <code class="symbol">skk-backup-jisyo</code>
 
 <p>
 個人辞書の予備（バックアップ）です。検索の対象ではなく、あくまで個人辞
@@ -7978,7 +7980,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-cdb-large-jisyo
+<li>Variable: <code class="symbol">skk-cdb-large-jisyo</code>
 
 <p>
 共有辞書のうち CDB 形式に変換した辞書です。指定した場合は <code>skk-large-jisyo</code> よ
@@ -7987,7 +7989,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-large-jisyo
+<li>Variable: <code class="symbol">skk-large-jisyo</code>
 
 <p>
 共有辞書のひとつ。バッファに読み込んで検索を行います。例えば <code>skk-large-jisyo</code> に S 辞書
@@ -8002,7 +8004,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-aux-large-jisyo
+<li>Variable: <code class="symbol">skk-aux-large-jisyo</code>
 
 <p>
 共有辞書のひとつ。辞書サーバに接続できない時にバッファに読み込んで検索
@@ -8010,7 +8012,7 @@ not documented
 </p>
 </li>
 
-<li>Variable: skk-extra-jisyo-file-list
+<li>Variable: <code class="symbol">skk-extra-jisyo-file-list</code>
 
 <p>
 SKK では個人辞書の他に、共有辞書または辞書サーバを設定して利用するのが
@@ -8145,7 +8147,7 @@ DDSKK では、複数の辞書を扱うことが可能です。複数の辞書�
 </p>
 
 <p>
-もし確定辞書で候補が見つかったらそのまま自動的に確定されます。１回 <span class="key">SPC</span> を
+もし確定辞書で候補が見つかったらそのまま自動的に確定されます。１回 <code class="key">SPC</code> を
 押す動作に対し、プログラム側では新たな候補を見つけるまで上記の動作を進め
 ます。例えば、
 </p>
@@ -8155,7 +8157,7 @@ DDSKK では、複数の辞書を扱うことが可能です。複数の辞書�
 補がある場合、そこでいったん止まりユーザにその候補を表示します。
 </li>
 
-<li>更に <span class="key">SPC</span> が押されると、次は個人辞書を検索します。そこで候補が見つかり、
+<li>更に <code class="key">SPC</code> が押されると、次は個人辞書を検索します。そこで候補が見つかり、
 しかもその候補が <code>skk-initial-search-jisyo</code> で見つけた候補とは異なるも
 のであったときは、そこでまた止まりその候補をユーザに表示します。
 </li>
@@ -8179,7 +8181,7 @@ DDSKK では、複数の辞書を扱うことが可能です。複数の辞書�
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-search-jisyo-file FILE LIMIT &amp;optional NOMSG
+<li>Function: <code class="symbol">skk-search-jisyo-file FILE LIMIT &amp;optional NOMSG</code>
 
 <p>
 通常の検索を行うプログラム。変数 <code>skk-henkan-key</code> を見出し語（検索文字
@@ -8217,7 +8219,7 @@ DDSKK では、複数の辞書を扱うことが可能です。複数の辞書�
 
 
 <ul class="org-ul">
-<li>Function: skk-search-cdb-jisyo CDB-PATH
+<li>Function: <code class="symbol">skk-search-cdb-jisyo CDB-PATH</code>
 
 <p>
 not documented
@@ -8226,7 +8228,7 @@ not documented
 </ul>
 
 <ul class="org-ul">
-<li>Function: skk-search-kakutei-jisyo-file FILE LIMIT &amp;optional NOMSG
+<li>Function: <code class="symbol">skk-search-kakutei-jisyo-file FILE LIMIT &amp;optional NOMSG</code>
 
 <p>
 確定変換を行う検索プログラム。検索対象の辞書ファイルは Emacs のバッファ
@@ -8236,7 +8238,7 @@ not documented
 </p>
 </li>
 
-<li>Function: skk-okuri-search
+<li>Function: <code class="symbol">skk-okuri-search</code>
 
 <p>
 自動送り処理を行うプログラム。変数 <code>skk-auto-okuri-process</code> の値が <code>non-nil</code> の
@@ -8249,7 +8251,7 @@ not documented
 </p>
 </li>
 
-<li>Function: skk-search-server FILE LIMIT &amp;optional NOMSG
+<li>Function: <code class="symbol">skk-search-server FILE LIMIT &amp;optional NOMSG</code>
 
 <p>
 辞書サーバ経由で検索するプログラム。辞書サーバが使用不能になると辞書フ
@@ -8321,7 +8323,7 @@ DDSKK 14.2 から追加された「ja-dic.el 検索機能」(<code>skk-search-ja
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-inhibit-ja-dic-search
+<li>User Option: <code class="symbol">skk-inhibit-ja-dic-search</code>
 
 <p>
 この変数を <code>Non-nil</code> に設定すると、 <code>skk-large-jisyo</code> 等の値にかかわら
@@ -8329,7 +8331,7 @@ DDSKK 14.2 から追加された「ja-dic.el 検索機能」(<code>skk-search-ja
 </p>
 </li>
 
-<li>Function: skk-search-ja-dic
+<li>Function: <code class="symbol">skk-search-ja-dic</code>
 
 <p>
 GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用いて検索する。現在
@@ -8351,7 +8353,7 @@ GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-servers-list
+<li>Variable: <code class="symbol">skk-servers-list</code>
 
 <p>
 この変数を使うと、複数のホスト上の辞書サーバを使い分けることができます。
@@ -8392,7 +8394,7 @@ GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用�
 </p>
 </li>
 
-<li>Variable: skk-server-report-response
+<li>Variable: <code class="symbol">skk-server-report-response</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、変換時に、辞書サーバの送出する文字を
@@ -8407,7 +8409,7 @@ GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用�
 </pre>
 </li>
 
-<li>Variable: skk-server-inhibit-startup-server
+<li>Variable: <code class="symbol">skk-server-inhibit-startup-server</code>
 
 <p>
 標準設定値は <code>t</code> です。この変数を <code>nil</code> に設定すると、辞書サーバと接
@@ -8422,7 +8424,7 @@ GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用�
 </p>
 </li>
 
-<li>Variable: skk-server-remote-shell-program
+<li>Variable: <code class="symbol">skk-server-remote-shell-program</code>
 
 <p>
 この変数には、リモートシェルのプログラム名を指定します。標準設定は、
@@ -8447,7 +8449,7 @@ GNU Emacs に付属するかな漢字変換辞書 <code>ja-dic.el</code> を用�
 </div>
 </li>
 
-<li>Function: skk-server-version
+<li>Function: <code class="symbol">skk-server-version</code>
 
 <p>
 辞書サーバから得たバージョン文字列とホスト名文字列を表示する。
@@ -8471,7 +8473,7 @@ Server completion に対応した辞書サーバであれば、見出し語か�
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-comp-by-server-completion
+<li>Function: <code class="symbol">skk-comp-by-server-completion</code>
 
 <p>
 この関数を <code>skk-completion-prog-list</code> の要素に追加すると、▽モードにお
@@ -8486,7 +8488,7 @@ Server completion に対応した辞書サーバであれば、見出し語か�
 </div>
 </li>
 
-<li>Function: skk-server-completion-search
+<li>Function: <code class="symbol">skk-server-completion-search</code>
 
 <p>
 この関数を <code>skk-search-prog-list</code> の要素に追加すると、変換を実行する際
@@ -8509,7 +8511,7 @@ Server completion に対応した辞書サーバであれば、見出し語か�
   ▽おおさか~*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: *候補* ------
   A:おおさかいかだいがく
@@ -8523,7 +8525,7 @@ SPC
 </pre>
 
 <ul class="org-ul">
-<li>Variable: skk-server-completion-search-char
+<li>Variable: <code class="symbol">skk-server-completion-search-char</code>
 
 <p>
 標準設定は <code>~</code> （チルダ、 <code>#x7e</code> ）です。
@@ -8705,7 +8707,7 @@ SPC
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-force-registration-mode-char
+<li>Variable: <code class="symbol">skk-force-registration-mode-char</code>
 
 <p>
 強制的に辞書登録モードへ入るためのキーキャラクタをこの変数で定義します。
@@ -8773,7 +8775,7 @@ y e s <SPAN CLASS="KEY">RET</SPAN>
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x skk-edit-private-jisyo, skk-edit-private-jisyo
+<li>Key: <code class="symbol">M-x skk-edit-private-jisyo</code> (skk-edit-private-jisyo)
 
 <p>
 このコマンドを使うと、個人辞書ファイルが開かれます <sup><a id="fnr.109" name="fnr.109" class="footref" href="#fn.109">109</a></sup> 。個人辞書
@@ -8846,7 +8848,7 @@ New ~/.skk-jisyo will be 11bytes smaller.  Save anyway?(yes or no)
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-compare-jisyo-size-when-saving
+<li>User Option: <code class="symbol">skk-compare-jisyo-size-when-saving</code>
 
 <p>
 この変数の値を <code>nil</code> に設定すると、保存前の個人辞書とのサイズを比較しま
@@ -8854,7 +8856,7 @@ New ~/.skk-jisyo will be 11bytes smaller.  Save anyway?(yes or no)
 </p>
 </li>
 
-<li>Variable: skk-jisyo-save-count
+<li>Variable: <code class="symbol">skk-jisyo-save-count</code>
 
 <p>
 この変数で指定された回数、個人辞書が更新された場合に個人辞書が自動保存
@@ -8868,7 +8870,7 @@ New ~/.skk-jisyo will be 11bytes smaller.  Save anyway?(yes or no)
 </p>
 </li>
 
-<li>User Option: skk-save-jisyo-instantly
+<li>User Option: <code class="symbol">skk-save-jisyo-instantly</code>
 
 <p>
 この変数が <code>non-nil</code> であれば、単語を登録するたび（削除するたび）に個人
@@ -8876,7 +8878,7 @@ New ~/.skk-jisyo will be 11bytes smaller.  Save anyway?(yes or no)
 </p>
 </li>
 
-<li>User Option: skk-share-private-jisyo
+<li>User Option: <code class="symbol">skk-share-private-jisyo</code>
 
 <p>
 <code>Non-nil</code> であれば、複数の SKK による個人辞書の共有を考慮して辞書を更新
@@ -8907,7 +8909,7 @@ Sun Jul 28 09:38:59 1996  登録:   4  確定:  285  確定率:  98%  語数:  3
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-record-file
+<li>Variable: <code class="symbol">skk-record-file</code>
 
 <p>
 統計情報を保存するファイル名を指定します。
@@ -8918,7 +8920,7 @@ Sun Jul 28 09:38:59 1996  登録:   4  確定:  285  確定率:  98%  語数:  3
 </p>
 </li>
 
-<li>Variable: skk-keep-record
+<li>Variable: <code class="symbol">skk-keep-record</code>
 
 <p>
 この変数の値を <code>nil</code> に設定すると、本節で説明した統計機能を無効にします。
@@ -8926,7 +8928,7 @@ Sun Jul 28 09:38:59 1996  登録:   4  確定:  285  確定率:  98%  語数:  3
 </p>
 </li>
 
-<li>Variable: skk-count-private-jisyo-candidates-exactly
+<li>Variable: <code class="symbol">skk-count-private-jisyo-candidates-exactly</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、「語数」の数え方を変更します。
@@ -8936,7 +8938,7 @@ Sun Jul 28 09:38:59 1996  登録:   4  確定:  285  確定率:  98%  語数:  3
 </p>
 </li>
 
-<li>Key: M-x skk-count-jisyo-candidates, skk-count-jisyo-candidates
+<li>Key: <code class="symbol">M-x skk-count-jisyo-candidates</code> (skk-count-jisyo-candidates)
 </li>
 </ul>
 
@@ -9011,7 +9013,7 @@ M-x skk-count-jisyo-candidates
 <h4 id="sec-6-10-14"><span class="section-number-4">6.10.14</span> 辞書バッファの文字コードの設定</h4>
 <div class="outline-text-4" id="text-6-10-14">
 <ul class="org-ul">
-<li>Variable: skk-jisyo-code
+<li>Variable: <code class="symbol">skk-jisyo-code</code>
 
 <p>
 この変数は、辞書ファイルの文字コードを決定し、以下のような値を取ります。
@@ -9120,7 +9122,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 <h4 id="sec-6-11-2"><span class="section-number-4">6.11.2</span> アノテーションの使用</h4>
 <div class="outline-text-4" id="text-6-11-2">
 <ul class="org-ul">
-<li>Variable: skk-show-annotation
+<li>Variable: <code class="symbol">skk-show-annotation</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定するとアノテーションを表示します <sup><a id="fnr.117" name="fnr.117" class="footref" href="#fn.117">117</a></sup> 。
@@ -9165,7 +9167,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </ul>
 </li>
 
-<li>Variable: skk-annotation-delay
+<li>Variable: <code class="symbol">skk-annotation-delay</code>
 
 <p>
 アノテーションを表示するまでの遅延を秒で指定する。標準設定は 1.0 秒。
@@ -9174,7 +9176,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </ul>
 
 <ul class="org-ul">
-<li>Key: C-w, skk-annotation-copy-key
+<li>Key: <code class="symbol">C-w</code> (skk-annotation-copy-key)
 
 <p>
 <code>C-w</code> をタイプすると、現在表示されているアノテーションを kill ring に保
@@ -9182,7 +9184,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </p>
 </li>
 
-<li>Variable: skk-annotation-show-as-message
+<li>Variable: <code class="symbol">skk-annotation-show-as-message</code>
 
 <p>
 <code>Non-nil</code> （標準設定）であれば、アノテーションをエコーエリアに表示し
@@ -9197,7 +9199,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </p>
 </li>
 
-<li>Key: ^, skk-annotation-toggle-display-char
+<li>Key: <code class="symbol">^</code> (skk-annotation-toggle-display-char)
 
 <p>
 候補バッファで変換候補を一覧表示しているときにアノテーションの表示／非
@@ -9229,7 +9231,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </pre>
 </li>
 
-<li>Variable: skk-annotation-function
+<li>Variable: <code class="symbol">skk-annotation-function</code>
 
 <p>
 ユーザアノテーションとシステムアノテーションを区別することで、ユーザア
@@ -9265,7 +9267,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 <h4 id="sec-6-11-3"><span class="section-number-4">6.11.3</span> アノテーションの登録</h4>
 <div class="outline-text-4" id="text-6-11-3">
 <ul class="org-ul">
-<li>Key: M-x skk-annotation-add, skk-annotation-add
+<li>Key: <code class="symbol">M-x skk-annotation-add</code> (skk-annotation-add)
 
 <p>
 アノテーションを登録／修正するには、アノテーションを付けたい単語を確定
@@ -9281,7 +9283,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </p>
 </li>
 
-<li>Key: M-x skk-annotation-kill, skk-annotation-kill
+<li>Key: <code class="symbol">M-x skk-annotation-kill</code> (skk-annotation-kill)
 
 <p>
 上記 <code>M-x skk-annotation-add</code> を実行したもののアノテーションを付けず
@@ -9290,7 +9292,7 @@ DDSKK では、このような事態を避けるため、辞書バッファに�
 </p>
 </li>
 
-<li>Key: M-x skk-annotation-remove, skk-annotation-remove
+<li>Key: <code class="symbol">M-x skk-annotation-remove</code> (skk-annotation-remove)
 
 <p>
 最後に確定した候補からアノテーションを取り去りたいとき
@@ -9342,7 +9344,7 @@ EPWING 辞書の内容をアノテーション表示するには、２つの方�
 </div>
 
 <ul class="org-ul">
-<li>Function: skk-lookup-get-content 単語 listing-p
+<li>Function: <code class="symbol">skk-lookup-get-content 単語 listing-p</code>
 
 <p>
 <b>単語</b> の意味を EPWING 辞書から取得します。オプション引数 <code>listing-p</code> が
@@ -9351,7 +9353,7 @@ EPWING 辞書の内容をアノテーション表示するには、２つの方�
 </p>
 </li>
 
-<li>Variable: skk-lookup-get-content-nth-dic
+<li>Variable: <code class="symbol">skk-lookup-get-content-nth-dic</code>
 
 <p>
 関数 <code>skk-lookup-get-content</code> が「どの EPWING 辞書から単語の意味を取得
@@ -9360,7 +9362,7 @@ EPWING 辞書の内容をアノテーション表示するには、２つの方�
 </p>
 </li>
 
-<li>Key: M-x skk-lookup-get-content-setup-dic, skk-lookup-get-content-setup-dic
+<li>Key: <code class="symbol">M-x skk-lookup-get-content-setup-dic</code> (skk-lookup-get-content-setup-dic)
 
 <p>
 DDSKK の起動後に変数 <code>skk-lookup-get-content-nth-dic</code> の数値を変更した
@@ -9381,7 +9383,7 @@ DDSKK の起動後に変数 <code>skk-lookup-get-content-nth-dic</code> の数�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-annotation-lookup-lookup
+<li>Variable: <code class="symbol">skk-annotation-lookup-lookup</code>
 
 <p>
 <code>Non-nil</code> ならば <code>lookup.el</code> を利用してアノテーションを取得する。
@@ -9443,7 +9445,7 @@ Apple macOS (OS X) の「辞書」アプリ (<code>Dictionary.app</code>) を起
 </p>
 
 <ul class="org-ul">
-<li>User Option: skk-annotation-lookup-DictionaryServices
+<li>User Option: <code class="symbol">skk-annotation-lookup-DictionaryServices</code>
 
 <p>
 <code>Non-nil</code> ならば Apple macOS (OS X) の辞書サービスを利用してアノテーシ
@@ -9467,7 +9469,7 @@ Apple macOS (OS X) の「辞書」アプリ (<code>Dictionary.app</code>) を起
 </div>
 </li>
 
-<li>Variable: skk-annotation-python-program
+<li>Variable: <code class="symbol">skk-annotation-python-program</code>
 
 <p>
 アノテーション取得のために呼びだす python のプログラム名。
@@ -9516,7 +9518,7 @@ B o k u j o u
   ▽ぼくじょう*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▼牧場*
@@ -9536,14 +9538,14 @@ C-i
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-annotation-wikipedia-key
+<li>Variable: <code class="symbol">skk-annotation-wikipedia-key</code>
 
 <p>
 標準設定は <code>C-i</code> です。
 </p>
 </li>
 
-<li>Variable: skk-annotation-browse-key
+<li>Variable: <code class="symbol">skk-annotation-browse-key</code>
 
 <p>
 標準設定は <code>C-o</code> です。EWW (Emacs Web Wowser) で閲覧したい場合は、次
@@ -9557,7 +9559,7 @@ C-i
 </div>
 </li>
 
-<li>Variable: skk-annotation-other-sources
+<li>Variable: <code class="symbol">skk-annotation-other-sources</code>
 
 <p>
 アノテーションを取得する SKK 辞書以外のソースを指定します。
@@ -9575,7 +9577,7 @@ C-i
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-annotation-lookup-dict
+<li>Variable: <code class="symbol">skk-annotation-lookup-dict</code>
 
 <p>
 <code>Non-nil</code> ならば、 <code>skk-annotation-dict-program</code> に指定された外部コマン
@@ -9583,14 +9585,14 @@ C-i
 </p>
 </li>
 
-<li>Variable: skk-annotation-dict-program
+<li>Variable: <code class="symbol">skk-annotation-dict-program</code>
 
 <p>
 アノテーションを取得するための外部コマンド名を指定します。
 </p>
 </li>
 
-<li>Variable: skk-annotation-dict-program-arguments
+<li>Variable: <code class="symbol">skk-annotation-dict-program-arguments</code>
 
 <p>
 アノテーションを取得に使う外部コマンドに渡す引数を指定します。
@@ -9611,7 +9613,7 @@ Wikipedia/Wiktionary) は、SKK の変換モードだけでなく Emacs のあ�
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-annotation-lookup-region-or-at-point &amp;optional PREFIX-ARG START END
+<li>Function: <code class="symbol">skk-annotation-lookup-region-or-at-point &amp;optional PREFIX-ARG START END</code>
 
 <p>
 このコマンドは、領域が指定されていればその領域の文字列をキーワードとし
@@ -9723,7 +9725,7 @@ UNICODE (U+00nn), または [RET] (文字一覧): *
 <div class="outline-text-4" id="text-6-12-2">
 <p>
 文字コードが不明の文字を入力するには、文字コードを入力せずにそのまま
-<span class="key">RET</span> キーを入力します。するとミニバッファに以下のような表示が現れま
+<code class="key">RET</code> キーを入力します。するとミニバッファに以下のような表示が現れま
 す。
 </p>
 
@@ -9737,8 +9739,8 @@ A:　  S:￣  D:〜  F:｝  G:＝  H:¢  Q:◆  W:　  E:∩  R:　  T:≡  Y:�
 これを <b>第１段階のメニュー</b> と呼びます。第１段階のメニューでは、JIS 漢字
 をコードの順に 16 文字毎に１文字抽出し、ミニバッファに一度に 12 文字ずつ
 表示しています（上記の例では、JIS コード 2121（全角スペース）、2131、2141、
-2151&#x2026; の文字がそれぞれ表示されています）。ここで <span class="key">SPC</span> を打鍵すると次の
-候補群を表示します（文字コードの値を <code>16*12 = 192</code> ずつ増やします）。
+2151&#x2026; の文字がそれぞれ表示されています）。ここで <code class="key">SPC</code> を打鍵すると次の
+候補群を表示します（文字コードの値を 16 * 12 = 192 ずつ増やします）。
 キー <code>x</code> を打鍵するとひとつ前の候補群に戻ります。
 </p>
 
@@ -9763,7 +9765,7 @@ A:〜 S:‖ D:｜ F:… G:‥ H:‘ J:’ K:“ L:” Q:（ W:） E:〔 R:〕 T:
 </p>
 
 <p>
-第２段階のメニューが表示されているときも <span class="key">SPC</span> と <code>x</code> キーにより第２段階
+第２段階のメニューが表示されているときも <code class="key">SPC</code> と <code>x</code> キーにより第２段階
 のメニューが前進、後退します。
 </p>
 
@@ -9786,7 +9788,7 @@ A:＼ S:〜 D:‖ F:｜ G:… H:‥ J:‘ K:’ L:“ Q:” W:（ E:） R:〔 T:
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-kcode-method
+<li>Variable: <code class="symbol">skk-kcode-method</code>
 
 <p>
 キー <code>\</code> の打鍵で起動する <code>skk-input-by-code-or-menu</code> の挙動を調節しま
@@ -9805,7 +9807,7 @@ A:＼ S:〜 D:‖ F:｜ G:… H:‥ J:‘ K:’ L:“ Q:” W:（ E:） R:〔 T:
 
 <p>
 キー <code>\</code> の打鍵で「文字コード」 (<code>skk-input-by-code</code>) を起動します。
-JIS コード／区点コード入力プロンプトの表示に対して単に <span class="key">RET</span> をタイプ
+JIS コード／区点コード入力プロンプトの表示に対して単に <code class="key">RET</code> をタイプ
 した場合、「文字コード一覧」 (<code>skk-list-chars</code>) を起動します。
 </p>
 </li>
@@ -9821,7 +9823,7 @@ JIS コード／区点コード入力プロンプトの表示に対して単に 
 
 <p>
 キー <code>\</code> の打鍵で「文字コード」 (<code>skk-input-by-code</code>) を起動します。
-JIS コード／区点コード入力プロンプトの表示に対して単に <span class="key">RET</span> をタイプ
+JIS コード／区点コード入力プロンプトの表示に対して単に <code class="key">RET</code> をタイプ
 した場合、「メニュー入力」を起動します。
 </p>
 </li>
@@ -9856,96 +9858,96 @@ variable skk-kcode-charset's value is `japanese-jisx0208'.
 </pre>
 
 <ul class="org-ul">
-<li>Key: C-f, next-completion
+<li>Key: <code class="symbol">C-f</code> (next-completion)
 </li>
-<li>Key: f, next-completion
+<li>Key: <code class="symbol">f</code> (next-completion)
 </li>
-<li>Key: l, next-completion
+<li>Key: <code class="symbol">l</code> (next-completion)
 
 <p>
 カーソル移動
 </p>
 </li>
 
-<li>Key: C-b, previous-completion
+<li>Key: <code class="symbol">C-b</code> (previous-completion)
 </li>
-<li>Key: b, previous-completion
+<li>Key: <code class="symbol">b</code> (previous-completion)
 </li>
-<li>Key: h, previous-completion
+<li>Key: <code class="symbol">h</code> (previous-completion)
 
 <p>
 カーソル移動
 </p>
 </li>
 
-<li>Key: C-n, skk-list-chars-next-line
+<li>Key: <code class="symbol">C-n</code> (skk-list-chars-next-line)
 </li>
-<li>Key: n, skk-list-chars-next-line
+<li>Key: <code class="symbol">n</code> (skk-list-chars-next-line)
 </li>
-<li>Key: j, skk-list-chars-next-line
+<li>Key: <code class="symbol">j</code> (skk-list-chars-next-line)
 
 <p>
 カーソル移動
 </p>
 </li>
 
-<li>Key: C-p, skk-list-chars-previous-line
+<li>Key: <code class="symbol">C-p</code> (skk-list-chars-previous-line)
 </li>
-<li>Key: p, skk-list-chars-previous-line
+<li>Key: <code class="symbol">p</code> (skk-list-chars-previous-line)
 </li>
-<li>Key: k, skk-list-chars-previous-line
+<li>Key: <code class="symbol">k</code> (skk-list-chars-previous-line)
 
 <p>
 カーソル移動
 </p>
 </li>
 
-<li>Key: C-x C-x, skk-list-chars-goto-point
+<li>Key: <code class="symbol">C-x C-x</code> (skk-list-chars-goto-point)
 
 <p>
 カーソル移動
 </p>
 </li>
 
-<li>Key: <SPAN CLASS="KEY">RET</SPAN>, skk-list-chars-insert
+<li>Key: <code class="symbol"><SPAN CLASS="KEY">RET</SPAN></code> (skk-list-chars-insert)
 </li>
-<li>Key: i, skk-list-chars-insert
+<li>Key: <code class="symbol">i</code> (skk-list-chars-insert)
 
 <p>
 文書バッファへ文字を挿入
 </p>
 </li>
 
-<li>Key: g, skk-list-chars-jump
+<li>Key: <code class="symbol">g</code> (skk-list-chars-jump)
 </li>
 
-<li>Key: \, skk-list-chars-other-charset
+<li>Key: <code class="symbol">\</code> (skk-list-chars-other-charset)
 </li>
-<li>Key: o, skk-list-chars-other-charset
+<li>Key: <code class="symbol">o</code> (skk-list-chars-other-charset)
 
 <p>
 文字集合の切り替え
 </p>
 </li>
 
-<li>Key: c, skk-list-chars-code-input
+<li>Key: <code class="symbol">c</code> (skk-list-chars-code-input)
 
 <p>
 文字コード入力
 </p>
 </li>
 
-<li>Key: $, skk-list-chars-display-code
+<li>Key: <code class="symbol">$</code> (skk-list-chars-display-code)
 
 <p>
 カーソル位置の文字の文字コードを表示
 </p>
 </li>
 
-<li>Key: w, skk-list-chars-copy
+<li>Key: <code class="symbol">w</code> (skk-list-chars-copy)
 </li>
 
-<li>Key: q, skk-list-chars-quit
+<li>Key: <code class="symbol">q</code> (skk-list-chars-quit)
 
 <p>
 skk-list-chars を抜ける
@@ -9958,14 +9960,14 @@ skk-list-chars を抜ける
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-list-chars-table-header-face
+<li>Variable: <code class="symbol">skk-list-chars-table-header-face</code>
 
 <p>
 コード一覧の枠線などに適用するフェイスです。
 </p>
 </li>
 
-<li>Variable: skk-list-chars-face
+<li>Variable: <code class="symbol">skk-list-chars-face</code>
 
 <p>
 プレフィックス付きで実行したときの照準のフェイスです。
@@ -10002,7 +10004,7 @@ skk-list-chars を抜ける
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-display-code-prompt-face
+<li>Variable: <code class="symbol">skk-display-code-prompt-face</code>
 
 <p>
 エコーエリアに表示されるメッセージ中 <code>KUTEN:</code> 、 <code>JIS:</code> 、 <code>EUC:</code> 、 <code>SJIS:</code> 及
@@ -10010,21 +10012,21 @@ skk-list-chars を抜ける
 </p>
 </li>
 
-<li>Variable: skk-display-code-char-face
+<li>Variable: <code class="symbol">skk-display-code-char-face</code>
 
 <p>
 エコーエリアに表示されるメッセージ中の当該文字に適用するフェイスです。
 </p>
 </li>
 
-<li>Variable: skk-display-code-tankan-radical-face
+<li>Variable: <code class="symbol">skk-display-code-tankan-radical-face</code>
 
 <p>
 エコーエリアに表示されるメッセージ中の総画数表示に適用するフェイスです。
 </p>
 </li>
 
-<li>Variable: skk-display-code-tankan-annotation-face
+<li>Variable: <code class="symbol">skk-display-code-tankan-annotation-face</code>
 
 <p>
 エコーエリアに表示されるメッセージ中の文字名表示に適用するフェイスです。
@@ -10098,7 +10100,7 @@ Lookup の agent で利用するのは、 <code>lookup-search-agents</code> か�
 <div class="outline-text-5" id="text-6-13-2-1">
 
 <ul class="org-ul">
-<li>Variable: skk-use-look
+<li>Variable: <code class="symbol">skk-use-look</code>
 
 <p>
 <code>non-nil</code> に設定すると <code>skk-look.el</code> が使用できるようになります。例え
@@ -10125,7 +10127,7 @@ SKK abbrev モードが拡張されて <code>look</code> コマンドを使用�
   ▽abstr*
   ------ Buffer: foo ------
 
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ------ Buffer: foo ------
   ▽abstract*
@@ -10138,7 +10140,7 @@ TAB
 </p>
 
 <p>
-SKK 形式の英和辞書 edict <sup><a id="fnr.129" name="fnr.129" class="footref" href="#fn.129">129</a></sup> があれば、ここから <span class="key">SPC</span> を押して英和
+SKK 形式の英和辞書 edict <sup><a id="fnr.129" name="fnr.129" class="footref" href="#fn.129">129</a></sup> があれば、ここから <code class="key">SPC</code> を押して英和
 変換ができます。
 </p>
 </div>
@@ -10149,7 +10151,7 @@ SKK 形式の英和辞書 edict <sup><a id="fnr.129" name="fnr.129" class="footr
 <div class="outline-text-5" id="text-6-13-2-2">
 
 <p>
-見出し語にアスタリスク <code>*</code> を入れて <span class="key">SPC</span> を押すと、英単語をあいまいにし
+見出し語にアスタリスク <code>*</code> を入れて <code class="key">SPC</code> を押すと、英単語をあいまいにし
 て変換できます。
 </p>
 
@@ -10158,7 +10160,7 @@ SKK 形式の英和辞書 edict <sup><a id="fnr.129" name="fnr.129" class="footr
   ▽abstr*
   ------ Buffer: foo ------
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ------ Buffer: foo ------
   ▼abstract*
@@ -10173,7 +10175,7 @@ SPC
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-search-excluding-word-pattern-function
+<li>Variable: <code class="symbol">skk-search-excluding-word-pattern-function</code>
 
 <div class="org-src-container">
 
@@ -10211,7 +10213,7 @@ abstraction /アブストラクション/
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-look-recursive-search
+<li>Variable: <code class="symbol">skk-look-recursive-search</code>
 
 <p>
 <code>non-nil</code> であれば、英単語 + その英単語を見出し語にした候補の「セット」
@@ -10221,29 +10223,29 @@ abstraction /アブストラクション/
 <pre class="example">
   ▽abstr*
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼abstract
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼アブストラクト
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼抽象
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼abstraction
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼アブストラクション
 </pre>
 </li>
 
-<li>Variable: skk-look-expanded-word-only
+<li>Variable: <code class="symbol">skk-look-expanded-word-only</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、再帰検索に成功した英単語の「セット」
@@ -10276,31 +10278,31 @@ SKK abbrev モードにて、Lisp シンボル名を補完して検索し、検�
   ▽defi~*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▽defimage*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▽define-abbrev*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▽define-abbrev-table*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: foo -----
   ▽define-abbrevs*
   ----- Buffer: foo -----
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ----- Buffer: *候補* -----
   A:define-auto-insert
@@ -10347,7 +10349,7 @@ A~ /チルド付きA(LATIN CAPITAL LETTER A WITH TILDE)/
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-search-lisp-symbol &amp;optional PREDICATE NOT-ABBREV-ONLY WITHOUT-CHAR-MAYBE
+<li>Function: <code class="symbol">skk-search-lisp-symbol &amp;optional PREDICATE NOT-ABBREV-ONLY WITHOUT-CHAR-MAYBE</code>
 
 <p>
 オプション <code>PREDICATE</code> で補完検索する範囲（関数名、変数名、コマンド名）
@@ -10355,7 +10357,7 @@ A~ /チルド付きA(LATIN CAPITAL LETTER A WITH TILDE)/
 </p>
 </li>
 
-<li>Variable: skk-completion-search-char
+<li>Variable: <code class="symbol">skk-completion-search-char</code>
 
 <p>
 <code>skk-completion-search</code> による変換機能を指示するキーキャラクタ。
@@ -10422,7 +10424,7 @@ A~ /チルド付きA(LATIN CAPITAL LETTER A WITH TILDE)/
 <h4 id="sec-6-14-1"><span class="section-number-4">6.14.1</span> 仮名文字のローマ字プレフィックスのエコー</h4>
 <div class="outline-text-4" id="text-6-14-1">
 <ul class="org-ul">
-<li>Variable: skk-echo
+<li>Variable: <code class="symbol">skk-echo</code>
 
 <p>
 この変数の値は、仮名文字のローマ字プレフィックスのエコーの有無を制御し
@@ -10462,7 +10464,7 @@ a
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-prefix-hiragana-face
+<li>Variable: <code class="symbol">skk-prefix-hiragana-face</code>
 
 <p>
 かなモードにおけるローマ字プレフィックスのフェイスを指定します。
@@ -10472,14 +10474,14 @@ a
 
 
 <ul class="org-ul">
-<li>Variable: skk-prefix-katakana-face
+<li>Variable: <code class="symbol">skk-prefix-katakana-face</code>
 
 <p>
 カナモードにおけるローマ字プレフィックスのフェイスを指定します。
 </p>
 </li>
 
-<li>Variable: skk-prefix-jisx0201-face
+<li>Variable: <code class="symbol">skk-prefix-jisx0201-face</code>
 
 <p>
 JIS X 0201 モードにおけるローマ字プレフィックスのフェイスを指定します。
@@ -10498,35 +10500,35 @@ JIS X 0201 モードにおけるローマ字プレフィックスのフェイス
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-latin-mode-string
+<li>Variable: <code class="symbol">skk-latin-mode-string</code>
 
 <p>
 アスキーモードを示す文字列。標準は <b>SKK</b> 。
 </p>
 </li>
 
-<li>Variable: skk-hiragana-mode-string
+<li>Variable: <code class="symbol">skk-hiragana-mode-string</code>
 
 <p>
 かなモードを示す文字列。標準は <b>かな</b> 。
 </p>
 </li>
 
-<li>Variable: skk-katakana-mode-string
+<li>Variable: <code class="symbol">skk-katakana-mode-string</code>
 
 <p>
 カナモードを示す文字列。標準は <b>カナ</b> 。
 </p>
 </li>
 
-<li>Variable: skk-jisx0208-latin-mode-string
+<li>Variable: <code class="symbol">skk-jisx0208-latin-mode-string</code>
 
 <p>
 全英モードを示す文字列。標準は <b>全英</b> 。
 </p>
 </li>
 
-<li>Variable: skk-abbrev-mode-string
+<li>Variable: <code class="symbol">skk-abbrev-mode-string</code>
 
 <p>
 SKK abbrev モードを示す文字列。標準は <b>aあ</b> 。
@@ -10540,7 +10542,7 @@ SKK abbrev モードを示す文字列。標準は <b>aあ</b> 。
 <h4 id="sec-6-14-3"><span class="section-number-4">6.14.3</span> 入力モードを示すカーソル色に関する設定</h4>
 <div class="outline-text-4" id="text-6-14-3">
 <ul class="org-ul">
-<li>User Option: skk-use-color-cursor
+<li>User Option: <code class="symbol">skk-use-color-cursor</code>
 
 <p>
 この変数が <code>non-nil</code> ならば、カーソルを色付けします。標準では、ウィンド
@@ -10556,7 +10558,7 @@ SKK abbrev モードを示す文字列。標準は <b>aあ</b> 。
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-cursor-default-color
+<li>Variable: <code class="symbol">skk-cursor-default-color</code>
 
 <p>
 SKK モードがオフであることを示すカーソル色。標準では、カーソルのある該
@@ -10564,7 +10566,7 @@ SKK モードがオフであることを示すカーソル色。標準では、�
 </p>
 </li>
 
-<li>Variable: skk-cursor-hiragana-color
+<li>Variable: <code class="symbol">skk-cursor-hiragana-color</code>
 
 <p>
 かなモードであることを示すカーソル色。標準は、背景の明暗により coral4 ま
@@ -10572,7 +10574,7 @@ SKK モードがオフであることを示すカーソル色。標準では、�
 </p>
 </li>
 
-<li>Variable: skk-cursor-katakana-color
+<li>Variable: <code class="symbol">skk-cursor-katakana-color</code>
 
 <p>
 カナモードであることを示すカーソル色。標準は、背景の明暗により forestgreen ま
@@ -10580,7 +10582,7 @@ SKK モードがオフであることを示すカーソル色。標準では、�
 </p>
 </li>
 
-<li>Variable: skk-cursor-jisx0201-color
+<li>Variable: <code class="symbol">skk-cursor-jisx0201-color</code>
 
 <p>
 JIS X 0201 モードであることを示すカーソル色。標準は、背景の明暗により blueviolet ま
@@ -10588,14 +10590,14 @@ JIS X 0201 モードであることを示すカーソル色。標準は、背景
 </p>
 </li>
 
-<li>Variable: skk-cursor-jisx0208-latin-color
+<li>Variable: <code class="symbol">skk-cursor-jisx0208-latin-color</code>
 
 <p>
 全英モードであることを示すカーソル色。標準は、gold です。
 </p>
 </li>
 
-<li>Variable: skk-cursor-latin-color
+<li>Variable: <code class="symbol">skk-cursor-latin-color</code>
 
 <p>
 アスキーモードであることを示すカーソル色。標準は、背景の明暗により ivory4 ま
@@ -10603,7 +10605,7 @@ JIS X 0201 モードであることを示すカーソル色。標準は、背景
 </p>
 </li>
 
-<li>Variable: skk-cursor-abbrev-color
+<li>Variable: <code class="symbol">skk-cursor-abbrev-color</code>
 
 <p>
 SKK abbrev モードであることを示すカーソル色。標準は、royalblue です。
@@ -10644,7 +10646,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-show-inline
+<li>Variable: <code class="symbol">skk-show-inline</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、候補一覧を現在のポイント位置でインラ
@@ -10653,7 +10655,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-inline-show-face
+<li>Variable: <code class="symbol">skk-inline-show-face</code>
 
 <p>
 インライン表示する変換候補を装飾するフェイスを指定します。標準設定
@@ -10672,7 +10674,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-inline-show-background-color
+<li>Variable: <code class="symbol">skk-inline-show-background-color</code>
 
 <p>
 インライン表示する変換候補の背景色を指定します。
@@ -10684,7 +10686,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-inline-show-background-color-odd
+<li>Variable: <code class="symbol">skk-inline-show-background-color-odd</code>
 
 <p>
 インライン表示する変換候補の背景色（奇数ライン）を指定します。
@@ -10699,7 +10701,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 <div class="outline-text-5" id="text-6-14-4-2">
 
 <ul class="org-ul">
-<li>Variable: skk-show-tooltip
+<li>Variable: <code class="symbol">skk-show-tooltip</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、候補一覧をツールティップで表示します。
@@ -10716,7 +10718,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </ul>
 </li>
 
-<li>Variable: skk-tooltip-face
+<li>Variable: <code class="symbol">skk-tooltip-face</code>
 
 <p>
 ツールティップ表示する文字列に適用するフェイスのシンボルを指定する変数
@@ -10736,7 +10738,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-tooltip-mouse-behavior
+<li>Variable: <code class="symbol">skk-tooltip-mouse-behavior</code>
 
 <p>
 ツールティップを表示する位置及びマウスポインタの挙動を指定します。下記
@@ -10794,7 +10796,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </ul>
 </li>
 
-<li>Variable: skk-tooltip-hide-delay
+<li>Variable: <code class="symbol">skk-tooltip-hide-delay</code>
 
 <p>
 ツールティップを表示する秒数。標準設定は 1,000秒。この時間が経過する
@@ -10802,7 +10804,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-tooltip-parameters
+<li>Variable: <code class="symbol">skk-tooltip-parameters</code>
 
 <p>
 標準設定は <code>nil</code> 。SKK 独自のフレームパラメータを設定する。 <code>nil</code> の
@@ -10818,7 +10820,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 <div class="outline-text-5" id="text-6-14-4-3">
 
 <ul class="org-ul">
-<li>Variable: skk-show-candidates-always-pop-to-buffer
+<li>Variable: <code class="symbol">skk-show-candidates-always-pop-to-buffer</code>
 
 <p>
 この値が <code>non-nil</code> であれば、画面を上下に分割したうえで、候補一覧を専用
@@ -10832,7 +10834,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-show-candidates-toggle-display-place-char
+<li>Variable: <code class="symbol">skk-show-candidates-toggle-display-place-char</code>
 
 <p>
 候補一覧表示中に、候補一覧の表示位置をエコーエリアとバッファとで動的に
@@ -10840,7 +10842,7 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-candidate-buffer-background-color
+<li>Variable: <code class="symbol">skk-candidate-buffer-background-color</code>
 
 <p>
 *候補*バッファの背景色を指定します。背景色を付けたくない場合は <code>nil</code> を
@@ -10848,14 +10850,14 @@ SKK abbrev モードであることを示すカーソル色。標準は、royalb
 </p>
 </li>
 
-<li>Variable: skk-candidate-buffer-background-color-odd
+<li>Variable: <code class="symbol">skk-candidate-buffer-background-color-odd</code>
 
 <p>
 *候補*バッファの背景色（奇数ライン）を指定します。
 </p>
 </li>
 
-<li>Variable: skk-candidate-buffer-delete-other-windows
+<li>Variable: <code class="symbol">skk-candidate-buffer-delete-other-windows</code>
 
 <p>
 <code>nil</code> であれば、*候補*バッファ表示に際して window 配置を変更しない。
@@ -10904,7 +10906,7 @@ window 配置を popwin や shackle にまかせている場合は <code>nil</co
 <h4 id="sec-6-14-5"><span class="section-number-4">6.14.5</span> ▼モードにおける変換候補のハイライト表示</h4>
 <div class="outline-text-4" id="text-6-14-5">
 <ul class="org-ul">
-<li>Variable: skk-use-face
+<li>Variable: <code class="symbol">skk-use-face</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、Emacs のフェイス機能を使って変換候補
@@ -10913,7 +10915,7 @@ window 配置を popwin や shackle にまかせている場合は <code>nil</co
 </p>
 </li>
 
-<li>Variable: skk-henkan-face
+<li>Variable: <code class="symbol">skk-henkan-face</code>
 
 <p>
 この変数の値はフェイスであり、このフェイスによって変換候補がハイライト
@@ -10934,7 +10936,7 @@ white/darkolivegreen を用います。
 </p>
 
 <ul class="org-ul">
-<li>Function: skk-make-face FACE
+<li>Function: <code class="symbol">skk-make-face FACE</code>
 
 <p>
 この関数は、引数 <code>FACE</code> と同じ名前のフェイスを作成して、そのフェイスを
@@ -10976,7 +10978,7 @@ white/darkolivegreen を用います。
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-treat-candidate-appearance-function
+<li>Variable: <code class="symbol">skk-treat-candidate-appearance-function</code>
 
 <p>
 この変数に適切な形式で関数を収めることによって、変換候補をユーザの任意
@@ -11062,7 +11064,7 @@ XEmacs 及び GNU Emacs 21 以降では、以下の機能が使用できます�
 <div class="outline-text-5" id="text-6-14-7-1">
 
 <ul class="org-ul">
-<li>Variable: skk-indicator-use-cursor-color
+<li>Variable: <code class="symbol">skk-indicator-use-cursor-color</code>
 
 <p>
 DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name="fnr.134" class="footref" href="#fn.134">134</a></sup> に表示している場合、
@@ -11130,7 +11132,7 @@ DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name
 <div class="outline-text-5" id="text-6-14-7-2">
 
 <ul class="org-ul">
-<li>Variable: skk-show-icon
+<li>Variable: <code class="symbol">skk-show-icon</code>
 
 <p>
 変数 <code>skk-show-icon</code> の値を <code>non-nil</code> と設定することにより、モードライ
@@ -11139,7 +11141,7 @@ DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name
 </p>
 </li>
 
-<li>Variable: skk-icon
+<li>Variable: <code class="symbol">skk-icon</code>
 
 <p>
 アイコンの画像ファイル <code>skk.xpm</code> へのパス。関数 <code>skk-emacs-prepare-modeline-properties</code> で
@@ -11164,7 +11166,7 @@ DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-japanese-message-and-error
+<li>Variable: <code class="symbol">skk-japanese-message-and-error</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、エラー、メッセージ及びミニバッフ
@@ -11172,14 +11174,14 @@ DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name
 </p>
 </li>
 
-<li>Variable: skk-show-japanese-menu
+<li>Variable: <code class="symbol">skk-show-japanese-menu</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、メニューバーを日本語で表示します。
 </p>
 </li>
 
-<li>Variable: skk-version-codename-ja
+<li>Variable: <code class="symbol">skk-version-codename-ja</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、関数 <code>skk-version</code> を評価したと
@@ -11194,7 +11196,7 @@ DDSKK のインジケータをモードラインの左 <sup><a id="fnr.134" name
 <h4 id="sec-6-15-2"><span class="section-number-4">6.15.2</span> 冗長な案内メッセージの表示</h4>
 <div class="outline-text-4" id="text-6-15-2">
 <ul class="org-ul">
-<li>Variable: skk-verbose
+<li>Variable: <code class="symbol">skk-verbose</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、入力中／変換中に冗長なメッセージ
@@ -11292,14 +11294,14 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </p>
 </li>
 
-<li>Variable: skk-verbose-wait
+<li>Variable: <code class="symbol">skk-verbose-wait</code>
 
 <p>
 冗長なメッセージを表示するまでの待ち時間（秒）。標準は 1.5 秒です。
 </p>
 </li>
 
-<li>Variable: skk-verbose-message-interval
+<li>Variable: <code class="symbol">skk-verbose-message-interval</code>
 
 <p>
 冗長なメッセージが複数ある場合の１メッセージあたり表示時間を秒で指定す
@@ -11308,14 +11310,14 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </p>
 </li>
 
-<li>Variable: skk-verbose-intention-face
+<li>Variable: <code class="symbol">skk-verbose-intention-face</code>
 
 <p>
 「どれを参照?」と「アノテーション」に適用するフェイスです。
 </p>
 </li>
 
-<li>Variable: skk-verbose-kbd-face
+<li>Variable: <code class="symbol">skk-verbose-kbd-face</code>
 
 <p>
 <code>[F5]</code> や <code>[C-1 C-i]</code> に適用するフェイスです。
@@ -11333,7 +11335,7 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 <h4 id="sec-6-16-1"><span class="section-number-4">6.16.1</span> 起動時の入力モードの指定</h4>
 <div class="outline-text-4" id="text-6-16-1">
 <ul class="org-ul">
-<li>Variable: skk-isearch-start-mode
+<li>Variable: <code class="symbol">skk-isearch-start-mode</code>
 
 <p>
 インクリメンタル・サーチを起動したときの入力モードをこの変数で指定でき
@@ -11373,7 +11375,7 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </ul>
 </li>
 
-<li>Variable: skk-isearch-use-previous-mode
+<li>Variable: <code class="symbol">skk-isearch-use-previous-mode</code>
 
 <p>
 この変数の値が <code>non-nil</code> であれば、次のインクリメンタル・サーチ起動時の
@@ -11407,7 +11409,7 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </p>
 
 <ul class="org-ul">
-<li>Key: M-x isearch-forward-regexp, isearch-forward-regexp
+<li>Key: <code class="symbol">M-x isearch-forward-regexp</code> (isearch-forward-regexp)
 
 <p>
 前方への正規表現によるインクリメンタル・サーチ。 <code>C-u C-s</code> または <code>M-C-s</code> で
@@ -11417,7 +11419,7 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </ul>
 
 <ul class="org-ul">
-<li>Key: M-x isearch-backward-regexp, isearch-backward-regexp
+<li>Key: <code class="symbol">M-x isearch-backward-regexp</code> (isearch-backward-regexp)
 
 <p>
 後方への正規表現によるインクリメンタル・サーチ。 <code>C-u C-r</code> または <code>M-C-r</code> で
@@ -11425,7 +11427,7 @@ Wikipedia/Wiktionary のページをウェブブラウザで表示します。
 </p>
 </li>
 
-<li>Variable: skk-isearch-whitespace-regexp
+<li>Variable: <code class="symbol">skk-isearch-whitespace-regexp</code>
 
 <p>
 この変数の値は正規表現です。この正規表現にマッチする要素は「正規表現に
@@ -11485,7 +11487,7 @@ VIPER については Info を参照してください。
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-use-viper
+<li>Variable: <code class="symbol">skk-use-viper</code>
 
 <p>
 この変数の値を <code>non-nil</code> に設定すると、VIPER に対応します。
@@ -11546,7 +11548,7 @@ AZIK （エイズィック）は QWERTY 配列をベースとした拡張ロー�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-use-azik
+<li>Variable: <code class="symbol">skk-use-azik</code>
 
 <p>
 この値が <code>non-nil</code> であれば AZIK 拡張が有効となります。 <code>~/.skk</code> に
@@ -11563,7 +11565,7 @@ AZIK （エイズィック）は QWERTY 配列をベースとした拡張ロー�
 </p>
 </li>
 
-<li>Variable: skk-azik-keyboard-type
+<li>Variable: <code class="symbol">skk-azik-keyboard-type</code>
 
 <p>
 AZIK で使うときのキーボードのタイプを、シンボルで指定する。
@@ -11698,7 +11700,7 @@ ACT は AZIK の考え方を Dvorak 配列に適用し、Dvorak 配列でかな�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-use-act
+<li>Variable: <code class="symbol">skk-use-act</code>
 
 <p>
 この値が <code>non-nil</code> であれば ACT 拡張が有効となります。 <code>~/.skk</code> に
@@ -11782,7 +11784,7 @@ DDSKK はローマ字式ではない、いわゆるかな入力方式をサポ�
 </p>
 
 <ul class="org-ul">
-<li>Variable: skk-use-kana-keyboard
+<li>Variable: <code class="symbol">skk-use-kana-keyboard</code>
 
 <p>
 この変数を <code>non-nil</code> に設定すると、かな入力サポートが SKK 起動時に有効
@@ -11796,7 +11798,7 @@ DDSKK はローマ字式ではない、いわゆるかな入力方式をサポ�
 </div>
 </li>
 
-<li>Variable: skk-kanagaki-keyboard-type
+<li>Variable: <code class="symbol">skk-kanagaki-keyboard-type</code>
 
 <p>
 この変数で、かな入力サポートの種類を切換えます。適切なシンボルを設定し
@@ -11873,21 +11875,21 @@ DDSKK はローマ字式ではない、いわゆるかな入力方式をサポ�
 </p>
 
 <ul class="org-ul">
-<li>Key: F1 1, skk-nicola-help?
+<li>Key: <code class="symbol">F1 1</code> (skk-nicola-help?)
 
 <p>
 かな入力方式での特殊キー定義の一覧を表示します。
 </p>
 </li>
 
-<li>Key: F1 2, skk-nicola-2nd-help?
+<li>Key: <code class="symbol">F1 2</code> (skk-nicola-2nd-help?)
 
 <p>
 かな入力方式でのかなキー配列を表示します。
 </p>
 </li>
 
-<li>Key: F12, skk-kanagaki-toggle-rom-kana
+<li>Key: <code class="symbol">F12</code> (skk-kanagaki-toggle-rom-kana)
 
 <p>
 かな入力方式とローマ字入力方式とを切り換えます。
@@ -12472,13 +12474,13 @@ DDSKK は辞書サーバの種類、バージョンには依存していませ�
 </p>
 
 <p>
-変換の際、 <span class="key">SPC</span> を押しますよね？　１回 <span class="key">SPC</span> を押すと、SKK は候補が見つ
+変換の際、 <code class="key">SPC</code> を押しますよね？　１回 <code class="key">SPC</code> を押すと、SKK は候補が見つ
 かるまでの間、 <code>skk-search-prog-list</code> の要素を前から読んでいって検索を行
 い、見つかればそこでいったん検索を止めてユーザに候補を提示します。
 </p>
 
 <p>
-ユーザが <span class="key">SPC</span> を更に押してゆき最初の要素のプログラムが見つけた候補が尽き
+ユーザが <code class="key">SPC</code> を更に押してゆき最初の要素のプログラムが見つけた候補が尽き
 ると、SKK は中断していた個所から再び <code>skk-search-prog-list</code> の次の要素を
 見つけ、ここで指定されている関数を使って検索する、で新しい候補が見つかれ
 ばまた提示する、というシステムになっています。
@@ -12933,14 +12935,14 @@ UNIX <code>look</code> コマンドと <code>skk-look.el</code> を利用する�
 <pre class="example">
   ▽abstr*
 
-TAB
+<SPAN CLASS="KEY">TAB</SPAN>
 
   ▽abstract*
 </pre>
 
 <p>
 通常の補完機能と同様に <code>.</code> で次の補完候補に、 <code>,</code> でひとつ前の補完候補
-に移動できます。SKK 形式の英和辞書があれば、ここから <span class="key">SPC</span> を押して英和
+に移動できます。SKK 形式の英和辞書があれば、ここから <code class="key">SPC</code> を押して英和
 変換ができますね。また、 <code>skk-look-use-ispell</code> の値が <code>non-nil</code> であれ
 ば、 <code>look</code> で検索する前に <code>ispell</code> でスペルチェック・修正をします。
 </p>
@@ -12956,7 +12958,7 @@ TAB
 <pre class="example">
   ▽abstr*
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼abstract*
 </pre>
@@ -12976,23 +12978,23 @@ Emacs / SKK を再起動する必要はありません。すると、例えば�
 <pre class="example">
   ▽abstr*
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼abstract
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼アブストラクト
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼抽象
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼abstraction
 
-SPC
+<SPAN CLASS="KEY">SPC</SPAN>
 
   ▼アブストラクション
 </pre>
@@ -13391,7 +13393,7 @@ JIS X 0208 英字のこと。このマニュアルでは「全角アルファベ
 
 <div class="footdef"><sup><a id="fn.52" name="fn.52" class="footnum" href="#fnr.52">52</a></sup> <p class="footpara">
 SKK abbrev モードでは <code>is</code> ⇒ 「インクリメンタル・サーチ」の
-ような変換を行うことができます。他の変換と同様に <span class="key">SPC</span> を押すと変換モード
+ような変換を行うことができます。他の変換と同様に <code class="key">SPC</code> を押すと変換モード
 に入ってしまいますので、 SKK abbrev モードからアスキー文字を入力するのは、
 一語のみの場合以外は不便です。
 </p>
@@ -13430,7 +13432,7 @@ SKK abbrev モードでは <code>is</code> ⇒ 「インクリメンタル・サ
 </p></div>
 
 <div class="footdef"><sup><a id="fn.57" name="fn.57" class="footnum" href="#fnr.57">57</a></sup> <p class="footpara">
-細かい説明です。 <code>TAB</code> を押す直前に▽モードで入力された文字列を X と
+細かい説明です。 <code class="key">TAB</code> を押す直前に▽モードで入力された文字列を X と
 呼ぶことにします。このとき、個人辞書の送りなしエントリの中から「先頭が X と
 一致し」かつ「長さが X よりも長い見出し語」を検索して、そのような語が該当
 すれば X の代わりに表示します。
@@ -13586,7 +13588,7 @@ SKK abbrev モードでは、アスキー文字入力が Emacs 本来の <code>s
 </p></div>
 
 <div class="footdef"><sup><a id="fn.83" name="fn.83" class="footnum" href="#fnr.83">83</a></sup> <p class="footpara">
-正確には、印字可能な文字または <span class="key">RET</span> が入力されたときです。
+正確には、印字可能な文字または <code class="key">RET</code> が入力されたときです。
 </p></div>
 
 <div class="footdef"><sup><a id="fn.84" name="fn.84" class="footnum" href="#fnr.84">84</a></sup> <p class="footpara">
@@ -13951,7 +13953,7 @@ kill ring については info を参照。
 </div></div>
 <div id="postamble" class="status">
 <p class="date">&#26085;&#20184;: 2017</p>
-<p class="date">Created: 2017-07-01 土 11:52</p>
+<p class="date">Created: 2017-07-02 日 05:46</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.0.50 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
